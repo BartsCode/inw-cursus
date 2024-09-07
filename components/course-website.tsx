@@ -8,9 +8,12 @@ import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vs } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import rehypeRaw from 'rehype-raw'
+import Script from 'next/script'
 import chapter1_1 from '../content/chapter1_1.md'
 import chapter1_2 from '../content/chapter1_2.md'
 import chapter1_3 from '../content/chapter1_3.md'
+import { remark } from 'remark'
+import html from 'remark-html'
 import chapter2_1 from '../content/chapter2_1.md'
 
 const chapters = [
@@ -137,6 +140,7 @@ export function CourseWebsite() {
   const [selectedChapter, setSelectedChapter] = useState(0)
   const [selectedSubchapter, setSelectedSubchapter] = useState('')
   const [expandedChapters, setExpandedChapters] = useState<Record<number, boolean>>({})
+  const [content, setContent] = useState('')
 
   useEffect(() => {
     if (darkMode) {
@@ -156,6 +160,40 @@ export function CourseWebsite() {
       [chapterId]: !prev[chapterId]
     }))
   }
+
+  useEffect(() => {
+    if (selectedSubchapter === '2.1') {
+      remark()
+        .use(html, { sanitize: false }) // Be careful with sanitize: false
+        .process(chapter2_1)
+        .then(result => setContent(result.toString()))
+    }
+  }, [selectedSubchapter])
+
+  useEffect(() => {
+    if (content) {
+      // Check if Codapi script is already loaded
+      if (!document.querySelector('script[src*="codapi"]')) {
+        const script = document.createElement('script')
+        script.src = 'https://codapi.org/scripts/codapi-bundle.js'
+        script.async = true
+        script.crossOrigin = 'anonymous'
+        document.body.appendChild(script)
+        script.onload = () => {
+          if ('Codapi' in window) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (window as any).Codapi.init();
+          }
+        }
+      } else {
+        // If script is already loaded, reinitialize Codapi
+        if ('Codapi' in window) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (window as any).Codapi.init();
+        }
+      }
+    }
+  }, [content])
 
   const LandingPage = () => (
     <div className="flex flex-col items-center justify-center h-full text-center p-8">
@@ -240,45 +278,49 @@ export function CourseWebsite() {
             </nav>
             
             <main className="flex-1 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg border-2 border-black dark:border-white overflow-auto">
-            <ReactMarkdown
-              components={{
-                h1: ({node, ...props}) => <h1 className="text-3xl font-bold mb-4" {...props} />,
-                h2: ({node, ...props}) => <h2 className="text-2xl font-semibold mb-3 mt-6" {...props} />,
-                h3: ({node, ...props}) => <h3 className="text-xl font-semibold mb-2 mt-4" {...props} />,
-                p: ({node, ...props}) => <p className="mb-4" {...props} />,
-                ul: ({node, ...props}) => <ul className="list-disc pl-5 mb-4" {...props} />,
-                ol: ({node, ...props}) => <ol className="list-decimal pl-5 mb-4" {...props} />,
-                li: ({node, ...props}) => <li className="mb-1" {...props} />,
-                a: ({node, ...props}) => <a className="text-blue-600 hover:underline" {...props} />,
-                code: ({inline, className, children, ...props}: ComponentPropsWithoutRef<'code'> & { inline?: boolean }) => {
-                  const match = /language-(\w+)/.exec(className || '')
-                  return !inline && match ? (
-                    <SyntaxHighlighter
-                      style={vs as React.ComponentProps<typeof SyntaxHighlighter>}
-                      language={match[1]}
-                      PreTag="div"
-                      {...props as React.ComponentProps<typeof SyntaxHighlighter>}
-                    >
-                      {String(children).replace(/\n$/, '')}
-                    </SyntaxHighlighter>
-                  ) : (
-                    <code className="bg-gray-200 dark:bg-gray-700 rounded px-1" {...props}>
-                      {children}
-                    </code>
-                  )
-                }
-              }}
-              rehypePlugins={[rehypeRaw]}
-            >
-              {chapterContent[selectedSubchapter as keyof typeof chapterContent] || '# Selecteer een hoofdstuk om te beginnen'}
-            </ReactMarkdown>
+              {selectedSubchapter === '2.1' ? (
+                <div dangerouslySetInnerHTML={{ __html: content }} />
+              ) : (
+                <ReactMarkdown
+                  components={{
+                    h1: ({node, ...props}) => <h1 className="text-3xl font-bold mb-4" {...props} />,
+                    h2: ({node, ...props}) => <h2 className="text-2xl font-semibold mb-3 mt-6" {...props} />,
+                    h3: ({node, ...props}) => <h3 className="text-xl font-semibold mb-2 mt-4" {...props} />,
+                    p: ({node, ...props}) => <p className="mb-4" {...props} />,
+                    ul: ({node, ...props}) => <ul className="list-disc pl-5 mb-4" {...props} />,
+                    ol: ({node, ...props}) => <ol className="list-decimal pl-5 mb-4" {...props} />,
+                    li: ({node, ...props}) => <li className="mb-1" {...props} />,
+                    a: ({node, ...props}) => <a className="text-blue-600 hover:underline" {...props} />,
+                    code: ({inline, className, children, ...props}: ComponentPropsWithoutRef<'code'> & { inline?: boolean }) => {
+                      const match = /language-(\w+)/.exec(className || '')
+                      return !inline && match ? (
+                        <SyntaxHighlighter
+                          style={vs as React.ComponentProps<typeof SyntaxHighlighter>}
+                          language={match[1]}
+                          PreTag="div"
+                          {...props as React.ComponentProps<typeof SyntaxHighlighter>}
+                        >
+                          {String(children).replace(/\n$/, '')}
+                        </SyntaxHighlighter>
+                      ) : (
+                        <code className="bg-gray-200 dark:bg-gray-700 rounded px-1" {...props}>
+                          {children}
+                        </code>
+                      )
+                    }
+                  }}
+                  rehypePlugins={[rehypeRaw]}
+                >
+                  {chapterContent[selectedSubchapter as keyof typeof chapterContent] || '# Selecteer een hoofdstuk om te beginnen'}
+                </ReactMarkdown>
+              )}
             </main>
           </div>
         )}
       </div>
       
       <footer className="bg-white dark:bg-black p-4 text-center text-sm border-t-2 border-black dark:border-white">
-        <p>&copy; 2023 INW - WWI Python Cursus. Alle rechten voorbehouden.</p>
+        <p>&copy; 2024 INW - WWI Python Cursus. Alle rechten voorbehouden.</p>
       </footer>
     </div>
   )
