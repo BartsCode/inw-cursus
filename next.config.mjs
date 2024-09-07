@@ -7,7 +7,7 @@ const nextConfig = {
             headers: [
               {
                 key: 'Content-Security-Policy',
-                value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://codapi.org https://unpkg.com; style-src 'self' 'unsafe-inline' https://codapi.org https://unpkg.com; connect-src 'self' https://codapi.org; frame-src 'self' https://codapi.org;",
+                value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://codapi.org https://unpkg.com; style-src 'self' 'unsafe-inline' https://codapi.org https://unpkg.com; connect-src 'self' https://codapi.org https://api.codapi.org; frame-src 'self' https://codapi.org;",
               },
               {
                 key: 'Access-Control-Allow-Origin',
