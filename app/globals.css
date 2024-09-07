@@ -90,3 +90,118 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* codapi-snippet {
+  @apply border-2 border-black rounded-lg overflow-hidden my-4 block;
+} */
+
+/* Style the editor part of the widget */
+codapi-snippet .editor {
+  @apply border-b-2 border-black p-4; /* Added p-4 for padding */
+}
+
+/* Style the output part of the widget */
+codapi-snippet .output {
+  @apply bg-gray-100 p-4; /* p-4 was already here, but ensuring it's present */
+}
+
+/* Ensure the code inside the editor has proper spacing */
+codapi-snippet .editor pre {
+  @apply m-0; /* Remove default margins */
+}
+
+codapi-snippet .editor code {
+  @apply block py-2; /* Add vertical padding within the code block */
+}
+
+/* Style for dark mode */
+.dark codapi-snippet {
+  @apply border-white bg-gray-800;
+}
+
+.dark codapi-snippet .output {
+  @apply bg-gray-700;
+}
+
+/* Style the run button */
+codapi-snippet .run-button {
+  @apply bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition-colors;
+}
+
+/* Dark mode style for the run button */
+.dark codapi-snippet .run-button {
+  @apply bg-white text-black hover:bg-gray-200;
+}
+
+/* Codapi widget styles */
+codapi-snippet {
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin: 1rem 0;
+  display: block;
+}
+
+/* Style the editor part of the widget */
+codapi-snippet .editor {
+  border-bottom: 2px solid black;
+  padding: 1rem;
+}
+
+/* Style the output part of the widget */
+codapi-snippet .output {
+  background-color: #f3f4f6;
+  padding: 1rem;
+}
+
+/* Ensure the code inside the editor has proper spacing */
+codapi-snippet .editor pre {
+  margin: 0;
+}
+
+codapi-snippet .editor code {
+  display: block;
+  padding: 0.5rem 0;
+}
+
+/* Style the run button */
+codapi-snippet .run-button {
+  background-color: black;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+codapi-snippet .run-button:hover {
+  background-color: #333;
+}
+
+/* Style for dark mode */
+@media (prefers-color-scheme: dark) {
+  codapi-snippet {
+    border-color: white;
+  }
+
+  codapi-snippet .editor {
+    border-bottom-color: white;
+    background-color: #1a1a1a;
+    color: white;
+  }
+
+  codapi-snippet .output {
+    background-color: #2a2a2a;
+    color: white;
+  }
+
+  codapi-snippet .run-button {
+    background-color: white;
+    color: black;
+  }
+
+  codapi-snippet .run-button:hover {
+    background-color: #e0e0e0;
+  }
+}

@@ -1,6 +1,6 @@
 # Installatie: Python en VS Code
 
-Voordat we kunnen beginnen met programmeren, moeten we eerst onze ontwikkelomgeving opzetten. We zullen Python installeren en testen of alles correct werkt.
+Voordat we kunnen beginnen met programmeren, moeten we eerst onze programmeeromgeving opzetten. We zullen Python installeren en testen of alles correct werkt.
 
 ## Python installeren op Windows
 

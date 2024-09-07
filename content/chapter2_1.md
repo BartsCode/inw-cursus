@@ -1,6 +1,69 @@
-<pre><code>
-msg = "Hello, World!"
-print(msg)
+# 2.1 Variabelen
+
+Variabelen zijn een fundamenteel concept in programmeren. Ze stellen ons in staat om gegevens op te slaan en te manipuleren in ons programma. In Python zijn variabelen eenvoudig te gebruiken en zeer flexibel.
+
+## Wat is een variabele?
+
+Een variabele is een naam die verwijst naar een waarde in het geheugen van de computer. Je kunt het zien als een doos met een label erop, waarin je iets kunt bewaren.
+
+## Variabelen toewijzen
+
+In Python wijs je een waarde toe aan een variabele met het gelijkteken (`=`). Hier is een eenvoudig voorbeeld:
+
+<pre><code>boodschap = "Hallo, wereld!"
+print(boodschap)
 </code></pre>
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+Probeer de code hierboven uit te voeren. Je zult zien dat de tekst "Hallo, wereld!" wordt afgedrukt.
+
+## Variabelen wijzigen
+
+Je kunt de waarde van een variabele op elk moment wijzigen. Laten we een voorbeeld bekijken met een string:
+
+<pre><code>naam = "Alice"
+print("Hallo,", naam)
+
+naam = "Bob"
+print("Hallo,", naam)
+</code></pre>
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+Voer deze code uit en observeer hoe de begroeting verandert wanneer we de waarde van `naam` wijzigen.
+
+## Numerieke variabelen
+
+Variabelen kunnen ook getallen bevatten. Laten we een voorbeeld bekijken met een numerieke variabele:
+
+<pre><code>leeftijd = 25
+print("Je bent", leeftijd, "jaar oud.")
+
+leeftijd = leeftijd + 1
+print("Na je verjaardag ben je", leeftijd, "jaar oud.")
+</code></pre>
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+In dit voorbeeld zien we hoe we een getal kunnen opslaan en vervolgens kunnen verhogen.
+
+## Oefening: String manipulatie
+
+Probeer nu zelf! Maak een variabele `stad` aan met de naam van je favoriete stad. Print deze uit, wijzig de waarde naar een andere stad, en print opnieuw.
+
+<pre><code># Jouw code hier
+</code></pre>
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+## Oefening: Rekenen met variabelen
+
+Maak twee numerieke variabelen `a` en `b` aan met willekeurige getallen. Tel ze op en sla het resultaat op in een nieuwe variabele `som`. Print vervolgens de som uit.
+
+<pre><code># Jouw code hier
+</code></pre>
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+Door deze oefeningen te maken, krijg je een beter begrip van hoe variabelen werken in Python, zowel voor tekst (strings) als voor getallen (numbers).
