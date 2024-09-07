@@ -2,6 +2,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { ComponentPropsWithoutRef } from 'react';
 import { BookOpen, ChevronRight, Sun, Moon, ChevronDown } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
@@ -230,14 +231,14 @@ export function CourseWebsite() {
                 ol: ({node, ...props}) => <ol className="list-decimal pl-5 mb-4" {...props} />,
                 li: ({node, ...props}) => <li className="mb-1" {...props} />,
                 a: ({node, ...props}) => <a className="text-blue-600 hover:underline" {...props} />,
-                code: ({node, inline, className, children, ...props}) => {
+                code: ({inline, className, children, ...props}: ComponentPropsWithoutRef<'code'> & { inline?: boolean }) => {
                   const match = /language-(\w+)/.exec(className || '')
                   return !inline && match ? (
                     <SyntaxHighlighter
-                      style={vs}
+                      style={vs as React.ComponentProps<typeof SyntaxHighlighter>}
                       language={match[1]}
                       PreTag="div"
-                      {...props}
+                      {...props as React.ComponentProps<typeof SyntaxHighlighter>}
                     >
                       {String(children).replace(/\n$/, '')}
                     </SyntaxHighlighter>
