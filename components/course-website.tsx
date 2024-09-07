@@ -7,6 +7,9 @@ import { BookOpen, ChevronRight, Sun, Moon, ChevronDown } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vs } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import chapter1_1 from '../content/chapter1_1.md'
+import chapter1_2 from '../content/chapter1_2.md'
+import chapter1_3 from '../content/chapter1_3.md'
 
 const chapters = [
   { 
@@ -22,96 +25,102 @@ const chapters = [
 ]
 
 const chapterContent = {
-  '1.1': `
-# Installatie: Python en VS Code
+  '1.1': chapter1_1,
+  '1.2': chapter1_2,
+  '1.3': chapter1_3,
+};
 
-Voordat we kunnen beginnen met programmeren, moeten we eerst onze ontwikkelomgeving opzetten. We zullen Python installeren en testen of alles correct werkt.
+// const chapterContent = {
+//   '1.1': `
+// # Installatie: Python en VS Code
 
-## Python installeren op Windows
+// Voordat we kunnen beginnen met programmeren, moeten we eerst onze ontwikkelomgeving opzetten. We zullen Python installeren en testen of alles correct werkt.
 
-1. Ga naar de officiële Python-website: [https://www.python.org/downloads/](https://www.python.org/downloads/)
-2. Download de laatste versie van Python voor Windows.
-3. Start het gedownloade installatiebestand.
-4. Zorg ervoor dat je de optie "Add Python to PATH" aanvinkt tijdens de installatie.
-5. Volg de verdere installatie-instructies op het scherm.
+// ## Python installeren op Windows
 
-## Visual Studio Code (VS Code) installeren
+// 1. Ga naar de officiële Python-website: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+// 2. Download de laatste versie van Python voor Windows.
+// 3. Start het gedownloade installatiebestand.
+// 4. Zorg ervoor dat je de optie "Add Python to PATH" aanvinkt tijdens de installatie.
+// 5. Volg de verdere installatie-instructies op het scherm.
 
-Visual Studio Code is een krachtige, lichtgewicht code-editor die uitstekend geschikt is voor Python-ontwikkeling en voor vele andere programmeertalen. Zo kan je VS Code installeren:
+// ## Visual Studio Code (VS Code) installeren
 
-1. Ga naar de officiële VS Code-website: [https://code.visualstudio.com/](https://code.visualstudio.com/)
-2. Klik op de "Download for Windows" knop.
-3. Zodra het downloaden voltooid is, start je het installatiebestand.
-4. Volg de installatie-instructies. De standaardinstellingen zijn meestal voldoende.
-  `,
-  '1.2': `
-## Python testen in de terminal
+// Visual Studio Code is een krachtige, lichtgewicht code-editor die uitstekend geschikt is voor Python-ontwikkeling en voor vele andere programmeertalen. Zo kan je VS Code installeren:
 
-Na de installatie is het belangrijk om te controleren of Python correct is geïnstalleerd en toegankelijk is via de command prompt (terminal).
+// 1. Ga naar de officiële VS Code-website: [https://code.visualstudio.com/](https://code.visualstudio.com/)
+// 2. Klik op de "Download for Windows" knop.
+// 3. Zodra het downloaden voltooid is, start je het installatiebestand.
+// 4. Volg de installatie-instructies. De standaardinstellingen zijn meestal voldoende.
+//   `,
+//   '1.2': `
+// ## Python testen in de terminal
 
-1. Open de Command Prompt (je kunt dit doen door "cmd" te typen in het Windows zoekvenster en op Enter te drukken).
-2. Typ het volgende commando en druk op Enter:
+// Na de installatie is het belangrijk om te controleren of Python correct is geïnstalleerd en toegankelijk is via de command prompt (terminal).
 
-\`\`\`bash
-python --version
-\`\`\`
+// 1. Open de Command Prompt (je kunt dit doen door "cmd" te typen in het Windows zoekvenster en op Enter te drukken).
+// 2. Typ het volgende commando en druk op Enter:
 
-Als Python correct is geïnstalleerd, zou je de geïnstalleerde versie moeten zien, bijvoorbeeld:
+// \`\`\`bash
+// python --version
+// \`\`\`
 
-\`\`\`bash
-Python 3.12.4
-\`\`\`
+// Als Python correct is geïnstalleerd, zou je de geïnstalleerde versie moeten zien, bijvoorbeeld:
 
-## Je eerste Python-programma uitvoeren
+// \`\`\`bash
+// Python 3.12.4
+// \`\`\`
 
-Laten we een eenvoudig Python-programma uitvoeren om te bevestigen dat alles correct werkt:
+// ## Je eerste Python-programma uitvoeren
 
-1. Open opnieuw de Command Prompt.
-2. Typ \`python\` en druk op Enter om de Python-interpreter te starten.
-3. Je zou nu de volgende tekens moeten zien: \`>>>\`.
-4. Typ de volgende code en druk op Enter:
+// Laten we een eenvoudig Python-programma uitvoeren om te bevestigen dat alles correct werkt:
 
-\`\`\`python
-print("Hello, World!")
-\`\`\`
+// 1. Open opnieuw de Command Prompt.
+// 2. Typ \`python\` en druk op Enter om de Python-interpreter te starten.
+// 3. Je zou nu de volgende tekens moeten zien: \`>>>\`.
+// 4. Typ de volgende code en druk op Enter:
 
-Als alles goed is gegaan, zou je de volgende output moeten zien:
+// \`\`\`python
+// print("Hello, World!")
+// \`\`\`
 
-\`\`\`bash
-Hello, World!
-\`\`\`
+// Als alles goed is gegaan, zou je de volgende output moeten zien:
 
-Om de Python-interpreter te verlaten, typ \`exit()\` en druk op Enter.
-  `,
-  '1.3': `
-## VS Code Python-extensie
+// \`\`\`bash
+// Hello, World!
+// \`\`\`
 
-Na de installatie van VS Code, moeten we het configureren voor Python-ontwikkeling:
+// Om de Python-interpreter te verlaten, typ \`exit()\` en druk op Enter.
+//   `,
+//   '1.3': `
+// ## VS Code Python-extensie
 
-1. Open VS Code.
-2. Ga naar de Extensions view door op het vierkante icoon in de linkerzijbalk te klikken of door \`Ctrl+Shift+X\` te drukken.
-3. Zoek naar "Python" in de zoekbalk.
-4. Installeer de officiële Python-extensie van Microsoft.
-5. Herstart VS Code na de installatie van de extensie.
+// Na de installatie van VS Code, moeten we het configureren voor Python-ontwikkeling:
 
-## Een Python-bestand maken en uitvoeren in VS Code
+// 1. Open VS Code.
+// 2. Ga naar de Extensions view door op het vierkante icoon in de linkerzijbalk te klikken of door \`Ctrl+Shift+X\` te drukken.
+// 3. Zoek naar "Python" in de zoekbalk.
+// 4. Installeer de officiële Python-extensie van Microsoft.
+// 5. Herstart VS Code na de installatie van de extensie.
 
-Laten we testen of alles correct werkt:
+// ## Een Python-bestand maken en uitvoeren in VS Code
 
-1. Open VS Code.
-2. Maak een nieuw bestand aan (\`Ctrl+N\`) en sla het op als \`hello.py\` (\`Ctrl+S\`).
-3. Typ de volgende code in het bestand:
+// Laten we testen of alles correct werkt:
 
-\`\`\`python
-print("Hello, World! VS Code werkt correct met Python!")
-\`\`\`
+// 1. Open VS Code.
+// 2. Maak een nieuw bestand aan (\`Ctrl+N\`) en sla het op als \`hello.py\` (\`Ctrl+S\`).
+// 3. Typ de volgende code in het bestand:
 
-4. Druk op \`Ctrl+F5\` of op het driehoekje in de bovenbalk (Run) om het programma uit te voeren.
+// \`\`\`python
+// print("Hello, World! VS Code werkt correct met Python!")
+// \`\`\`
 
-Gefeliciteerd! Je hebt nu zowel Python als VS Code succesvol geïnstalleerd en geconfigureerd. Je bent klaar om te beginnen met het ontwikkelen van Python-programma's in een professionele programmeeromgeving.
-  `,
-  // ... other subchapter content ...
-}
+// 4. Druk op \`Ctrl+F5\` of op het driehoekje in de bovenbalk (Run) om het programma uit te voeren.
+
+// Gefeliciteerd! Je hebt nu zowel Python als VS Code succesvol geïnstalleerd en geconfigureerd. Je bent klaar om te beginnen met het ontwikkelen van Python-programma's in een professionele programmeeromgeving.
+//   `,
+//   // ... other subchapter content ...
+// }
 
 export function CourseWebsite() {
   const [darkMode, setDarkMode] = useState(false)
