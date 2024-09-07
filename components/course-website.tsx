@@ -7,20 +7,29 @@ import { BookOpen, ChevronRight, Sun, Moon, ChevronDown } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vs } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import rehypeRaw from 'rehype-raw'
 import chapter1_1 from '../content/chapter1_1.md'
 import chapter1_2 from '../content/chapter1_2.md'
 import chapter1_3 from '../content/chapter1_3.md'
+import chapter2_1 from '../content/chapter2_1.md'
 
 const chapters = [
   { 
     id: 1, 
-    title: "Installatie",
+    title: "1. Installatie",
     subchapters: [
-      { id: '1.1', title: "Installatie: Python en VS Code" },
-      { id: '1.2', title: "Python testen" },
-      { id: '1.3', title: "VS Code configureren" },
+      { id: '1.1', title: "1.1 Installatie: Python en VS Code" },
+      { id: '1.2', title: "1.2 Python testen" },
+      { id: '1.3', title: "1.3 VS Code configureren" },
     ]
   },
+  {
+    id: 2,
+    title: "2. Variabelen",
+    subchapters: [
+      { id: '2.1', title: "2.1 Variabelen" },
+    ]
+  }
   // ... other chapters ...
 ]
 
@@ -28,6 +37,7 @@ const chapterContent = {
   '1.1': chapter1_1,
   '1.2': chapter1_2,
   '1.3': chapter1_3,
+  '2.1': chapter2_1,
 };
 
 // const chapterContent = {
@@ -258,6 +268,7 @@ export function CourseWebsite() {
                   )
                 }
               }}
+              rehypePlugins={[rehypeRaw]}
             >
               {chapterContent[selectedSubchapter as keyof typeof chapterContent] || '# Selecteer een hoofdstuk om te beginnen'}
             </ReactMarkdown>
