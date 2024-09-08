@@ -235,8 +235,13 @@ export function CourseWebsite() {
   const LandingPage = () => (
     <div className="flex flex-col items-center justify-center h-full text-center p-8">
       <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg border-2 border-black dark:border-white max-w-4xl w-full">
-        <h1 className="text-4xl font-bold mb-4">INW - Python Cursussen</h1>
-        <h2 className="text-2xl mb-8">Kies een cursus om te beginnen</h2>
+        <h1 className="text-4xl font-bold mb-4">INW</h1>
+        <h2 className="text-2xl mb-4">Kies een cursus om te beginnen</h2>
+        <p className="mb-8 text-lg">
+          Deze open source cursussen zijn ontwikkeld voor het vak informaticawetenschappen in de derde graad secundair onderwijs, 
+          afgestemd op de minimumdoelen van Katholiek Onderwijs Vlaanderen. De cursussen zijn 
+          beschikbaar op <a href="https://github.com/Schuyten/inw-cursus" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">mijn GitHub</a>  om te clonen en naar wens aan te passen. Pull requests zijn welkom.
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {courses.map((course) => (
             <div key={course.id} className="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md">
@@ -271,7 +276,7 @@ export function CourseWebsite() {
               <Menu className="w-6 h-6" />
             </button>
             <h1 className="text-2xl font-bold">
-              {selectedCourse ? courses.find(c => c.id === selectedCourse)?.title : 'INW - Python Cursussen'}
+              {selectedCourse ? courses.find(c => c.id === selectedCourse)?.title : 'Informaticawetenschappen'}
             </h1>
           </div>
           <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 border border-black dark:border-white">
