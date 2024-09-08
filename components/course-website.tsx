@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react'
 import { ComponentPropsWithoutRef } from 'react';
-import { BookOpen, ChevronRight, Sun, Moon, ChevronDown } from 'lucide-react'
+import { BookOpen, ChevronRight, Sun, Moon, ChevronDown, Menu } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vs } from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -154,6 +154,7 @@ export function CourseWebsite() {
   const [selectedSubchapter, setSelectedSubchapter] = useState('')
   const [expandedChapters, setExpandedChapters] = useState<Record<number, boolean>>({})
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
 
   useEffect(() => {
     if (darkMode) {
@@ -262,9 +263,17 @@ export function CourseWebsite() {
     <div className={`flex flex-col min-h-screen ${darkMode ? 'dark' : ''}`}>
       <div className="flex-1 transition-colors duration-300 bg-gray-100 dark:bg-gray-900 text-black dark:text-white">
         <header className="bg-white dark:bg-black p-4 flex justify-between items-center border-b-2 border-black dark:border-white">
-          <h1 className="text-2xl font-bold">
-            {selectedCourse ? courses.find(c => c.id === selectedCourse)?.title : 'INW - Python Cursussen'}
-          </h1>
+          <div className="flex items-center">
+            <button 
+              onClick={() => setIsSidebarOpen(!isSidebarOpen)} 
+              className="mr-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 border border-black dark:border-white"
+            >
+              <Menu className="w-6 h-6" />
+            </button>
+            <h1 className="text-2xl font-bold">
+              {selectedCourse ? courses.find(c => c.id === selectedCourse)?.title : 'INW - Python Cursussen'}
+            </h1>
+          </div>
           <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 border border-black dark:border-white">
             {darkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
           </button>
@@ -274,48 +283,55 @@ export function CourseWebsite() {
           <LandingPage />
         ) : (
           <div className="flex flex-1 p-8 gap-8">
-            <nav className="w-64 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg border-2 border-black dark:border-white">
-              <h2 className="text-xl font-semibold mb-4">Hoofdstukken</h2>
-              <ul>
-                {courses.find(c => c.id === selectedCourse)?.chapters.map((chapter) => (
-                  <li key={chapter.id} className="mb-2">
-                    <button
-                      onClick={() => toggleChapterExpansion(chapter.id)}
-                      className={`flex items-center w-full p-2 rounded-lg transition duration-300 ${
-                        selectedChapter === chapter.id 
-                          ? 'bg-black text-white dark:bg-white dark:text-black' 
-                          : 'hover:bg-gray-200 dark:hover:bg-gray-700'
-                      }`}
-                    >
-                      <BookOpen className="w-4 h-4 mr-2" />
-                      <span>{chapter.title}</span>
-                      <ChevronDown className={`w-4 h-4 ml-auto transition-transform duration-300 ${expandedChapters[chapter.id] ? 'transform rotate-180' : ''}`} />
-                    </button>
-                    {expandedChapters[chapter.id] && (
-                      <ul className="ml-4 mt-2">
-                        {chapter.subchapters.map((subchapter) => (
-                          <li key={subchapter.id}>
-                            <button
-                              onClick={() => {
-                                setSelectedChapter(chapter.id)
-                                setSelectedSubchapter(subchapter.id)
-                              }}
-                              className={`flex items-center w-full p-2 rounded-lg transition duration-300 ${
-                                selectedSubchapter === subchapter.id
-                                  ? 'bg-gray-300 dark:bg-gray-600'
-                                  : 'hover:bg-gray-200 dark:hover:bg-gray-700'
-                              }`}
-                            >
-                              <ChevronRight className="w-4 h-4 mr-2" />
-                              <span>{subchapter.title}</span>
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </li>
-                ))}
-              </ul>
+            <nav className={`
+              ${isSidebarOpen ? 'w-64 p-4' : 'w-0 p-0'} 
+              overflow-hidden transition-all duration-300 
+              bg-white dark:bg-gray-800 rounded-lg shadow-lg 
+              border-2 border-black dark:border-white
+            `}>
+              <div className={`${isSidebarOpen ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}>
+                <h2 className="text-xl font-semibold mb-4">Hoofdstukken</h2>
+                <ul>
+                  {courses.find(c => c.id === selectedCourse)?.chapters.map((chapter) => (
+                    <li key={chapter.id} className="mb-2">
+                      <button
+                        onClick={() => toggleChapterExpansion(chapter.id)}
+                        className={`flex items-center w-full p-2 rounded-lg transition duration-300 ${
+                          selectedChapter === chapter.id 
+                            ? 'bg-black text-white dark:bg-white dark:text-black' 
+                            : 'hover:bg-gray-200 dark:hover:bg-gray-700'
+                        }`}
+                      >
+                        <BookOpen className="w-4 h-4 mr-2" />
+                        <span>{chapter.title}</span>
+                        <ChevronDown className={`w-4 h-4 ml-auto transition-transform duration-300 ${expandedChapters[chapter.id] ? 'transform rotate-180' : ''}`} />
+                      </button>
+                      {expandedChapters[chapter.id] && (
+                        <ul className="ml-4 mt-2">
+                          {chapter.subchapters.map((subchapter) => (
+                            <li key={subchapter.id}>
+                              <button
+                                onClick={() => {
+                                  setSelectedChapter(chapter.id)
+                                  setSelectedSubchapter(subchapter.id)
+                                }}
+                                className={`flex items-center w-full p-2 rounded-lg transition duration-300 ${
+                                  selectedSubchapter === subchapter.id
+                                    ? 'bg-gray-300 dark:bg-gray-600'
+                                    : 'hover:bg-gray-200 dark:hover:bg-gray-700'
+                                }`}
+                              >
+                                <ChevronRight className="w-4 h-4 mr-2" />
+                                <span>{subchapter.title}</span>
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </nav>
             
             <main className="flex-1 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg border-2 border-black dark:border-white overflow-auto">
@@ -378,7 +394,7 @@ export function CourseWebsite() {
       </div>
       
       <footer className="bg-white dark:bg-black p-4 text-center text-sm border-t-2 border-black dark:border-white">
-        <p>&copy; 2024 INW - Python Cursussen. Alle rechten voorbehouden.</p>
+        <p>&copy; 2024 INW - door Matthias Schuyten. Alle rechten voorbehouden.</p>
       </footer>
     </div>
   )
