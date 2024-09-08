@@ -39,7 +39,7 @@ print(boodschap)
 
 Python biedt veel ingebouwde methoden om strings te manipuleren. Een methode is een functie die specifiek is voor een bepaald datatype die kan worden aangeroepen op een object (in dit geval een string) met een punt, gevolgd door de naam van de methode en eventueel parameters tussen haakjes. Hier zijn enkele voorbeelden:
 
-<pre><code>tekst = "De klas 5BCW is geweldig"
+<pre><code>tekst = "5WWI is geweldig"
 print(tekst.upper()) # Alles in hoofdletters
 print(tekst.lower()) # Alles in kleine letters
 print(tekst.replace("geweldig", "fantastisch")) # Vervang een woord
