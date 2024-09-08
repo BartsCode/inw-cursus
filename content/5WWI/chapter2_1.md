@@ -8,7 +8,7 @@ Een variabele is een naam die verwijst naar een waarde in het geheugen van de co
 
 ## Variabelen toewijzen
 
-In Python wijs je een waarde toe aan een variabele met het gelijkteken (`=`). Hier is een eenvoudig voorbeeld:
+In Python wijs je een waarde toe aan een variabele met het gelijkheidsteken (`=`). Hier is een eenvoudig voorbeeld:
 
 <pre><code>boodschap = "Hallo, wereld!"
 print(boodschap)

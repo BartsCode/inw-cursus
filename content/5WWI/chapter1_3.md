@@ -3,7 +3,7 @@
 Na de installatie van VS Code, moeten we het configureren voor Python-ontwikkeling:
 
 1. Open VS Code.
-2. Ga naar de Extensions view door op het vierkante icoon in de linkerzijbalk te klikken of door \`Ctrl+Shift+X\` te drukken.
+2. Ga naar de Extensions view door op het vierkante icoon in de linkerzijbalk te klikken of door `Ctrl+Shift+X` te drukken.
 3. Zoek naar "Python" in de zoekbalk.
 4. Installeer de officiële Python-extensie van Microsoft.
 5. Herstart VS Code na de installatie van de extensie.
@@ -13,7 +13,7 @@ Na de installatie van VS Code, moeten we het configureren voor Python-ontwikkeli
 Laten we testen of alles correct werkt:
 
 1. Open VS Code.
-2. Maak een nieuw bestand aan (\`Ctrl+N\`) en sla het op als \`hello.py\` (\`Ctrl+S\`).
+2. Maak een nieuw bestand aan (`Ctrl+N`) en sla het op als `hello.py` (`Ctrl+S`).
 3. Typ de volgende code in het bestand:
 
 ```python
