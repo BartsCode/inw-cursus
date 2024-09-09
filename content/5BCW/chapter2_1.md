@@ -66,4 +66,32 @@ Maak twee numerieke variabelen `a` en `b` aan met willekeurige getallen. Tel ze 
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-Door deze oefeningen te maken, krijg je een beter begrip van hoe variabelen werken in Python, zowel voor tekst (strings) als voor getallen (numbers).
+Via deze oefeningen krijg je een beter begrip van hoe variabelen werken in Python, zowel voor tekst (strings) als voor getallen (numbers).
+
+## Self-assignment (zelf-toewijzing)
+
+In Python kun je een variabele ook een nieuwe waarde geven die gebaseerd is op zijn huidige waarde. Dit noemen we self-assignment.
+
+<pre><code>teller = 0
+teller = teller + 1
+print(teller)
+teller += 1
+print(teller)
+</code></pre>
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+Je kunt self-assignment gebruiken met alle rekenkundige operatoren (+, -, *, /, //, %, **).
+
+## Comments in Python
+
+Voordat we overgaan naar de verschillende datatypes, is het goed om te weten hoe je commentaar kunt schrijven in Python. Commentaar/comments zijn stukjes tekst in je code die beschrijven wat de code doet, die niet alleen nuttig zijn voor andere mensen die de code lezen, maar ook voor jezelf om later de code te begrijpen. Als je samenwerkt in teams, is het belangrijk dat je comments schrijft die de code duidelijk maken voor anderen.
+
+```python
+# Dit is een enkele regel comment
+"""
+Dit is een
+multi-line
+comment
+"""
+```

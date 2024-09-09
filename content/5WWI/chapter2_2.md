@@ -2,19 +2,6 @@
 
 In Python zijn er verschillende datatypes die we kunnen gebruiken om verschillende soorten informatie op te slaan. In dit hoofdstuk zullen we de meest voorkomende datatypes bespreken: strings, integers, floats en booleans.
 
-## Comments in Python
-
-Voordat we beginnen over datatypes, is het goed om te weten hoe je comments kunt schrijven in Python. Comments zijn stukjes tekst in je code die beschrijven wat de code doet, die niet alleen nuttig zijn voor andere mensen die de code lezen, maar ook voor jezelf om later de code te begrijpen. Als je samenwerkt in teams, is het belangrijk dat je comments schrijft die de code duidelijk maken voor anderen.
-
-```python
-# Dit is een enkele regel comment
-"""
-Dit is een
-multi-line
-comment
-"""
-```
-
 ## De type() functie
 
 Python heeft een ingebouwde functie `type()` die je kunt gebruiken om het datatype van een variabele te achterhalen:
@@ -155,6 +142,7 @@ print(x == y)  # Vergelijking
 print(x != y)  # Vergelijking
 </pre></code>
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
 
 ## Type casting
 

@@ -66,7 +66,22 @@ Maak twee numerieke variabelen `a` en `b` aan met willekeurige getallen. Tel ze 
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-Door deze oefeningen te maken, krijg je een beter begrip van hoe variabelen werken in Python, zowel voor tekst (strings) als voor getallen (numbers).
+Via deze oefeningen krijg je een beter begrip van hoe variabelen werken in Python, zowel voor tekst (strings) als voor getallen (numbers).
+
+## Self-assignment (zelf-toewijzing)
+
+In Python kun je een variabele ook een nieuwe waarde geven die gebaseerd is op zijn huidige waarde. Dit noemen we self-assignment.
+
+<pre><code>teller = 0
+teller = teller + 1
+print(teller)
+teller += 1
+print(teller)
+</code></pre>
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+Je kunt self-assignment gebruiken met alle rekenkundige operatoren (+, -, *, /, //, %, **).
 
 ## Comments in Python
 

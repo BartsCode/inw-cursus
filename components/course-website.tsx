@@ -14,6 +14,8 @@ import chapter1_2_5WWI from '../content/5WWI/chapter1_2.md'
 import chapter1_3_5WWI from '../content/5WWI/chapter1_3.md'
 import chapter2_1_5WWI from '../content/5WWI/chapter2_1.md'
 import chapter2_2_5WWI from '../content/5WWI/chapter2_2.md'
+import chapter2_3_5WWI from '../content/5WWI/chapter2_3.md'
+import chapter2_4_5WWI from '../content/5WWI/chapter2_4.md'
 
 import chapter1_1_5BWE from '../content/5BWE/chapter1_1.md'
 import chapter1_2_5BWE from '../content/5BWE/chapter1_2.md'
@@ -25,14 +27,17 @@ import chapter2_1_6BWE from '../content/6BWE/chapter2_1.md'
 
 import chapter1_1_5BCW from '../content/5BCW/chapter1_1.md'
 import chapter1_2_5BCW from '../content/5BCW/chapter1_2.md'
+import chapter1_3_5BCW from '../content/5BCW/chapter1_3.md'
 import chapter2_1_5BCW from '../content/5BCW/chapter2_1.md'
 import chapter2_2_5BCW from '../content/5BCW/chapter2_2.md'
+import chapter2_3_5BCW from '../content/5BCW/chapter2_3.md'
+import chapter2_4_5BCW from '../content/5BCW/chapter2_4.md'
 
 const courses = [
   {
     id: 'INW-5WWI/5EWI/5LWI',
     title: 'INW - 5WWI/EWI/LWI: Introductie tot Python',
-    description: 'Een basiscursus Python voor 5e jaars WI-leerlingen.',
+    description: 'Een basiscursus Python, algoritmen en object-georiënteerd programmeren voor 5e jaars WI-leerlingen.',
     chapters: [
       { 
         id: 1, 
@@ -49,14 +54,16 @@ const courses = [
         subchapters: [
           { id: '2.1', title: "2.1 Variabelen" },
           { id: '2.2', title: "2.2 Datatypes" },
+          { id: '2.3', title: "2.3 Gebruikersinvoer" },
+          { id: '2.4', title: "2.4 Oefeningen" },
         ]
       }
     ]
   },
   {
     id: 'inw-5bwe',
-    title: 'INW - 5BWE: Gevorderde Python Concepten',
-    description: 'Een gevorderde Python-cursus voor 5e jaars BWE-leerlingen.',
+    title: 'INW - 5BWE: Excel, databases, SQL',
+    description: 'Een cursus van Excel tot SQL en Power BI voor 5e jaars BWE-leerlingen.',
     chapters: [
       {
         id: 1,
@@ -78,7 +85,7 @@ const courses = [
   {
     id: 'inw-6bwe',
     title: 'INW - 6BWE: Python voor Data-analyse',
-    description: 'Een specialistische Python-cursus voor 6e jaars BWE-leerlingen gericht op data-analyse.',
+    description: 'Een cursus SQL en Python voor 6e jaars BWE-leerlingen gericht op data-analyse.',
     chapters: [
       {
         id: 1,
@@ -99,23 +106,26 @@ const courses = [
   },
   {
     id: 'inw-5bcw',
-    title: 'INW - 5BCW: Python voor Wetenschappelijke Berekeningen',
-    description: 'Een Python-cursus gericht op wetenschappelijke berekeningen voor 5e jaars BCW-leerlingen.',
+    title: 'INW - 5BCW: Introductie tot Python',
+    description: 'Een cursus Python, algoritmen en object-georiënteerd programmeren voor 5e jaars BCW-leerlingen.',
     chapters: [
-      {
-        id: 1,
-        title: "1. Inleiding tot NumPy",
+      { 
+        id: 1, 
+        title: "1. Installatie",
         subchapters: [
-          { id: '1.1', title: "1.1 NumPy Basics" },
-          { id: '1.2', title: "1.2 Array Operaties" },
+          { id: '1.1', title: "1.1 Installatie: Python en VS Code" },
+          { id: '1.2', title: "1.2 Python testen" },
+          { id: '1.3', title: "1.3 VS Code configureren" },
         ]
       },
       {
         id: 2,
-        title: "2. Wetenschappelijke Berekeningen",
+        title: "2. Variabelen en Datatypes",
         subchapters: [
-          { id: '2.1', title: "2.1 Lineaire Algebra met NumPy" },
-          { id: '2.2', title: "2.2 Statistiek met SciPy" },
+          { id: '2.1', title: "2.1 Variabelen" },
+          { id: '2.2', title: "2.2 Datatypes" },
+          { id: '2.3', title: "2.3 Gebruikersinvoer" },
+          { id: '2.4', title: "2.4 Oefeningen" },
         ]
       }
     ]
@@ -129,6 +139,8 @@ const chapterContent = {
     '1.3': chapter1_3_5WWI,
     '2.1': chapter2_1_5WWI,
     '2.2': chapter2_2_5WWI,
+    '2.3': chapter2_3_5WWI,
+    '2.4': chapter2_4_5WWI,
   },
   'inw-5bwe': {
     '1.1': chapter1_1_5BWE,
@@ -143,8 +155,11 @@ const chapterContent = {
   'inw-5bcw': {
     '1.1': chapter1_1_5BCW,
     '1.2': chapter1_2_5BCW,
+    '1.3': chapter1_3_5BCW,
     '2.1': chapter2_1_5BCW,
     '2.2': chapter2_2_5BCW,
+    '2.3': chapter2_3_5BCW,
+    '2.4': chapter2_4_5BCW,
   },
 };
 
