@@ -4,7 +4,7 @@ Variabelen zijn een fundamenteel concept in programmeren. Ze stellen ons in staa
 
 ## Wat is een variabele?
 
-Een variabele is een naam die verwijst naar een waarde in het geheugen van de computer. Je kunt het zien als een doos met een label erop, waarin je iets kunt bewaren.
+In Python slaan we informatie op in variabelen in het geheugen van de computer. Je kunt een variabele zien als een label of een doosje waarin je een waarde bewaart. De waarde is de daadwerkelijke informatie die je in de variabele opslaat. Elke waarde heeft een bepaald datatype, dat aangeeft wat voor soort informatie het is (bijvoorbeeld tekst, getal, etc.).
 
 ## Variabelen toewijzen
 

@@ -30,16 +30,18 @@ print(type(y))
 
 ## Strings
 
-Strings stellen tekst voor. Het zijn als het ware reeksen van karakters (letters, cijfers, symbolen, etc.). Ze worden gebruikt om tekst op te slaan en te manipuleren. Ze kunnen gedefinieerd worden door de tekst tussen aanhalingstekens te zetten. Indien je de tekst niet tussen aanhalingstekens zet, zal Python deze als een variabele beschouwen.
+Strings stellen tekst voor. Het zijn als het ware reeksen van karakters (letters, cijfers, symbolen, etc.). Ze worden gebruikt om tekst op te slaan en te manipuleren. Ze kunnen gedefinieerd worden door de tekst tussen aanhalingstekens te zetten. Indien je de tekst niet tussen aanhalingstekens zet, zal Python deze als een variabele beschouwen. Als je een variabele probeert te printen die nog niet gedefinieerd is (dus nog geen waarde heeft), zal Python een foutmelding geven.
 
 ```python
 boodschap = "Hallo, wereld!"
 print(boodschap)
+
+print(onbekende_variabele) # Dit zal een foutmelding geven
 ```
 
 Python biedt veel ingebouwde methoden om strings te manipuleren. Een methode is een functie die specifiek is voor een bepaald datatype die kan worden aangeroepen op een object (in dit geval een string) met een punt, gevolgd door de naam van de methode en eventueel parameters tussen haakjes. Hier zijn enkele voorbeelden:
 
-<pre><code>tekst = "De klas 5BCW is geweldig"
+<pre><code>tekst = "5BCW is geweldig"
 print(tekst.upper()) # Alles in hoofdletters
 print(tekst.lower()) # Alles in kleine letters
 print(tekst.replace("geweldig", "fantastisch")) # Vervang een woord
@@ -47,14 +49,21 @@ print(tekst.replace("geweldig", "fantastisch")) # Vervang een woord
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-Voor een volledige lijst van string methoden, bekijk de [officiële Python documentatie over strings](https://docs.python.org/3/library/stdtypes.html#string-methods).
+### Naamgeving van variabelen
+
+Bij het kiezen van namen voor variabelen zijn er enkele regels:
+
+* Gebruik enkel kleine letters, cijfers en underscores.
+* Begin nooit met een cijfer.
+* Gebruik beschrijvende namen die duidelijk maken waar de variabele voor dient.
+* Vermijd het gebruik van Python keywords als variabelenamen (zoals `if`, `else`, `for`, etc.).
 
 ### Oefening 2.2.1: String manipulatie
 
-Maak een string variabele met je volledige naam. Gebruik string methoden om:
+Maak een string variabele met je volledige naam (voornaam en achternaam). Gebruik string methoden om:
 1. Je naam in hoofdletters te printen
 2. Het aantal karakters in je naam te tellen
-3. Je voornaam te vervangen door "Python Programmeur"
+3. Je voornaam te vervangen door `Programmeur`
 
 Je zal hiervoor de Python documentatie moeten raadplegen.
 
@@ -124,6 +133,28 @@ is_programmeren_moeilijk = False
 print(type(is_python_leuk)) # Output: <class 'bool'>
 ```
 
+### Vergelijkingen
+In Python gebruiken we het enkele gelijkheidsteken (`=`) om een waarde toe te kennen aan een variabele. Dit wordt ook wel een assignment genoemd. We gebruiken het dubbele gelijkheidsteken (`==`) om te controleren of twee waarden gelijk zijn aan elkaar. Dit is een vergelijking en het resultaat is een Boolean waarde (`True` of `False`).
+
+Enkele veelgebruikte vergelijkingsoperatoren zijn:
+
+* `==` (gelijk aan)
+* `!=` (niet gelijk aan)
+* `<` (kleiner dan)
+* `>` (groter dan)
+* `<=` (kleiner dan of gelijk aan)
+* `>=` (groter dan of gelijk aan)
+
+Het resultaat van deze vergelijkingen is altijd een Boolean waarde (`True` of `False`).
+
+<pre><code>x = 5  # Assignment
+y = 5  # Assignment
+
+print(x == y)  # Vergelijking
+print(x != y)  # Vergelijking
+</pre></code>
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
 ## Type casting
 
 In Python kun je het datatype van een waarde veranderen met behulp van type casting. Dit is handig wanneer je bijvoorbeeld een getal dat is opgeslagen als een string wilt gebruiken in een berekening, of wanneer je een getal wilt afronden naar een geheel getal.
@@ -151,4 +182,4 @@ leeftijd_als_tekst = str(leeftijd)
 print("Ik ben " + leeftijd_als_tekst + " jaar oud.")  # Output: Ik ben 25 jaar oud.
 ```
 
-**Let op:** Niet alle type casting is altijd mogelijk. Probeer bijvoorbeeld maar eens int("Hallo") uit te voeren. Dit zal een foutmelding geven omdat "Hallo" niet naar een geheel getal kan worden geconverteerd.
+**Let op:** Niet alle type casting is altijd mogelijk. Probeer bijvoorbeeld maar eens `int("Hallo")` uit te voeren. Dit zal een foutmelding geven omdat \"Hallo\" niet naar een geheel getal kan worden geconverteerd.
