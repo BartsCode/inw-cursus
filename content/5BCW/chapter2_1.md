@@ -83,6 +83,33 @@ print(teller)
 
 Je kunt self-assignment gebruiken met alle rekenkundige operatoren (+, -, *, /, //, %, **).
 
+## Naamgeving van variabelen
+
+Bij het kiezen van namen voor variabelen zijn er enkele regels:
+
+* Gebruik enkel kleine letters, cijfers en underscores.
+* Begin nooit met een cijfer.
+* Gebruik beschrijvende namen die duidelijk maken waar de variabele voor dient.
+* Vermijd het gebruik van Python keywords als variabelenamen (zoals `if`, `else`, `for`, etc.).
+
+### Goede voorbeelden:
+
+* `naam_leerling`
+* `leeftijd`
+* `aantal_punten`
+* `x_coordinaat`
+* `is_geldig`
+
+### Slechte voorbeelden:
+
+* `1ste_leerling` (begint met een cijfer)
+* `x` (niet beschrijvend)
+* `for` (Python keyword)
+* `mijnVariabele` (camelCase wordt niet aanbevolen in Python)
+
+**Tip:** Kies namen die logisch zijn en die je later nog begrijpt, zelfs als je de code een tijdje niet hebt gezien.
+
+
 ## Comments in Python
 
 Voordat we overgaan naar de verschillende datatypes, is het goed om te weten hoe je commentaar kunt schrijven in Python. Commentaar/comments zijn stukjes tekst in je code die beschrijven wat de code doet, die niet alleen nuttig zijn voor andere mensen die de code lezen, maar ook voor jezelf om later de code te begrijpen. Als je samenwerkt in teams, is het belangrijk dat je comments schrijft die de code duidelijk maken voor anderen.

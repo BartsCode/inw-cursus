@@ -37,14 +37,6 @@ print(tekst.replace("geweldig", "fantastisch")) # Vervang een woord
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-### Naamgeving van variabelen
-
-Bij het kiezen van namen voor variabelen zijn er enkele regels:
-
-* Gebruik enkel kleine letters, cijfers en underscores.
-* Begin nooit met een cijfer.
-* Gebruik beschrijvende namen die duidelijk maken waar de variabele voor dient.
-* Vermijd het gebruik van Python keywords als variabelenamen (zoals `if`, `else`, `for`, etc.).
 
 ### Oefening 2.2.1: String manipulatie
 
