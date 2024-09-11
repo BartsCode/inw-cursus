@@ -18,7 +18,6 @@ import chapter2_3_5WWI from '../content/5WWI/chapter2_3.md'
 import chapter2_4_5WWI from '../content/5WWI/chapter2_4.md'
 
 import chapter1_1_5BWE from '../content/5BWE/chapter1_1.md'
-import chapter1_2_5BWE from '../content/5BWE/chapter1_2.md'
 import chapter2_1_5BWE from '../content/5BWE/chapter2_1.md'
 import chapter2_2_5BWE from '../content/5BWE/chapter2_2.md'
 import chapter2_3_5BWE from '../content/5BWE/chapter2_3.md'
@@ -250,7 +249,6 @@ const chapterContent = {
   },
   'inw-5bwe': {
     '1.1': chapter1_1_5BWE,
-    '1.2': chapter1_2_5BWE,
     '2.1': chapter2_1_5BWE,
     '2.2': chapter2_2_5BWE,
     '2.3': chapter2_3_5BWE,
