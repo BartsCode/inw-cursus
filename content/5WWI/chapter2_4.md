@@ -1,6 +1,8 @@
 # 2.4 Oefeningen: Variabelen en Datatypes
 
-In dit hoofdstuk gaan we de concepten die we hebben geleerd in de vorige twee hoofdstukken in de praktijk brengen. De oefeningen variëren in moeilijkheidsgraad, zodat er voor elke leerling uitdagende opdrachten zijn. Bij sommmige oefeningen, waarbij input gevraagd is, zal geen code-editor beschikbaar zijn. In dat geval kan je de oefeningen in een nieuw `.py`-bestand in VS Code of een ander teksteditor uitwerken. Door de code te **runnen** zal je de mogelijkheid krijgen om input te geven en de output te verifiëren.
+In dit hoofdstuk gaan we de concepten die we hebben geleerd in de vorige twee hoofdstukken in de praktijk brengen. De oefeningen variëren in moeilijkheidsgraad, zodat er voor elke leerling uitdagende opdrachten zijn. Bij sommmige oefeningen, waarbij input gevraagd is, zal geen code-editor beschikbaar zijn. In dat geval kan je de oefeningen in een nieuw `.py`-bestand in VS Code of een andere teksteditor uitwerken. Door de code te **runnen** zal je de mogelijkheid krijgen om input te geven en de output te verifiëren.
+
+Je kan best een bestand aanmaken en de oefeningen uitwerken in VS Code, zodat je ze kan opslaan.
 
 ## Oefening 1: Basis variabelen
 • Moeilijkheidsgraad: ★☆☆☆☆
