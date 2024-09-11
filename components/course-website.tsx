@@ -20,6 +20,11 @@ import chapter2_4_5WWI from '../content/5WWI/chapter2_4.md'
 import chapter1_1_5BWE from '../content/5BWE/chapter1_1.md'
 import chapter1_2_5BWE from '../content/5BWE/chapter1_2.md'
 import chapter2_1_5BWE from '../content/5BWE/chapter2_1.md'
+import chapter2_2_5BWE from '../content/5BWE/chapter2_2.md'
+import chapter2_3_5BWE from '../content/5BWE/chapter2_3.md'
+import chapter3_1_5BWE from '../content/5BWE/chapter3_1.md'
+import chapter3_2_5BWE from '../content/5BWE/chapter3_2.md'
+import chapter3_3_5BWE from '../content/5BWE/chapter3_3.md'
 
 import chapter1_1_6BWE from '../content/6BWE/chapter1_1.md'
 import chapter1_2_6BWE from '../content/6BWE/chapter1_2.md'
@@ -67,17 +72,118 @@ const courses = [
     chapters: [
       {
         id: 1,
-        title: "1. Object-Georiënteerd Programmeren",
+        title: "1. Introductie: Relationele Databanken en Big Data",
         subchapters: [
-          { id: '1.1', title: "1.1 Klassen en Objecten" },
-          { id: '1.2', title: "1.2 Overerving" },
+          { id: '1.1', title: "1.1 Introductie en Cursusdoelen" },
+          { id: '1.2', title: "1.2 Cursusstructuur en Kernconcepten" },
         ]
       },
       {
         id: 2,
-        title: "2. Bestandsverwerking",
+        title: "2. Tabellen en Gegevensorganisatie met Excel",
         subchapters: [
-          { id: '2.1', title: "2.1 Bestanden lezen en schrijven" },
+          { id: '2.1', title: "2.1 Basisprincipes van Excel-spreadsheets" },
+          { id: '2.2', title: "2.2 Excel Interface en Gegevensinvoer" },
+          { id: '2.3', title: "2.3 Werken met Excel Functies" },
+        ]
+      },
+      {
+        id: 3,
+        title: "3. Geavanceerde Gegevensorganisatie in Excel",
+        subchapters: [
+          { id: '3.1', title: "3.1 Benoemde Bereiken en Gegevensvalidatie" },
+          { id: '3.2', title: "3.2 Voorwaardelijke Opmaak" },
+          { id: '3.3', title: "3.3 Introductie tot Draaitabellen" },
+        ]
+      },
+      {
+        id: 4,
+        title: "4. Data Visualisatie met Excel",
+        subchapters: [
+          { id: '4.1', title: "4.1 Soorten grafieken en wanneer gebruiken" },
+          { id: '4.2', title: "4.2 Grafieken maken en aanpassen" },
+          { id: '4.3', title: "4.3 Sparklines" },
+          { id: '4.4', title: "4.4 Dashboardbasics" },
+        ]
+      },
+      {
+        id: 5,
+        title: "5. Introductie tot Databases",
+        subchapters: [
+          { id: '5.1', title: "5.1 Wat is een database?" },
+          { id: '5.2', title: "5.2 Verschillen tussen spreadsheets en databases" },
+          { id: '5.3', title: "5.3 Soorten databases (focus op relationele databases)" },
+          { id: '5.4', title: "5.4 Basisdatabase terminologie" },
+        ]
+      },
+      {
+        id: 6,
+        title: "6. Ontwerpen van een eenvoudige Database",
+        subchapters: [
+          { id: '6.1', title: "6.1 Database structuur plannen" },
+          { id: '6.2', title: "6.2 Tabellen maken en velden definiëren" },
+          { id: '6.3', title: "6.3 Primaire en vreemde sleutels" },
+          { id: '6.4', title: "6.4 Relaties tussen tabellen" },
+        ]
+      },
+      {
+        id: 7,
+        title: "7. Introductie tot SQL",
+        subchapters: [
+          { id: '7.1', title: "7.1 Basis SQL syntax" },
+          { id: '7.2', title: "7.2 SELECT statements" },
+          { id: '7.3', title: "7.3 Gegevens filteren met WHERE" },
+          { id: '7.4', title: "7.4 Gegevens sorteren met ORDER BY" },
+        ]
+      },
+      {
+        id: 8,
+        title: "8. Geavanceerde SQL Queries",
+        subchapters: [
+          { id: '8.1', title: "8.1 Tabellen joinen" },
+          { id: '8.2', title: "8.2 Aggregate functies" },
+          { id: '8.3', title: "8.3 Subqueries" },
+          { id: '8.4', title: "8.4 Tabellen maken en wijzigen" },
+        ]
+      },
+      {
+        id: 9,
+        title: "9. Big Data Concepten",
+        subchapters: [
+          { id: '9.1', title: "9.1 Wat is Big Data?" },
+          { id: '9.2', title: "9.2 De 5 V's van Big Data" },
+          { id: '9.3', title: "9.3 Overzicht van Big Data technologieën" },
+          { id: '9.4', title: "9.4 Big Data use cases en voorbeelden" },
+        ]
+      },
+      {
+        id: 10,
+        title: "10. Introductie tot Data Warehousing",
+        subchapters: [
+          { id: '10.1', title: "10.1 Wat is een data warehouse?" },
+          { id: '10.2', title: "10.2 Data warehouse architectuur" },
+          { id: '10.3', title: "10.3 ETL processen" },
+          { id: '10.4', title: "10.4 Verschillen tussen operationele en analytische databases" },
+        ]
+      },
+      {
+        id: 11,
+        title: "11. Data Analyse en Visualisatie Tools",
+        subchapters: [
+          { id: '11.1', title: "11.1 Introductie tot business intelligence tools" },
+          { id: '11.2', title: "11.2 Overzicht van populaire BI platforms" },
+          { id: '11.3', title: "11.3 Basisrapporten en dashboards maken" },
+          { id: '11.4', title: "11.4 Principes van data storytelling" },
+        ]
+      },
+      {
+        id: 12,
+        title: "12. Eindproject: Bouwen van een Data Oplossing",
+        subchapters: [
+          { id: '12.1', title: "12.1 Geleerde concepten toepassen op een echt probleem" },
+          { id: '12.2', title: "12.2 Database ontwerpen en implementeren" },
+          { id: '12.3', title: "12.3 Gegevens analyseren met SQL" },
+          { id: '12.4', title: "12.4 Visualisaties en rapporten maken" },
         ]
       }
     ]
@@ -146,6 +252,11 @@ const chapterContent = {
     '1.1': chapter1_1_5BWE,
     '1.2': chapter1_2_5BWE,
     '2.1': chapter2_1_5BWE,
+    '2.2': chapter2_2_5BWE,
+    '2.3': chapter2_3_5BWE,
+    '3.1': chapter3_1_5BWE,
+    '3.2': chapter3_2_5BWE,
+    '3.3': chapter3_3_5BWE,
   },
   'inw-6bwe': {
     '1.1': chapter1_1_6BWE,
