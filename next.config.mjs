@@ -23,7 +23,15 @@ const nextConfig = {
         use: 'raw-loader'
       });
       return config;
-    }
+    },
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: '**',
+        },
+      ],
+    },
   };
   
   export default nextConfig;

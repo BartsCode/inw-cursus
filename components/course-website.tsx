@@ -11,6 +11,7 @@ import rehypeRaw from 'rehype-raw'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import remarkGfm from 'remark-gfm';
 import Link from 'next/link'
+import Image from 'next/image';
 import chapter1_1_5WWI from '../content/5WWI/chapter1_1.md'
 import chapter1_2_5WWI from '../content/5WWI/chapter1_2.md'
 import chapter1_3_5WWI from '../content/5WWI/chapter1_3.md'
@@ -601,7 +602,7 @@ export function CourseWebsite() {
                     )
                   },
                   table: ({ children, ...props }: ComponentPropsWithoutRef<'table'>) => (
-                    <table className="border-collapse border border-gray-300 my-4" {...props}>
+                    <table className="border-collapse border-2 border-gray-300 my-4 rounded-lg overflow-hidden" {...props}>
                       {children}
                     </table>
                   ),
@@ -615,13 +616,30 @@ export function CourseWebsite() {
                     <tr className="border-b border-gray-300" {...props}>{children}</tr>
                   ),
                   td: ({ children, ...props }: ComponentPropsWithoutRef<'td'>) => (
-                    <td className="border border-gray-300 px-4 py-2" {...props}>{children}</td>
+                    <td className="border-x border-gray-300 px-4 py-2" {...props}>{children}</td>
                   ),
                   th: ({ children, ...props }: ComponentPropsWithoutRef<'th'>) => (
-                    <th className="border border-gray-300 px-4 py-2 font-bold" {...props}>
+                    <th className="border-x border-gray-300 px-4 py-2 font-bold" {...props}>
                       {children}
                     </th>
                   ),
+                  img: ({node, ...props}) => {
+                    return (
+                      <div className="my-4">
+                        <Image
+                          src={props.src || ''}
+                          alt={props.alt || ''}
+                          width={500}
+                          height={300}
+                          style={{
+                            maxWidth: '100%',
+                            height: 'auto',
+                          }}
+                          className="rounded-lg"
+                        />
+                      </div>
+                    )
+                  },
                 }}
                 rehypePlugins={[rehypeRaw]}
               >
