@@ -255,6 +255,7 @@ const chapterContent = {
     '2.1': chapter2_1_5BWE,
     '2.2': chapter2_2_5BWE,
     '2.3': chapter2_3_5BWE,
+    '2.4': chapter2_4_5BWE,
     '3.1': chapter3_1_5BWE,
     '3.2': chapter3_2_5BWE,
     '3.3': chapter3_3_5BWE,
