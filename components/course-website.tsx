@@ -8,7 +8,9 @@ import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vs } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import rehypeRaw from 'rehype-raw'
-import Script from 'next/script'
+import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+import remarkGfm from 'remark-gfm';
+import Link from 'next/link'
 import chapter1_1_5WWI from '../content/5WWI/chapter1_1.md'
 import chapter1_2_5WWI from '../content/5WWI/chapter1_2.md'
 import chapter1_3_5WWI from '../content/5WWI/chapter1_3.md'
@@ -29,6 +31,7 @@ import chapter3_3_5BWE from '../content/5BWE/chapter3_3.md'
 import chapter1_1_6BWE from '../content/6BWE/chapter1_1.md'
 import chapter1_2_6BWE from '../content/6BWE/chapter1_2.md'
 import chapter2_1_6BWE from '../content/6BWE/chapter2_1.md'
+import chapter2_2_6BWE from '../content/6BWE/chapter2_2.md'
 
 import chapter1_1_5BCW from '../content/5BCW/chapter1_1.md'
 import chapter1_2_5BCW from '../content/5BCW/chapter1_2.md'
@@ -192,24 +195,106 @@ const courses = [
   },
   {
     id: 'inw-6bwe',
-    title: 'INW - 6BWE: Python voor Data-analyse',
-    description: 'Een cursus SQL en Python voor 6e jaars BWE-leerlingen gericht op data-analyse.',
+    title: 'INW - 6BWE: Databases, Big Data en Python voor Data-analyse',
+    description: 'Een gevorderde cursus over databases, SQL, big data concepten en Python voor data-analyse, gericht op 6e jaars BWE-leerlingen.',
     chapters: [
       {
         id: 1,
-        title: "1. Inleiding tot NumPy",
+        title: "1. Introductie",
         subchapters: [
-          { id: '1.1', title: "1.1 NumPy Arrays" },
-          { id: '1.2', title: "1.2 NumPy Operaties" },
+          { id: '1.1', title: "1.1 Overzicht" },
+          { id: '1.2', title: "1.2 Herhaling Excel" },
         ]
       },
       {
         id: 2,
-        title: "2. Data Visualisatie met Matplotlib",
+        title: "2. Introductie tot Databases en Big Data",
         subchapters: [
-          { id: '2.1', title: "2.1 Basis Plotting" },
+          { id: '2.1', title: "2.1 Van Excel naar Databases" },
+          { id: '2.2', title: "2.2 Introductie tot Big Data" },
         ]
-      }
+      },
+      {
+        id: 3,
+        title: "3. Relationele Databases",
+        subchapters: [
+          { id: '3.1', title: "3.1 Concepten van Relationele Databases" },
+          { id: '3.2', title: "3.2 Entity-Relationship Diagrammen (ERD)" },
+          { id: '3.3', title: "3.3 Normalisatie" },
+          { id: '3.4', title: "3.4 Database Management Systemen (DBMS)" },
+        ]
+      },
+      {
+        id: 4,
+        title: "4. SQL Fundamentals",
+        subchapters: [
+          { id: '4.1', title: "4.1 Introductie tot SQL" },
+          { id: '4.2', title: "4.2 SELECT Queries en Filtering" },
+          { id: '4.3', title: "4.3 Joins en Subqueries" },
+          { id: '4.4', title: "4.4 Data Manipulatie en Definitie" },
+        ]
+      },
+      {
+        id: 5,
+        title: "5. Datawarehousing en Business Intelligence",
+        subchapters: [
+          { id: '5.1', title: "5.1 Concepten van Datawarehousing" },
+          { id: '5.2', title: "5.2 ETL Processen" },
+          { id: '5.3', title: "5.3 Introductie tot Power BI" },
+          { id: '5.4', title: "5.4 Dashboards en Rapportages" },
+        ]
+      },
+      {
+        id: 6,
+        title: "6. Introductie tot Python",
+        subchapters: [
+          { id: '6.1', title: "6.1 Python Basics" },
+          { id: '6.2', title: "6.2 Variabelen en Datatypes" },
+          { id: '6.3', title: "6.3 Controlestructuren" },
+          { id: '6.4', title: "6.4 Functies en Modules" },
+        ]
+      },
+      {
+        id: 7,
+        title: "7. Python voor Data-analyse",
+        subchapters: [
+          { id: '7.1', title: "7.1 Numpy en Pandas Basics" },
+          { id: '7.2', title: "7.2 Data Cleaning en Preprocessing" },
+          { id: '7.3', title: "7.3 Data Visualisatie met Matplotlib" },
+          { id: '7.4', title: "7.4 Statistische Analyse" },
+        ]
+      },
+      {
+        id: 8,
+        title: "8. Geavanceerde Data-analyse Technieken",
+        subchapters: [
+          { id: '8.1', title: "8.1 Machine Learning Basics" },
+          { id: '8.2', title: "8.2 Regressie en Classificatie" },
+          { id: '8.3', title: "8.3 Clustering en Dimensionaliteitsreductie" },
+          { id: '8.4', title: "8.4 Tijdreeksanalyse" },
+        ]
+      },
+      {
+        id: 9,
+        title: "9. Big Data Technologieën",
+        subchapters: [
+          { id: '9.1', title: "9.1 Hadoop en MapReduce" },
+          { id: '9.2', title: "9.2 Apache Spark Basics" },
+          { id: '9.3', title: "9.3 NoSQL Databases" },
+          { id: '9.4', title: "9.4 Big Data Use Cases" },
+          { id: '9.5', title: "9.5 Cloud Computing voor Big Data" },
+        ]
+      },
+      {
+        id: 10,
+        title: "10. Eindproject: Data-analyse in de Praktijk",
+        subchapters: [
+          { id: '10.1', title: "10.1 Projectdefinitie en Dataverzameling" },
+          { id: '10.2', title: "10.2 Data-analyse en Modellering" },
+          { id: '10.3', title: "10.3 Visualisatie en Rapportage" },
+          { id: '10.4', title: "10.4 Presentatie en Evaluatie" },
+        ]
+      },
     ]
   },
   {
@@ -264,6 +349,7 @@ const chapterContent = {
     '1.1': chapter1_1_6BWE,
     '1.2': chapter1_2_6BWE,
     '2.1': chapter2_1_6BWE,
+    '2.2': chapter2_2_6BWE,
   },
   'inw-5bcw': {
     '1.1': chapter1_1_5BCW,
@@ -277,12 +363,26 @@ const chapterContent = {
 };
 
 export function CourseWebsite() {
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
   const [darkMode, setDarkMode] = useState(false)
   const [selectedChapter, setSelectedChapter] = useState(0)
   const [selectedSubchapter, setSelectedSubchapter] = useState('')
   const [expandedChapters, setExpandedChapters] = useState<Record<number, boolean>>({})
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
+
+  useEffect(() => {
+    const course = searchParams.get('course')
+    const chapter = searchParams.get('chapter')
+    const subchapter = searchParams.get('subchapter')
+
+    if (course) setSelectedCourse(course)
+    if (chapter) setSelectedChapter(parseInt(chapter))
+    if (subchapter) setSelectedSubchapter(subchapter)
+  }, [searchParams])
 
   useEffect(() => {
     if (darkMode) {
@@ -314,26 +414,27 @@ export function CourseWebsite() {
     const currentSubchapterIndex = currentChapter.subchapters.findIndex(subchapter => subchapter.id === selectedSubchapter);
     if (currentSubchapterIndex === -1) return;
 
+    let newChapter = selectedChapter;
+    let newSubchapter = selectedSubchapter;
+
     if (direction === 'next') {
       if (currentSubchapterIndex < currentChapter.subchapters.length - 1) {
-        // Move to next subchapter
-        setSelectedSubchapter(selectedCourseData.chapters[currentChapterIndex].subchapters[currentSubchapterIndex + 1]?.id ?? '');
+        newSubchapter = currentChapter.subchapters[currentSubchapterIndex + 1].id;
       } else if (currentChapterIndex < selectedCourseData.chapters.length - 1) {
-        // Move to next chapter
-        setSelectedChapter(selectedCourseData.chapters[currentChapterIndex + 1]?.id ?? 0);
-        setSelectedSubchapter(selectedCourseData.chapters[currentChapterIndex + 1].subchapters[0].id);
+        newChapter = selectedCourseData.chapters[currentChapterIndex + 1].id;
+        newSubchapter = selectedCourseData.chapters[currentChapterIndex + 1].subchapters[0].id;
       }
     } else {
       if (currentSubchapterIndex > 0) {
-        // Move to previous subchapter
-        setSelectedSubchapter(selectedCourseData.chapters[currentChapterIndex].subchapters[currentSubchapterIndex - 1].id);
+        newSubchapter = currentChapter.subchapters[currentSubchapterIndex - 1].id;
       } else if (currentChapterIndex > 0) {
-        // Move to previous chapter
-        setSelectedChapter(selectedCourseData.chapters[currentChapterIndex - 1].id);
-        setSelectedSubchapter(selectedCourseData.chapters[currentChapterIndex - 1].subchapters[selectedCourseData.chapters[currentChapterIndex - 1].subchapters.length - 1].id);
+        newChapter = selectedCourseData.chapters[currentChapterIndex - 1].id;
+        newSubchapter = selectedCourseData.chapters[currentChapterIndex - 1].subchapters.slice(-1)[0].id;
       }
     }
-  };
+
+    router.push(`${pathname}?course=${selectedCourse}&chapter=${newChapter}&subchapter=${newSubchapter}`)
+  }
 
   useEffect(() => {
     if (selectedSubchapter) {
@@ -372,7 +473,11 @@ export function CourseWebsite() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {courses.map((course) => (
-            <div key={course.id} className="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md">
+            <Link
+              key={course.id}
+              href={`${pathname}?course=${course.id}&chapter=1&subchapter=1.1`}
+              className="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+            >
               <h3 className="text-xl font-semibold mb-2">{course.title}</h3>
               <p className="mb-4">{course.description}</p>
               <button 
@@ -385,7 +490,7 @@ export function CourseWebsite() {
               >
                 Start cursus
               </button>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -445,8 +550,7 @@ export function CourseWebsite() {
                             <li key={subchapter.id}>
                               <button
                                 onClick={() => {
-                                  setSelectedChapter(chapter.id)
-                                  setSelectedSubchapter(subchapter.id)
+                                  router.push(`${pathname}?course=${selectedCourse}&chapter=${chapter.id}&subchapter=${subchapter.id}`)
                                 }}
                                 className={`flex items-center w-full p-2 rounded-lg transition duration-300 ${
                                   selectedSubchapter === subchapter.id
@@ -469,6 +573,7 @@ export function CourseWebsite() {
             
             <main className="flex-1 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg border-2 border-black dark:border-white overflow-auto">
               <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
                 components={{
                   h1: ({node, ...props}) => <h1 className="text-3xl font-bold mb-4" {...props} />,
                   h2: ({node, ...props}) => <h2 className="text-2xl font-semibold mb-3 mt-6" {...props} />,
@@ -494,7 +599,29 @@ export function CourseWebsite() {
                         {children}
                       </code>
                     )
-                  }
+                  },
+                  table: ({ children, ...props }: ComponentPropsWithoutRef<'table'>) => (
+                    <table className="border-collapse border border-gray-300 my-4" {...props}>
+                      {children}
+                    </table>
+                  ),
+                  thead: ({ children, ...props }: ComponentPropsWithoutRef<'thead'>) => (
+                    <thead className="bg-gray-100" {...props}>{children}</thead>
+                  ),
+                  tbody: ({ children, ...props }: ComponentPropsWithoutRef<'tbody'>) => (
+                    <tbody {...props}>{children}</tbody>
+                  ),
+                  tr: ({ children, ...props }: ComponentPropsWithoutRef<'tr'>) => (
+                    <tr className="border-b border-gray-300" {...props}>{children}</tr>
+                  ),
+                  td: ({ children, ...props }: ComponentPropsWithoutRef<'td'>) => (
+                    <td className="border border-gray-300 px-4 py-2" {...props}>{children}</td>
+                  ),
+                  th: ({ children, ...props }: ComponentPropsWithoutRef<'th'>) => (
+                    <th className="border border-gray-300 px-4 py-2 font-bold" {...props}>
+                      {children}
+                    </th>
+                  ),
                 }}
                 rehypePlugins={[rehypeRaw]}
               >
@@ -530,5 +657,27 @@ export function CourseWebsite() {
         <p>&copy; 2024 INW - door Matthias Schuyten. Alle rechten voorbehouden.</p>
       </footer>
     </div>
+  )
+}
+
+function ResumeButton() {
+  const router = useRouter()
+  const pathname = usePathname()
+
+  const handleResume = () => {
+    const lastPosition = localStorage.getItem('lastPosition')
+    if (lastPosition) {
+      const { course, chapter, subchapter } = JSON.parse(lastPosition)
+      router.push(`${pathname}?course=${course}&chapter=${chapter}&subchapter=${subchapter}`)
+    }
+  }
+
+  return (
+    <button
+      onClick={handleResume}
+      className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+    >
+      Hervat laatste positie
+    </button>
   )
 }
