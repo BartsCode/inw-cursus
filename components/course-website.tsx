@@ -83,7 +83,9 @@ const courses = [
         subchapters: [
           { id: '2.1', title: "2.1 Basisprincipes van Excel-spreadsheets" },
           { id: '2.2', title: "2.2 Excel Interface en Gegevensinvoer" },
-          { id: '2.3', title: "2.3 Werken met Excel Functies" },
+          { id: '2.3', title: "2.3 Celformattering in Excel" },
+          { id: '2.4', title: "2.4 Oefeningen" },
+          { id: '2.5', title: "2.5 Data visualisatie" },
         ]
       },
       {

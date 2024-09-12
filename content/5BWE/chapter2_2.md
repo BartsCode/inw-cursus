@@ -70,6 +70,3 @@ Gebruik de Autofill-functie om je geboortejaarformule naar alle rijen te kopiër
 ## Conclusie
 
 In deze les hebben we de basis van de Excel-interface, gegevensinvoer, en enkele eenvoudige functies behandeld. In de volgende les zullen we dieper ingaan op meer geavanceerde Excel-functies en hoe je deze kunt gebruiken voor data-analyse.
-
-**Huiswerkopdracht**:
-Maak een nieuwe spreadsheet met gegevens over je favoriete films of boeken. Inclusief kolommen voor titel, jaar van uitgave, rating (1-10), en een korte beschrijving. Gebruik de geleerde functies om interessante statistieken over je collectie te berekenen.
