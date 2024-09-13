@@ -33,6 +33,7 @@ import chapter1_1_6BWE from '../content/6BWE/chapter1_1.md'
 import chapter1_2_6BWE from '../content/6BWE/chapter1_2.md'
 import chapter2_1_6BWE from '../content/6BWE/chapter2_1.md'
 import chapter2_2_6BWE from '../content/6BWE/chapter2_2.md'
+import chapter2_3_6BWE from '../content/6BWE/chapter2_3.md'
 
 import chapter1_1_5BCW from '../content/5BCW/chapter1_1.md'
 import chapter1_2_5BCW from '../content/5BCW/chapter1_2.md'
@@ -213,6 +214,7 @@ const courses = [
         subchapters: [
           { id: '2.1', title: "2.1 Van Excel naar Databases" },
           { id: '2.2', title: "2.2 Introductie tot Big Data" },
+          { id: '2.3', title: "2.3 Business Intelligence vs. Big Data" },
         ]
       },
       {
