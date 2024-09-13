@@ -353,6 +353,7 @@ const chapterContent = {
     '1.2': chapter1_2_6BWE,
     '2.1': chapter2_1_6BWE,
     '2.2': chapter2_2_6BWE,
+    '2.3': chapter2_3_6BWE,
   },
   'inw-5bcw': {
     '1.1': chapter1_1_5BCW,
