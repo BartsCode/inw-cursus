@@ -50,6 +50,8 @@ Big data heeft een revolutionaire impact op hoe bedrijven opereren en beslissing
 * Fraude te detecteren door afwijkende transactiepatronen te identificeren.
 * De logistiek te optimaliseren door voorraadniveaus en leveringsroutes te analyseren.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bAyrObl7TYE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ### 2.2.6 De toekomst van Big Data
 
 * **Groei:** De hoeveelheid gegenereerde gegevens zal blijven groeien.
@@ -57,4 +59,3 @@ Big data heeft een revolutionaire impact op hoe bedrijven opereren en beslissing
 * **Belang van vaardigheden:** De vraag naar professionals met big data-vaardigheden zal blijven toenemen. 
 
 **Conclusie:** Big data is een krachtig instrument dat bedrijven in staat stelt om waardevolle inzichten te verkrijgen, processen te verbeteren, risico's te beheren en innovatie te stimuleren. Naarmate de hoeveelheid gegevens blijft groeien, zal het vermogen om big data effectief te benutten steeds belangrijker worden voor succes in de moderne bedrijfswereld. 
-![Database design](/images/database-design.png)
