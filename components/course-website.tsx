@@ -8,7 +8,7 @@ import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vs } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import rehypeRaw from 'rehype-raw'
-import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+import { useRouter, usePathname, ReadonlyURLSearchParams } from 'next/navigation'
 import remarkGfm from 'remark-gfm';
 import Link from 'next/link'
 import Image from 'next/image';
@@ -363,10 +363,9 @@ const chapterContent = {
   },
 };
 
-export function CourseWebsite() {
+export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearchParams | null }) {
   const router = useRouter()
   const pathname = usePathname()
-  const searchParams = useSearchParams()
 
   const [darkMode, setDarkMode] = useState(false)
   const [selectedChapter, setSelectedChapter] = useState(0)
@@ -376,9 +375,9 @@ export function CourseWebsite() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
 
   useEffect(() => {
-    const course = searchParams.get('course')
-    const chapter = searchParams.get('chapter')
-    const subchapter = searchParams.get('subchapter')
+    const course = searchParams?.get('course')
+    const chapter = searchParams?.get('chapter')
+    const subchapter = searchParams?.get('subchapter')
 
     if (course) setSelectedCourse(course)
     if (chapter) setSelectedChapter(parseInt(chapter))
