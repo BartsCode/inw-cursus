@@ -115,4 +115,30 @@ Probeer de volgende voorbeelden te categoriseren als Business Intelligence (BI) 
 10. Voorspellen van klantenverloop met machine learning
 
 
-Deze oefening helpt je om je begrip van de verschillen tussen Business Intelligence en Big Data te testen. Onthoud dat sommige toepassingen elementen van beide kunnen bevatten, maar probeer te focussen op het primaire doel en de schaal van elk voorbeeld.
+### 2.3.10 Praktijkoefening: Verkennen van Datasets
+
+Om een beter begrip te krijgen van de verschillende soorten datasets die beschikbaar zijn voor Business Intelligence en Big Data analyses, ga je zelf op zoek naar enkele interessante datasets.
+
+**Opdracht:**
+1. Bezoek een of meer van de volgende websites:
+   - [Google Dataset Search](https://datasetsearch.research.google.com/)
+   - [Kaggle Datasets](https://www.kaggle.com/datasets)
+   - [European Data Portal](https://data.europa.eu/en)
+
+2. Zoek naar datasets die je interessant vindt. Probeer minimaal één dataset te vinden dat geschikt zou zijn voor Business Intelligence en één dat meer past bij Big Data analyse.
+
+3. Voor elk dataset dat je vindt, noteer het volgende:
+   - Naam van het dataset
+   - Bron (website waar je de dataset hebt gevonden)
+   - Korte beschrijving van de inhoud
+   - Geschatte grootte van het dataset (aantal rijen, kolommen, of totale bestandsgrootte)
+   - Of de dataset meer geschikt is voor BI of Big Data analyse, en waarom
+
+4. Kies één van de datasets die je hebt gevonden en beantwoord de volgende vragen:
+   - Welke soort analyses zou je kunnen uitvoeren met deze dataset?
+   - Welke uitdagingen zou je kunnen tegenkomen bij het werken met deze dataset?
+   - Hoe zou dit dataset waardevol kunnen zijn voor een bedrijf of organisatie?
+
+Deze oefening zal je helpen om een praktisch inzicht te krijgen in de soorten data die beschikbaar zijn en hoe ze kunnen worden toegepast in zowel Business Intelligence als Big Data contexten.
+
+**Tip:** Let bij het zoeken naar datasets op factoren zoals de updatefrequentie, het formaat van de data, en de complexiteit van de dataset. Deze elementen kunnen je helpen bepalen of een dataset meer geschikt is voor BI of Big Data toepassingen.
