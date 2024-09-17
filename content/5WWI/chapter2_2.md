@@ -37,6 +37,8 @@ print(tekst.replace("geweldig", "fantastisch")) # Vervang een woord
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
+Je kan de methodes die toegepast kunnen worden op strings terugvinden in de [Python documentatie](https://docs.python.org/3/library/stdtypes.html#string-methods).
+
 
 ### Oefening 2.2.1: String manipulatie
 
