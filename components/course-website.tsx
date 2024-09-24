@@ -73,12 +73,12 @@ const courses = [
         ]
       },
       {
-        id: 2,
+        id: 3,
         title: "3. Datastructuren en herhaling",
         subchapters: [
-          { id: '2.1', title: "3.1 Lijsten" },
-          { id: '2.2', title: "3.2 For loops" },
-          { id: '2.3', title: "3.3 Oefeningen" },
+          { id: '3.1', title: "3.1 Lijsten" },
+          { id: '3.2', title: "3.2 For loops" },
+          { id: '3.3', title: "3.3 Oefeningen" },
         ]
       }
     ]
