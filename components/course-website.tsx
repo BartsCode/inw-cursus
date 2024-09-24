@@ -42,6 +42,10 @@ import chapter2_1_5BCW from '../content/5BCW/chapter2_1.md'
 import chapter2_2_5BCW from '../content/5BCW/chapter2_2.md'
 import chapter2_3_5BCW from '../content/5BCW/chapter2_3.md'
 import chapter2_4_5BCW from '../content/5BCW/chapter2_4.md'
+import chapter3_1_5BCW from '../content/5BCW/chapter3_1.md'
+import chapter3_2_5BCW from '../content/5BCW/chapter3_2.md'
+import chapter3_3_5BCW from '../content/5BCW/chapter3_3.md'
+
 
 const courses = [
   {
@@ -66,6 +70,15 @@ const courses = [
           { id: '2.2', title: "2.2 Datatypes" },
           { id: '2.3', title: "2.3 Gebruikersinvoer" },
           { id: '2.4', title: "2.4 Oefeningen" },
+        ]
+      },
+      {
+        id: 2,
+        title: "3. Datastructuren en herhaling",
+        subchapters: [
+          { id: '2.1', title: "3.1 Lijsten" },
+          { id: '2.2', title: "3.2 For loops" },
+          { id: '2.3', title: "3.3 Oefeningen" },
         ]
       }
     ]
@@ -337,6 +350,9 @@ const chapterContent = {
     '2.2': chapter2_2_5WWI,
     '2.3': chapter2_3_5WWI,
     '2.4': chapter2_4_5WWI,
+    '3.1': chapter3_1_5BCW,
+    '3.2': chapter3_2_5BCW,
+    '3.3': chapter3_3_5BCW,
   },
   'inw-5bwe': {
     '1.1': chapter1_1_5BWE,
