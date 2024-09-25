@@ -109,11 +109,11 @@ const courses = [
       },
       {
         id: 3,
-        title: "3. Geavanceerde Gegevensorganisatie in Excel",
+        title: "3. Databanken",
         subchapters: [
-          { id: '3.1', title: "3.1 Benoemde Bereiken en Gegevensvalidatie" },
-          { id: '3.2', title: "3.2 Voorwaardelijke Opmaak" },
-          { id: '3.3', title: "3.3 Introductie tot Draaitabellen" },
+          { id: '3.1', title: "3.1 Introductie tot Databanken" },
+          { id: '3.2', title: "3.2 Werktitel" },
+          { id: '3.3', title: "3.3 Ook een werktitel" },
         ]
       },
       {
