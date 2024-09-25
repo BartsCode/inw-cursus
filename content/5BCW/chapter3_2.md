@@ -20,6 +20,7 @@ cijfers = [1, 2, 3, 4, 5]
 for cijfer in cijfers:
   print(cijfer)
 ```
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 **Uitleg:**
 
@@ -45,11 +46,52 @@ for rij in matrix:
     for element in rij:
         print(element)
 ```
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 **Uitleg:**
 
 - De eerste `for`-lus itereert over elke rij in de matrix.
 - De tweede `for`-lus itereert over elk element in de huidige rij.
+
+### 3. Gebruik van `for`-lus met `range()`functie
+
+Naast het direct itereren over de elementen van een lijst, kun je ook itereren over een reeks indexen of getallen. De range() functie in Python genereert een reeks getallen die je kunt gebruiken in een for-lus. Dit is vooral handig wanneer je de index van elk element nodig hebt tijdens het itereren.
+
+**Introductie van range():**
+De range() functie produceert een reeks gehele getallen. De meest eenvoudige vorm is range(stop), die getallen genereert van 0 tot stop - 1.
+**Voorbeeld:**
+```python
+for i in range(5):
+    print(i)
+```
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+
+**Uitleg:**
+
+- `range(5)` genereert de getallen `0, 1, 2, 3, 4`.
+- In elke iteratie neemt de variabele `i` de volgende waarde in de reeks aan.
+- Dit wordt vaak gebruikt wanneer je een bepaald aantal keren wilt herhalen of toegang wilt tot de indexen van een lijst.
+
+
+**Itereren over een lijst met indexen:**
+Als je zowel de index als het bijbehorende element van een lijst nodig hebt, kun je `range()` combineren met de `len()` functie.
+
+```python
+woorden = ["appel", "banaan", "kers"]
+
+for i in range(len(woorden)):
+    print(f"Index {i}: {woorden[i]}")
+```
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+
+**Uitleg:**
+
+
+- `len(woorden)` geeft het aantal elementen in de lijst `woorden`, in dit geval `3`.
+- `range(len(woorden))` genereert de reeks `0, 1, 2`.
+- Tijdens elke iteratie kun je zowel de index `i` als het bijbehorende element `woorden[i]` gebruiken.
 
 
 ## Veelvoorkomende Toepassingen van Iteratie
@@ -65,6 +107,7 @@ for rij in matrix:
 
   print(kwadraten)  # Output: [1, 4, 9, 16]
   ```
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 - **Filteren:** Selecteren van elementen die aan een bepaalde voorwaarde voldoen.
 
@@ -78,6 +121,7 @@ for rij in matrix:
 
   print(even_getallen)  # Output: [2, 4, 6]
   ```
+
 
 - **Sommeren:** Berekenen van de som van alle elementen in de lijst.
 
