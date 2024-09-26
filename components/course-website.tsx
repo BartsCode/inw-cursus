@@ -34,6 +34,7 @@ import chapter1_2_6BWE from '../content/6BWE/chapter1_2.md'
 import chapter2_1_6BWE from '../content/6BWE/chapter2_1.md'
 import chapter2_2_6BWE from '../content/6BWE/chapter2_2.md'
 import chapter2_3_6BWE from '../content/6BWE/chapter2_3.md'
+import chapter3_1_6BWE from '../content/6BWE/chapter3_1.md'
 
 import chapter1_1_5BCW from '../content/5BCW/chapter1_1.md'
 import chapter1_2_5BCW from '../content/5BCW/chapter1_2.md'
@@ -234,7 +235,7 @@ const courses = [
         id: 3,
         title: "3. Relationele Databases",
         subchapters: [
-          { id: '3.1', title: "3.1 Concepten van Relationele Databases" },
+          { id: '3.1', title: "3.1 Introductie tot Relationele Databases" },
           { id: '3.2', title: "3.2 Entity-Relationship Diagrammen (ERD)" },
           { id: '3.3', title: "3.3 Normalisatie" },
           { id: '3.4', title: "3.4 Database Management Systemen (DBMS)" },
@@ -370,6 +371,7 @@ const chapterContent = {
     '2.1': chapter2_1_6BWE,
     '2.2': chapter2_2_6BWE,
     '2.3': chapter2_3_6BWE,
+    '3.1': chapter3_1_6BWE,
   },
   'inw-5bcw': {
     '1.1': chapter1_1_5BCW,
