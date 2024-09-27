@@ -337,7 +337,16 @@ const courses = [
           { id: '2.3', title: "2.3 Gebruikersinvoer" },
           { id: '2.4', title: "2.4 Oefeningen" },
         ]
-      }
+      },
+      {
+        id: 3,
+        title: "3. Datastructuren en herhaling",
+        subchapters: [
+          { id: '3.1', title: "3.1 Lijsten" },
+          { id: '3.2', title: "3.2 For loops" },
+          { id: '3.3', title: "3.3 Oefeningen" },
+        ]
+      },
     ]
   }
 ];
@@ -381,6 +390,9 @@ const chapterContent = {
     '2.2': chapter2_2_5BCW,
     '2.3': chapter2_3_5BCW,
     '2.4': chapter2_4_5BCW,
+    '3.1': chapter3_1_5BCW,
+    '3.2': chapter3_2_5BCW,
+    '3.3': chapter3_3_5BCW,
   },
 };
 
