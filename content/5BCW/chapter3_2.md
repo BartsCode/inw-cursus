@@ -1,136 +1,135 @@
-# 3.2 Itereren over Lijsten
+# 3.2 If-statements
 
-In het programmeren is iteratie een fundamenteel concept dat verwijst naar het herhaaldelijk uitvoeren van een set instructies over een verzameling gegevens. Bij lijsten betekent dit dat we over elk element in de lijst gaan en er een bewerking op uitvoeren. In dit hoofdstuk bespreken we de algemene concepten van het itereren over lijsten en hoe dit efficiënt kan worden gedaan. De algemene principes zijn van toepassing op vrijwel alle programmeertalen.
+Nu we weten hoe we voorwaarden kunnen maken met vergelijkingsoperatoren, kunnen we ons programma beslissingen laten nemen met behulp van if-statements.
 
-## Wat is Iteratie?
+## Het if-statement
 
-Iteratie is het proces waarbij een reeks instructies meerdere keren wordt uitgevoerd, meestal één keer voor elk element in een collectie zoals een lijst. Dit stelt ons in staat om herhalende taken uit te voeren zonder de code telkens opnieuw te schrijven.
-
-## Manieren om over Lijsten te Itereren
-
-Er zijn verschillende manieren om over de elementen van een lijst te itereren:
-
-### 1. Gebruik van een `for`-lus
-
-De meest gebruikelijke manier om over een lijst te itereren is met een `for`-lus. Hierbij wordt elk element in de lijst één voor één benaderd.
-
-**Voorbeeld:**
-```python
-cijfers = [1, 2, 3, 4, 5]
-for cijfer in cijfers:
-  print(cijfer)
-```
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
-
-**Uitleg:**
-
-- `for cijfer in cijfers:` betekent dat de lus over elk element in de lijst `cijfers` loopt.
-- `cijfer` is een variabele die bij elke iteratie de waarde van het huidige element in de lijst aanneemt.
-- `print(cijfer)` voert een actie uit met het huidige element. In dit geval wordt het getal uitgeprint.
-
-Het code blok (dat de bewerkingen bevat die in de lus op elk element uitgevoerd moeten worden) komt steeds na het dubbele punt en moet je altijd indenteren. D.w.z. dat het code blok altijd naar rechts geschoven moet worden. We gebruiken hier twee spaties voor de indentatie.
-
-### 2. Itereren over Geneste Lijsten
-
-Bij lijsten die andere lijsten bevatten (geneste lijsten) kunnen we geneste lussen gebruiken om over alle elementen te itereren.
-
-**Voorbeeld:**
-```python
-matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-
-for rij in matrix:
-    for element in rij:
-        print(element)
-```
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
-
-**Uitleg:**
-
-- De eerste `for`-lus itereert over elke rij in de matrix.
-- De tweede `for`-lus itereert over elk element in de huidige rij.
-
-### 3. Gebruik van `for`-lus met `range()`functie
-
-Naast het direct itereren over de elementen van een lijst, kun je ook itereren over een reeks indexen of getallen. De range() functie in Python genereert een reeks getallen die je kunt gebruiken in een for-lus. Dit is vooral handig wanneer je de index van elk element nodig hebt tijdens het itereren.
-
-**Introductie van range():**
-De range() functie produceert een reeks gehele getallen. De meest eenvoudige vorm is range(stop), die getallen genereert van 0 tot stop - 1.
-**Voorbeeld:**
-```python
-for i in range(5):
-    print(i)
-```
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
-
-
-**Uitleg:**
-
-- `range(5)` genereert de getallen `0, 1, 2, 3, 4`.
-- In elke iteratie neemt de variabele `i` de volgende waarde in de reeks aan.
-- Dit wordt vaak gebruikt wanneer je een bepaald aantal keren wilt herhalen of toegang wilt tot de indexen van een lijst.
-
-
-**Itereren over een lijst met indexen:**
-Als je zowel de index als het bijbehorende element van een lijst nodig hebt, kun je `range()` combineren met de `len()` functie.
+Een if-statement laat je code uitvoeren als een bepaalde voorwaarde waar (`True`) is. De syntax is als volgt:
 
 ```python
-woorden = ["appel", "banaan", "kers"]
-
-for i in range(len(woorden)):
-    print(f"Index {i}: {woorden[i]}")
+if voorwaarde:
+    # code die wordt uitgevoerd als de voorwaarde waar is
 ```
+
+Let op de dubbele punt (`:`) na de voorwaarde en de inspringing van de code die moet worden uitgevoerd!
+
+### Voorbeeld:
+
+```python
+leeftijd = 16
+
+if leeftijd >= 16:
+    print("Je mag een bromfiets besturen!")
+```
+
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
+## Het if-else statement
 
-**Uitleg:**
+Vaak wil je iets anders doen als de voorwaarde niet waar is. Daarvoor gebruik je een if-else statement:
 
+```python
+if voorwaarde:
+    # code die wordt uitgevoerd als de voorwaarde waar is
+else:
+    # code die wordt uitgevoerd als de voorwaarde niet waar is
+```
 
-- `len(woorden)` geeft het aantal elementen in de lijst `woorden`, in dit geval `3`.
-- `range(len(woorden))` genereert de reeks `0, 1, 2`.
-- Tijdens elke iteratie kun je zowel de index `i` als het bijbehorende element `woorden[i]` gebruiken.
+### Voorbeeld:
 
+```python
+leeftijd = 15
 
-## Veelvoorkomende Toepassingen van Iteratie
+if leeftijd >= 16:
+    print("Je mag een bromfiets besturen!")
+else:
+    print("Je moet nog even wachten met bromfietsen.")
+```
 
-- **Gegevenstransformatie:** Toepassen van een functie of bewerking op elk element in de lijst.
-
-  ```python
-  getallen = [1, 2, 3, 4]
-  kwadraten = []
-
-  for num in getallen:
-      kwadraten.append(num ** 2)
-
-  print(kwadraten)  # Output: [1, 4, 9, 16]
-  ```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-- **Filteren:** Selecteren van elementen die aan een bepaalde voorwaarde voldoen.
+## Voorbeelden uit de Praktijk
 
-  ```python
-  getallen = [1, 2, 3, 4, 5, 6]
-  even_getallen = []
+### Voorbeeld 1: Temperatuur
 
-  for num in getallen:
-      if num % 2 == 0:
-          even_getallen.append(num)
+```python
+temperatuur = 24
 
-  print(even_getallen)  # Output: [2, 4, 6]
-  ```
-
-
-- **Sommeren:** Berekenen van de som van alle elementen in de lijst.
-
-  ```python
-  getallen = [1, 2, 3, 4, 5]
-  som = 0
-
-  for num in getallen:
-      som += num
-
-  print(som)
+if temperatuur > 25:
+    print("Het is warm, vergeet niet om water te drinken!")
+else:
+    print("De temperatuur is aangenaam.")
 ```
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+### Voorbeeld 2: Punten voor een test
+
+```python
+punten = 75
+
+if punten >= 50:
+    print("Gefeliciteerd, je bent geslaagd!")
+else:
+    print("Helaas, je moet de test opnieuw doen.")
+```
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+## Geneste if-statements
+
+Je kunt if-statements ook in elkaar nesten (een if-statement binnen een andere if-statement):
+
+```python
+leeftijd = 17
+heeft_rijbewijs = False
+
+if leeftijd >= 18:
+    if heeft_rijbewijs:
+        print("Je mag autorijden!")
+    else:
+        print("Je moet eerst je rijbewijs halen.")
+else:
+    print("Je moet nog wachten tot je 18 bent.")
+```
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+## Meerdere Voorwaarden Combineren
+
+Je kunt meerdere voorwaarden combineren met `and` en `or`:
+
+```python
+leeftijd = 19
+heeft_ticket = True
+heeft_id = True
+
+if leeftijd >= 18 and heeft_ticket and heeft_id:
+    print("Welkom bij het evenement!")
+else:
+    print("Sorry, je hebt geen toegang.")
+```
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+## Oefening: Toegang tot Pretpark
+
+Schrijf een programma dat bepaalt of iemand in een attractie mag. De regels zijn:
+- Je moet minstens 12 jaar oud zijn
+- Je moet minstens 1.50m lang zijn
+
+Vraag de gebruiker om hun leeftijd en lengte, en print dan of ze in de attractie mogen.
+
+<pre><code># Jouw code hier
+</code></pre>
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+## Tips voor het Schrijven van if-statements
+
+1. **Inspringing is belangrijk**: Python gebruikt inspringing of indentatie om te weten welke code bij welk blok hoort.
+2. **Vergeet de dubbele punt niet**: Na elke if of else moet een dubbele punt komen.
+3. **Houd het leesbaar**: Als je veel voorwaarden hebt, probeer ze dan op te splitsen in kleinere, duidelijke stukken.
+4. **Test je voorwaarden**: Zorg dat je programma werkt voor alle mogelijke situaties.
+
+In het volgende hoofdstuk gaan we oefenen met alles wat we hebben geleerd over voorwaarden en if-statements!

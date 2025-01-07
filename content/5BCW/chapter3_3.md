@@ -1,191 +1,169 @@
-# 3.3 Oefeningen: Lijsten en Iteratie
+# 3.3 Oefeningen: Vergelijkingen en If-statements
 
-In dit hoofdstuk ga je de concepten die je hebt geleerd over lijsten en iteratie in de praktijk brengen. De oefeningen variëren in moeilijkheidsgraad, zodat er voor elke leerling uitdagende opdrachten zijn. Je kunt de oefeningen uitwerken in een nieuw `.py`-bestand in VS Code of een andere teksteditor. Door de code te **runnen** kun je de output verifiëren.
+In dit hoofdstuk ga je oefenen met het maken van vergelijkingen en het gebruiken van if-statements in Python. Deze oefeningen helpen je om de concepten uit de vorige lessen beter te begrijpen en toe te passen.
 
-## Oefening 1: Basislijstbewerkingen
-* **Moeilijkheidsgraad:** ★☆☆☆☆
-
-Maak een lijst genaamd `favoriete_kleuren` met ten minste drie van je favoriete kleuren. Voeg vervolgens nog een kleur toe aan de lijst en verwijder de eerste kleur. Print tot slot de uiteindelijke lijst.
-
-<pre><code># Jouw code hier
-
-</code></pre>
-
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+Je kunt de oefeningen uitwerken in een nieuw `.py`-bestand in VS Code of een andere teksteditor. Door de code te **uitvoeren** kun je de output verifiëren en controleren of je oplossingen correct zijn.
 
 ---
 
-## Oefening 2: Toegang tot lijstitems
-* **Moeilijkheidsgraad:** ★☆☆☆☆
+## Oefening 1: Even of Oneven
 
-Gegeven de lijst `dagen = ["maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag", "zondag"]`, schrijf code om:
-1. De eerste dag te printen.
-2. De laatste dag te printen.
-3. De middense dag (vierde dag) te printen.
+- **Moeilijkheidsgraad:** ★☆☆☆☆
 
-<pre><code># Jouw code hier
+Schrijf een programma dat een geheel getal van de gebruiker vraagt en bepaalt of het getal even of oneven is. Gebruik een if-else statement en print het resultaat.
 
-</code></pre>
+**Voorbeeldoutput:**
 
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
-
----
-
-## Oefening 3: Som van getallen in een lijst
-* **Moeilijkheidsgraad:** ★★☆☆☆
-
-Maak een lijst `getallen` met de waarden `[5, 10, 15, 20, 25]`. Gebruik een for-lus om de som van de getallen in de lijst te berekenen en print het resultaat.
-
-Verwachte output: De som van de getallen is 75.
-
-<pre><code># Jouw code hier
-
-</code></pre>
-
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+```
+Voer een geheel getal in: 7
+Het getal 7 is oneven.
+```
 
 ---
 
-## Oefening 4: Bereken het gemiddelde
-* **Moeilijkheidsgraad:** ★★☆☆☆
+## Oefening 2: Toegang Tot Een Film
 
-Schrijf een programma dat het gemiddelde berekent van een lijst getallen ingevoerd door de gebruiker. Vraag de gebruiker om het aantal getallen, en vervolgens om elk getal afzonderlijk in te voeren. Sla de getallen op in een lijst, bereken het gemiddelde en print het resultaat met twee decimalen.
+- **Moeilijkheidsgraad:** ★★☆☆☆
 
-Voorbeeld:
-Hoeveel getallen wil je invoeren? 4
-Voer getal 1 in: 10
-Voer getal 2 in: 20
-Voer getal 3 in: 30
-Voer getal 4 in: 40
-Het gemiddelde is: 25.00
+Een bioscoop hanteert de volgende regels voor toegang tot een film:
 
----
+- De film is geschikt voor 16 jaar en ouder.
+- Personen jonger dan 16 mogen alleen naar binnen onder begeleiding van een volwassene.
 
-## Oefening 5: Woorden omkeren
-* **Moeilijkheidsgraad:** ★★☆☆☆
+Schrijf een programma dat de leeftijd van de gebruiker vraagt en of ze met een volwassene zijn. Gebruik deze informatie om te bepalen of de gebruiker naar de film mag.
 
-Gegeven een lijst met woorden `woorden = ["Python", "is", "leuk"]`, gebruik een for-lus om elk woord om te keren en sla de omgekeerde woorden op in een nieuwe lijst. Print vervolgens de nieuwe lijst.
+**Voorbeeldoutput 1:**
 
-Verwachte output: ['nohtyP', 'si', 'kuel']
+```
+Wat is je leeftijd? 15
+Ben je met een volwassene? (ja/nee): ja
+Je mag naar de film.
+```
 
-<pre><code># Jouw code hier
+**Voorbeeldoutput 2:**
 
-</code></pre>
-
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
-
----
-
-## Oefening 6: Even en oneven getallen
-* **Moeilijkheidsgraad:** ★★★☆☆
-
-Schrijf een programma dat alle getallen van 1 tot 20 in een lijst plaatst. Gebruik vervolgens een for-lus om twee nieuwe lijsten te maken: één met even getallen en één met oneven getallen. Print beide lijsten.
-
-Verwachte output:
-Even getallen: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
-Oneven getallen: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
-
-
-<pre><code># Jouw code hier
-
-</code></pre>
-
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+```
+Wat is je leeftijd? 15
+Ben je met een volwassene? (ja/nee): nee
+Sorry, je mag niet naar de film.
+```
 
 ---
 
-## Oefening 7: Lijst van kwadraten
-* **Moeilijkheidsgraad:** ★★★☆☆
+## Oefening 3: Getal Raden
 
-Gebruik een for-lus en de functie `range()` om een lijst te maken die de kwadraten bevat van de getallen van 1 tot en met 10. Print de resulterende lijst.
+- **Moeilijkheidsgraad:** ★★☆☆☆
 
-Verwachte output: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+Schrijf een programma dat een geheim getal opslaat (bijvoorbeeld 7). Vraag de gebruiker om een getal te raden en geef feedback:
 
-<pre><code># Jouw code hier
+- Als het geraden getal gelijk is aan het geheime getal, print "Gefeliciteerd, je hebt het getal geraden!"
+- Zo niet, print "Helaas, dat is niet correct. Probeer het nog eens."
 
-</code></pre>
+**Voorbeeldoutput:**
 
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
-
----
-
-## Oefening 8: Zoek het maximum en minimum
-* **Moeilijkheidsgraad:** ★★★★☆
-
-Schrijf een programma dat een lijst van 10 willekeurige gehele getallen tussen 1 en 100 genereert (gebruik hiervoor de `random` module). Gebruik vervolgens een for-lus om het maximum en minimum getal in de lijst te vinden zonder de ingebouwde functies `max()` en `min()` te gebruiken. Print de lijst, het maximum en het minimum.
-
-Voorbeeld output:
-De lijst is: [23, 67, 12, 89, 34, 56, 78, 45, 9, 100]
-Maximum: 100
-Minimum: 9
-
-
-*Tip:* Begin met het instellen van het eerste element en het huidige maximum als minimum.
-
-<pre><code># Jouw code hier
-
-</code></pre>
-
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+```
+Raad het geheime getal tussen 1 en 10: 5
+Helaas, dat is niet correct. Probeer het nog eens.
+```
 
 ---
 
-## Oefening 9: Priemgetallen tussen 1 en 50
-* **Moeilijkheidsgraad:** ★★★★☆
+## Oefening 4: Positief, Negatief of Nul
 
-Maak een programma dat alle priemgetallen tussen 1 en 50 vindt en opslaat in een lijst. Print vervolgens de lijst met priemgetallen.
+- **Moeilijkheidsgraad:** ★★☆☆☆
 
-Verwachte output:
-Priemgetallen tussen 1 en 50: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
+Vraag de gebruiker om een getal in te voeren en bepaal of het getal positief, negatief of nul is. Gebruik if-elif-else statements om dit te bepalen en print het resultaat.
 
+**Voorbeeldoutput:**
 
-*Tip:* Een priemgetal is een getal groter dan 1 dat alleen deelbaar is door 1 en zichzelf.
+```
+Voer een getal in: -3
+Het getal is negatief.
+```
 
-<pre><code># Jouw code hier
-
-</code></pre>
-
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+**Let op:** Hoewel we `elif` hier introduceren, hoef je je geen zorgen te maken; het is een combinatie van `else` en `if` en wordt in een later hoofdstuk verder besproken.
 
 ---
 
-## Oefening 10: Studentengemiddelde
-* **Moeilijkheidsgraad:** ★★★★★
+## Oefening 5: Meerdere Voorwaarden
 
-Stel je voor dat je de cijfers van studenten voor een examen hebt. Schrijf een programma dat:
+- **Moeilijkheidsgraad:** ★★★☆☆
 
-1. De gebruiker vraagt om het aantal studenten.
-2. Voor elke student vraagt om hun naam en hun cijfer (op 20).
-3. De gegevens opslaat in twee lijsten: een lijst voor namen en een corresponderende lijst voor cijfers.
-4. Het gemiddelde cijfer berekent en print.
-5. De namen van de studenten die boven het gemiddelde hebben gescoord, print.
+Een student moet aan de volgende voorwaarden voldoen om te slagen voor een vak:
 
-Voorbeeld:
-Hoeveel studenten zijn er? 3
-Naam van student 1: Alice
-Cijfer van Alice: 16
-Naam van student 2: Bob
-Cijfer van Bob: 12
-Naam van student 3: Charlie
-Cijfer van Charlie: 18
-Het gemiddelde cijfer is 15.33
-Studenten die boven het gemiddelde scoorden: Alice, Charlie
+- Het cijfer moet 50 of hoger zijn.
+- De aanwezigheid moet 80% of hoger zijn.
 
-*Uitbreiding:* Sorteer de studenten op basis van hun cijfer in aflopende volgorde en print de rangorde.
+Schrijf een programma dat het cijfer en de aanwezigheid van de student vraagt en bepaalt of de student geslaagd is.
 
-## Oefening 11: Frequentie van woorden
-* **Moeilijkheidsgraad:** ★★★★★
+**Voorbeeldoutput:**
 
-Schrijf een programma dat een zin van de gebruiker vraagt en bepaalt hoe vaak elk woord in de zin voorkomt. Gebruik een lijst om de woorden op te slaan en gebruik vervolgens iteratie om de frequentie te tellen. Print een overzicht van elk woord en het aantal keren dat het voorkomt.
+```
+Wat is je cijfer? 65
+Wat is je aanwezigheid in procenten? 85
+Gefeliciteerd, je bent geslaagd voor het vak!
+```
 
-Voorbeeld:
-Voer een zin in: Dit is een test en dit is slechts een test
-Frequentie van woorden:
-Dit: 2
-is: 2
-een: 2
-test: 2
-en: 1
-slechts: 1
+---
 
-*Tip:* Je kunt de methode `split()` op strings gebruiken om de woorden te verkrijgen.
+## Oefening 6: Schrikkeljaar
+
+- **Moeilijkheidsgraad:** ★★★★☆
+
+Schrijf een programma dat bepaalt of een gegeven jaar een schrikkeljaar is. Een jaar is een schrikkeljaar als:
+
+- Het deelbaar is door 4 **en niet** deelbaar is door 100, **of**
+- Het deelbaar is door 400.
+
+**Voorbeeldoutput:**
+
+```
+Voer een jaartal in: 2020
+2020 is een schrikkeljaar.
+```
+
+**Tip:** Gebruik modulus `%` om te bepalen of een getal deelbaar is.
+
+---
+
+## Oefening 7: Getal in Interval
+
+- **Moeilijkheidsgraad:** ★★★★☆
+
+Vraag de gebruiker om een getal tussen 1 en 100. Controleer of het getal binnen deze range valt. Als dat zo is, print "Het getal ligt binnen het interval." Zo niet, print "Het getal ligt buiten het interval."
+
+**Voorbeeldoutput:**
+
+```
+Voer een getal tussen 1 en 100 in: 150
+Het getal ligt buiten het interval.
+```
+
+
+---
+
+## Oefening 8: Kortingscalculator
+
+- **Moeilijkheidsgraad:** ★★★★☆
+
+Een winkel geeft een korting op basis van het aankoopbedrag:
+
+- Als het bedrag hoger is dan €100, krijgt de klant 10% korting.
+- Als het bedrag hoger is dan €50 maar minder dan of gelijk aan €100, krijgt de klant 5% korting.
+- Anders krijgt de klant geen korting.
+
+Schrijf een programma dat het aankoopbedrag vraagt en de uiteindelijke prijs na korting berekent en print.
+
+**Voorbeeldoutput:**
+
+```
+Voer het aankoopbedrag in: 120
+Je krijgt 10% korting.
+De uiteindelijke prijs is: €108.0
+```
+
+**Let op:** Hoewel we hier meerdere condities hebben, kun je dit oplossen met geneste if-else statements.
+
+---
+
+Veel succes met de oefeningen! Probeer ze eerst zelf op te lossen voordat je de code uitvoert. Als je vastloopt, bekijk dan de voorbeelden uit de vorige hoofdstukken nog eens.

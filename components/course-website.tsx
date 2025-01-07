@@ -46,6 +46,9 @@ import chapter2_4_5BCW from '../content/5BCW/chapter2_4.md'
 import chapter3_1_5BCW from '../content/5BCW/chapter3_1.md'
 import chapter3_2_5BCW from '../content/5BCW/chapter3_2.md'
 import chapter3_3_5BCW from '../content/5BCW/chapter3_3.md'
+import chapter4_1_5BCW from '../content/5BCW/chapter4_1.md'
+import chapter4_2_5BCW from '../content/5BCW/chapter4_2.md'
+import chapter4_3_5BCW from '../content/5BCW/chapter4_3.md'
 
 
 const courses = [
@@ -75,13 +78,22 @@ const courses = [
       },
       {
         id: 3,
-        title: "3. Datastructuren en herhaling",
+        title: "3. Vergelijkingen en If-statements",
         subchapters: [
-          { id: '3.1', title: "3.1 Lijsten" },
-          { id: '3.2', title: "3.2 For loops" },
+          { id: '3.1', title: "3.1 Vergelijkingen en Voorwaarden" },
+          { id: '3.2', title: "3.2 If-statements" },
           { id: '3.3', title: "3.3 Oefeningen" },
         ]
-      }
+      },
+      {
+        id: 4,
+        title: "4. Datastructuren en Herhaling",
+        subchapters: [
+          { id: '4.1', title: "4.1 Lijsten" },
+          { id: '4.2', title: "4.2 Itereren over Lijsten" },
+          { id: '4.3', title: "4.3 Oefeningen" },
+        ]
+      },
     ]
   },
   {
@@ -340,11 +352,20 @@ const courses = [
       },
       {
         id: 3,
-        title: "3. Datastructuren en herhaling",
+        title: "3. Vergelijkingen en If-statements",
         subchapters: [
-          { id: '3.1', title: "3.1 Lijsten" },
-          { id: '3.2', title: "3.2 For loops" },
+          { id: '3.1', title: "3.1 Vergelijkingen en Voorwaarden" },
+          { id: '3.2', title: "3.2 If-statements" },
           { id: '3.3', title: "3.3 Oefeningen" },
+        ]
+      },
+      {
+        id: 4,
+        title: "4. Datastructuren en Herhaling",
+        subchapters: [
+          { id: '4.1', title: "4.1 Lijsten" },
+          { id: '4.2', title: "4.2 Itereren over Lijsten" },
+          { id: '4.3', title: "4.3 Oefeningen" },
         ]
       },
     ]
@@ -363,6 +384,9 @@ const chapterContent = {
     '3.1': chapter3_1_5BCW,
     '3.2': chapter3_2_5BCW,
     '3.3': chapter3_3_5BCW,
+    '4.1': chapter4_1_5BCW,
+    '4.2': chapter4_2_5BCW,
+    '4.3': chapter4_3_5BCW,
   },
   'inw-5bwe': {
     '1.1': chapter1_1_5BWE,
@@ -393,6 +417,9 @@ const chapterContent = {
     '3.1': chapter3_1_5BCW,
     '3.2': chapter3_2_5BCW,
     '3.3': chapter3_3_5BCW,
+    '4.1': chapter4_1_5BCW,
+    '4.2': chapter4_2_5BCW,
+    '4.3': chapter4_3_5BCW,
   },
 };
 

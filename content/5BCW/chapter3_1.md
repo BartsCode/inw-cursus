@@ -1,155 +1,118 @@
-# 3.1 Lijsten
+# 3.1 Vergelijkingen en Voorwaarden
 
-In Python zijn lijsten een van de meest gebruikte datastructuren. Een lijst is een geordende verzameling van items die eventueel kunnen worden gewijzigd. Lijsten stellen je in staat om meerdere gerelateerde waarden in één enkele variabele op te slaan.
+In het echte leven nemen we voortdurend beslissingen op basis van voorwaarden: "Als het regent, neem ik een paraplu mee", "Als het warmer is dan 25 graden, ga ik zwemmen". In Python kunnen we onze programma's ook beslissingen laten nemen met behulp van vergelijkingen en voorwaarden.
 
-## Kenmerken van Lijsten
+## Vergelijkingsoperatoren
 
-- **Geordende Verzameling:** Lijsten bewaren elementen in een specifieke volgorde. Elk element heeft een unieke positie, of index, binnen de lijst.
-- **Indexering:** Elementen in een lijst kunnen worden benaderd via hun index. In Python begint de indexering bij **0**.
-- **Veranderlijk (Mutable):** Lijsten zijn veranderlijke datastructuren; dit betekent dat hun inhoud kan worden aangepast na creatie door elementen toe te voegen, te verwijderen of te wijzigen.
-- **Heterogene Elementen:** Een lijst kan elementen van verschillende datatypen bevatten, zoals getallen, strings, booleans, of zelfs andere lijsten.
+Python gebruikt verschillende operatoren om waarden te vergelijken. Het resultaat van een vergelijking is altijd een Boolean (`True` of `False`).
 
-## Basisbewerkingen op Lijsten
+| Operator | Betekenis | Voorbeeld | Resultaat |
+|----------|-----------|-----------|-----------|
+| `==` | Is gelijk aan | `5 == 5` | `True` |
+| `!=` | Is niet gelijk aan | `5 != 3` | `True` |
+| `>` | Is groter dan | `5 > 3` | `True` |
+| `<` | Is kleiner dan | `5 < 3` | `False` |
+| `>=` | Is groter dan of gelijk aan | `5 >= 5` | `True` |
+| `<=` | Is kleiner dan of gelijk aan | `5 <= 3` | `False` |
 
-### Aanmaken van een Lijst
-
-Een lijst kan worden aangemaakt door elementen binnen vierkante haken `[]` te plaatsen, gescheiden door komma's.
-
-
-### Een lege lijst
-
-```python
-lege_lijst = []
-```
-
-### Een lijst met elementen
+Laten we deze operatoren in actie zien:
 
 ```python
-cijfers = [1, 2, 3, 4, 5]
-```
+x = 5
+y = 3
 
-### Een lijst met verschillende datatypes
-
-```python
-lijst = [1, "Hallo", True, 3.14, [1, 2, 3]]
-```
-
-### Toegang tot Elementen
-
-Elementen kunnen worden opgevraagd via hun index.
-
-```python
-cijfers = [1, 2, 3, 4, 5]
-eerste_cijfer = cijfers[0]  # Geeft 1
-derde_cijfer = cijfers[2]  # Geeft 3
-laatste_cijfer = cijfers[-1]  # Geeft 5
+print(x == y)  # False
+print(x != y)  # True
+print(x > y)   # True
+print(x < y)   # False
+print(x >= y)  # True
+print(x <= y)  # False
 ```
 
 
-### Wijzigen van Elementen
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-Je kunt de waarde van een element wijzigen door de index te specificeren.
+## Vergelijken van Verschillende Types
 
-```python
-cijfers = [1, 2, 3, 4, 5]
-cijfers[0] = 10  # Wijzigt het eerste element naar 10
-print(cijfers)  # Output: [10, 2, 3, 4, 5]
-```
+### Getallen Vergelijken
 
-
-### Elementen Toevoegen
-
-- **Aan het Einde Toevoegen:**
-  
-  ```python
-  cijfers.append(6)
-  # Nu is cijfers: [10, 2, 3, 4, 5, 6]
-  ```
-
-- **Op een Specifieke Positie Invoegen:**
-  
-  ```python
-  cijfers.insert(1, 15)  # Voegt 15 in op index 1
-  # Nu is cijfers: [10, 15, 2, 3, 4, 5, 6]
-  ```
-
-### Elementen Verwijderen
-
-- **Verwijderen op Waarde:**
-  
-  ```python
-  cijfers.remove(15)
-  # Nu is cijfers: [10, 2, 3, 4, 5, 6]
-  ```
-
-- **Verwijderen op Index:**
-  
-  ```python
-  verwijderd_element = cijfers.pop(0)
-  print(verwijderd_element)  # Output: 10
-  # Nu is cijfers: [2, 3, 4, 5, 6]
-  ```
-
-- **Laatste Element Verwijderen:**
-  
-  ```python
-  cijfers.pop()
-  # Nu is cijfers: [2, 3, 4, 5]
-  ```
-
-### Lengte van een Lijst
-
-Gebruik de `len()` functie om het aantal elementen in een lijst te bepalen.
+Je kunt verschillende types getallen met elkaar vergelijken:
 
 ```python
-cijfers = [7, 23, 3, 100, 29]
-lengte = len(cijfers)  # output: 5
+print(5 > 3.14)      # True
+print(10 >= 10.0)    # True
+print(-1 < 0)        # True
 ```
 
-### Lijsten samenvoegen
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-Twee lijsten kunnen worden samengevoegd met de `+` operator.
+## Meerdere Voorwaarden Combineren
+
+Je kunt meerdere voorwaarden combineren met:
+- `and`: beide voorwaarden moeten waar zijn
+- `or`: minstens één voorwaarde moet waar zijn
+- `not`: keert een voorwaarde om
 
 ```python
-lijst_1 = [1, 2, 3]
-lijst_2 = [4, 5, 6]
-lijst_3 = lijst_1 + lijst_2  
-print(lijst_3) # output: [1, 2, 3, 4, 5, 6]
+leeftijd = 16
+heeft_toestemming = True
+
+print(leeftijd >= 16 and heeft_toestemming)    # True
+print(leeftijd < 16 or heeft_toestemming)      # True
+print(not heeft_toestemming)                   # False
 ```
 
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-## Belangrijke Concepten
+### Voorbeelden met `and`
 
-### Mutable vs. Immutable
-
-- **Mutable (Veranderlijk):** Lijsten zijn veranderlijk; je kunt hun inhoud wijzigen na creatie.
-- **Immutable (Onveranderlijk):** Datastructuren zoals tuplen zijn onveranderlijk; eenmaal gecreëerd, kunnen ze niet worden gewijzigd.
-
-### Geneste Lijsten
-
-Lijsten kunnen andere lijsten bevatten, wat leidt tot geneste of multidimensionale structuren.
+Beide voorwaarden moeten `True` zijn om `True` te krijgen:
 
 ```python
-genest = [[1, 2], [3, 4], [5, 6]]
-print(genest[0]) # Output: [1, 2]
-print(genest[0][1]) # Output: 2
+x = 5
+print(x > 0 and x < 10)    # True (x ligt tussen 0 en 10)
+print(x < 0 and x < 10)    # False (x is niet kleiner dan 0)
 ```
 
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-## Toepassingen van Lijsten
+### Voorbeelden met `or`
 
-- **Dataopslag:** Voor het opslaan van verzamelingen van gegevens, zoals lijsten van namen, nummers, of objecten.
-- **Iteratie en Manipulatie:** Herhaaldelijk uitvoeren van bewerkingen op elk element.
-- **Algoritmen en Datastructuren:** Implementeren van stacks, queues, grafen, en andere datastructuren.
+Minstens één voorwaarde moet `True` zijn om `True` te krijgen:
 
-## Best Practices
+```python
+leeftijd = 15
+lengte = 175
 
-- **Consistente Datatypen:** Hoewel lijsten heterogeen kunnen zijn, is het vaak nuttig om elementen van hetzelfde type te gebruiken voor consistentie.
-- **Vermijd Wijzigingen tijdens Iteratie:** Pas op met het toevoegen of verwijderen van elementen terwijl je over een lijst iterereert.
-- **Gebruik Betekenisvolle Namen:** Geef lijsten namen die hun inhoud duidelijk beschrijven.
+print(leeftijd >= 18 or lengte >= 170)    # True (lang genoeg)
+print(leeftijd >= 18 or lengte >= 180)    # False (niet oud en niet lang genoeg)
+```
 
-## Conclusie
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-Lijsten zijn een essentieel onderdeel van programmeren en vormen de basis voor veel complexere datastructuren en algoritmen. Ze bieden flexibiliteit en gemak bij het opslaan en manipuleren van groepen gegevens. Een goed begrip van hoe lijsten werken en hoe je ze effectief kunt gebruiken, is cruciaal voor succesvolle softwareontwikkeling.
+## Oefening: Vergelijkingen
 
-Hoewel we in dit hoofdstuk Python hebben gebruikt om de concepten te illustreren, gelden deze principes voor bijna alle programmeertalen. Het is belangrijk om te begrijpen dat de specifieke syntax kan verschillen, maar de onderliggende ideeën blijven geldig.
+Probeer te voorspellen wat het resultaat zal zijn van deze vergelijkingen voordat je ze uitvoert:
+
+```python
+# Test 1: Getallen
+a = 10
+b = 5
+c = 10.0
+print(a == c)    # Wat denk je?
+print(a > b)     # Wat denk je?
+
+# Test 2: Strings
+naam1 = "Anna"
+naam2 = "Bert"
+print(naam1 < naam2)    # Wat denk je?
+
+# Test 3: Combinaties
+x = 7
+print(x > 5 and x < 10)    # Wat denk je?
+print(x < 5 or x > 8)      # Wat denk je?
+```
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+In het volgende hoofdstuk gaan we leren hoe we deze voorwaarden kunnen gebruiken om ons programma verschillende dingen te laten doen op basis van deze vergelijkingen!
