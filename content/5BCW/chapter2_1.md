@@ -23,10 +23,10 @@ Probeer de code hierboven uit te voeren. Je zult zien dat de tekst "Hallo, werel
 Je kunt de waarde van een variabele op elk moment wijzigen. Laten we een voorbeeld bekijken met een string:
 
 <pre><code>naam = "Alice"
-print("Hallo," + naam)
+print("Hallo, " + naam)
 
 naam = "Bob"
-print("Hallo," + naam)
+print("Hallo, " + naam)
 </code></pre>
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>

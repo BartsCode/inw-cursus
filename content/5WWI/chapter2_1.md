@@ -23,10 +23,10 @@ Probeer de code hierboven uit te voeren. Je zult zien dat de tekst "Hallo, werel
 Je kunt de waarde van een variabele op elk moment wijzigen. Laten we een voorbeeld bekijken met een string:
 
 <pre><code>naam = "Alice"
-print("Hallo,", naam)
+print("Hallo, " + naam)
 
 naam = "Bob"
-print("Hallo,", naam)
+print("Hallo, " + naam)
 </code></pre>
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
@@ -38,10 +38,10 @@ Voer deze code uit en observeer hoe de begroeting verandert wanneer we de waarde
 Variabelen kunnen ook getallen bevatten. Laten we een voorbeeld bekijken met een numerieke variabele:
 
 <pre><code>leeftijd = 25
-print("Je bent", leeftijd, "jaar oud.")
+print(f"Je bent {leeftijd} jaar oud.")
 
 leeftijd = leeftijd + 1
-print("Na je verjaardag ben je", leeftijd, "jaar oud.")
+print(f"Na je verjaardag ben je {leeftijd} jaar oud.")
 </code></pre>
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
