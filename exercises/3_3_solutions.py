@@ -10,7 +10,7 @@ leeftijd_string = input("Voer je leeftijd in: ")
 leeftijd = int(leeftijd_string)
 met_volwassene = input("Ben je met een volwassene? (ja/nee): ")
 
-if leeftijd >= 16 and met_volwassene == "ja":
+if leeftijd >= 16 or met_volwassene == "ja":
     print("Je mag naar de film")
 else:
     print("Sorry, je mag niet naar de film")
