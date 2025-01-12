@@ -102,12 +102,7 @@ c = 10.0
 print(a == c)    # Wat denk je?
 print(a > b)     # Wat denk je?
 
-# Test 2: Strings
-naam1 = "Anna"
-naam2 = "Bert"
-print(naam1 < naam2)    # Wat denk je?
-
-# Test 3: Combinaties
+# Test 2: Combinaties
 x = 7
 print(x > 5 and x < 10)    # Wat denk je?
 print(x < 5 or x > 8)      # Wat denk je?
