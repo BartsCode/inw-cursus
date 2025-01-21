@@ -7,12 +7,6 @@ In dit hoofdstuk ga je de concepten die je hebt geleerd over lijsten en iteratie
 
 Maak een lijst genaamd `favoriete_kleuren` met ten minste drie van je favoriete kleuren. Voeg vervolgens nog een kleur toe aan de lijst en verwijder de eerste kleur. Print tot slot de uiteindelijke lijst.
 
-<pre><code># Jouw code hier
-
-</code></pre>
-
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
-
 ---
 
 ## Oefening 2: Toegang tot lijstitems
@@ -23,12 +17,6 @@ Gegeven de lijst `dagen = ["maandag", "dinsdag", "woensdag", "donderdag", "vrijd
 2. De laatste dag te printen.
 3. De middense dag (vierde dag) te printen.
 
-<pre><code># Jouw code hier
-
-</code></pre>
-
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
-
 ---
 
 ## Oefening 3: Som van getallen in een lijst
@@ -38,11 +26,6 @@ Maak een lijst `getallen` met de waarden `[5, 10, 15, 20, 25]`. Gebruik een for-
 
 Verwachte output: De som van de getallen is 75.
 
-<pre><code># Jouw code hier
-
-</code></pre>
-
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ---
 
@@ -68,12 +51,6 @@ Gegeven een lijst met woorden `woorden = ["Python", "is", "leuk"]`, gebruik een 
 
 Verwachte output: ['nohtyP', 'si', 'kuel']
 
-<pre><code># Jouw code hier
-
-</code></pre>
-
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
-
 ---
 
 ## Oefening 6: Even en oneven getallen
@@ -85,13 +62,6 @@ Verwachte output:
 Even getallen: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 Oneven getallen: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
 
-
-<pre><code># Jouw code hier
-
-</code></pre>
-
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
-
 ---
 
 ## Oefening 7: Lijst van kwadraten
@@ -100,12 +70,6 @@ Oneven getallen: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
 Gebruik een for-lus en de functie `range()` om een lijst te maken die de kwadraten bevat van de getallen van 1 tot en met 10. Print de resulterende lijst.
 
 Verwachte output: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-
-<pre><code># Jouw code hier
-
-</code></pre>
-
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ---
 
@@ -122,12 +86,6 @@ Minimum: 9
 
 *Tip:* Begin met het instellen van het eerste element en het huidige maximum als minimum.
 
-<pre><code># Jouw code hier
-
-</code></pre>
-
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
-
 ---
 
 ## Oefening 9: Priemgetallen tussen 1 en 50
@@ -140,12 +98,6 @@ Priemgetallen tussen 1 en 50: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 4
 
 
 *Tip:* Een priemgetal is een getal groter dan 1 dat alleen deelbaar is door 1 en zichzelf.
-
-<pre><code># Jouw code hier
-
-</code></pre>
-
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ---
 
