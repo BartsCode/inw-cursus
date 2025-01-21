@@ -1,4 +1,4 @@
-# 3.2 Itereren over Lijsten
+# 4.2 Itereren over Lijsten
 
 In het programmeren is iteratie een fundamenteel concept dat verwijst naar het herhaaldelijk uitvoeren van een set instructies over een verzameling gegevens. Bij lijsten betekent dit dat we over elk element in de lijst gaan en er een bewerking op uitvoeren. In dit hoofdstuk bespreken we de algemene concepten van het itereren over lijsten en hoe dit efficiënt kan worden gedaan. De algemene principes zijn van toepassing op vrijwel alle programmeertalen.
 
@@ -93,6 +93,29 @@ for i in range(len(woorden)):
 - `range(len(woorden))` genereert de reeks `0, 1, 2`.
 - Tijdens elke iteratie kun je zowel de index `i` als het bijbehorende element `woorden[i]` gebruiken.
 
+### 4. Itereren over Karakters in een String
+
+Strings in Python kunnen worden gezien als een reeks karakters, en je kunt er op dezelfde manier over itereren als over een lijst.
+
+**Voorbeeld:**
+```python
+woord = "Python"
+for karakter in woord:
+    print(karakter)
+```
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+**Uitleg:**
+- Elke letter in de string wordt één voor één doorlopen
+- De variabele `karakter` bevat bij elke iteratie één letter uit de string
+- Je kunt ook de index gebruiken als je wilt weten op welke positie een karakter staat:
+
+```python
+woord = "Python"
+for i in range(len(woord)):
+    print(f"Positie {i}: {woord[i]}")
+```
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ## Veelvoorkomende Toepassingen van Iteratie
 

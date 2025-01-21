@@ -1,4 +1,4 @@
-# 3.1 Lijsten
+# 4.1 Lijsten
 
 In Python zijn lijsten een van de meest gebruikte datastructuren. Een lijst is een geordende verzameling van items die eventueel kunnen worden gewijzigd. Lijsten stellen je in staat om meerdere gerelateerde waarden in één enkele variabele op te slaan.
 

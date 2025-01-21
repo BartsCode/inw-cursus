@@ -1,4 +1,4 @@
-# 3.3 Oefeningen: Lijsten en Iteratie
+# 4.3 Oefeningen: Lijsten en Iteratie
 
 In dit hoofdstuk ga je de concepten die je hebt geleerd over lijsten en iteratie in de praktijk brengen. De oefeningen variëren in moeilijkheidsgraad, zodat er voor elke leerling uitdagende opdrachten zijn. Je kunt de oefeningen uitwerken in een nieuw `.py`-bestand in VS Code of een andere teksteditor. Door de code te **runnen** kun je de output verifiëren.
 
