@@ -73,7 +73,44 @@ Verwachte output: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 
 ---
 
-## Oefening 8: Zoek het maximum en minimum
+## Oefening 8: Rechthoek tekenen
+* **Moeilijkheidsgraad:** ★★★☆☆
+
+Schrijf een programma dat een rechthoek tekent met sterretjes (*). Vraag de gebruiker om de hoogte en breedte van de rechthoek. Gebruik nested loops om het patroon te maken.
+
+Voorbeeld:
+Voer de hoogte in: 3
+Voer de breedte in: 4
+
+Output:
+****
+****
+****
+
+*Tip:* Gebruik een for-loop voor de rijen en een geneste for-loop voor de kolommen.
+
+---
+
+## Oefening 9: Driehoek tekenen
+* **Moeilijkheidsgraad:** ★★★☆☆
+
+Schrijf een programma dat een rechthoekige driehoek tekent met sterretjes (*). Vraag de gebruiker om de hoogte van de driehoek en teken vervolgens het patroon.
+
+Voorbeeld:
+Voer de hoogte in: 5
+
+Output:
+*
+**
+***
+****
+*****
+
+*Tip:* Je kunt de rijnummer gebruiken om te bepalen hoeveel sterretjes er op elke rij moeten komen.
+
+---
+
+## Oefening 10: Zoek het maximum en minimum
 * **Moeilijkheidsgraad:** ★★★★☆
 
 Schrijf een programma dat een lijst van 10 willekeurige gehele getallen tussen 1 en 100 genereert (gebruik hiervoor de `random` module). Gebruik vervolgens een for-lus om het maximum en minimum getal in de lijst te vinden zonder de ingebouwde functies `max()` en `min()` te gebruiken. Print de lijst, het maximum en het minimum.
@@ -88,7 +125,7 @@ Minimum: 9
 
 ---
 
-## Oefening 9: Priemgetallen tussen 1 en 50
+## Oefening 11: Priemgetallen tussen 1 en 50
 * **Moeilijkheidsgraad:** ★★★★☆
 
 Maak een programma dat alle priemgetallen tussen 1 en 50 vindt en opslaat in een lijst. Print vervolgens de lijst met priemgetallen.
@@ -101,7 +138,7 @@ Priemgetallen tussen 1 en 50: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 4
 
 ---
 
-## Oefening 10: Studentengemiddelde
+## Oefening 12: Studentengemiddelde
 * **Moeilijkheidsgraad:** ★★★★★
 
 Stel je voor dat je de cijfers van studenten voor een examen hebt. Schrijf een programma dat:
@@ -125,7 +162,7 @@ Studenten die boven het gemiddelde scoorden: Alice, Charlie
 
 *Uitbreiding:* Sorteer de studenten op basis van hun cijfer in aflopende volgorde en print de rangorde.
 
-## Oefening 11: Frequentie van woorden
+## Oefening 13: Frequentie van woorden
 * **Moeilijkheidsgraad:** ★★★★★
 
 Schrijf een programma dat een zin van de gebruiker vraagt en bepaalt hoe vaak elk woord in de zin voorkomt. Gebruik een lijst om de woorden op te slaan en gebruik vervolgens iteratie om de frequentie te tellen. Print een overzicht van elk woord en het aantal keren dat het voorkomt.

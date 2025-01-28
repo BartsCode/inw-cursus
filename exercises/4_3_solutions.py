@@ -17,6 +17,7 @@ omgekeerde_woorden = []
 for woord in woorden:
     omgekeerd_woord = ""
     for letter in woord:
+        # !opgelet: dit is niet hetzelfde als omgekeerd_woord += letter
         omgekeerd_woord = letter + omgekeerd_woord
     omgekeerde_woorden.append(omgekeerd_woord)
 
@@ -48,7 +49,27 @@ for getal in getallen:
 print(f"Even getallen: {even_getallen}")
 print(f"Oneven getallen: {oneven_getallen}")
 
+#oefening 7
+kwadraten = []
+for getal in range(1, 11):
+    kwadraten.append(getal ** 2)
+
+print(kwadraten)
+
 #oefening 8
+breedte = int(input("Voer de breedte in: "))
+hoogte = int(input("Voer de hoogte in: "))
+
+for i in range(hoogte):
+    print("*" * breedte)
+
+#oefening 9
+hoogte = int(input("Voer de hoogte in: "))
+
+for i in range(hoogte):
+    print("*" * (i+1))
+
+#oefening 10
 import random
 
 getallen = []
@@ -68,3 +89,18 @@ for getal in getallen:
         minimum = getal
 
 print(f"Het maximum is {maximum} en het minimum is {minimum}")
+
+#oefening 11
+priemgetallen = []
+
+for getal in range(2,51):
+    is_priem = True
+    for noemer in range(2, getal):
+        if getal % noemer == 0:
+            is_priem = False
+            # break
+    if is_priem:
+        priemgetallen.append(getal)
+
+print(priemgetallen)
+
