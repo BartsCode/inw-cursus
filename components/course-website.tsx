@@ -432,7 +432,7 @@ function ChatInterface({ darkMode }: { darkMode: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className={`fixed bottom-4 right-4 z-50 ${isOpen ? 'w-[800px]' : 'w-auto'}`}>
+    <div className={`fixed bottom-4 right-4 z-50 ${isOpen ? 'w-full md:w-[800px] max-w-[calc(100vw-2rem)]' : 'w-auto'}`}>
       {/* Chat Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -446,7 +446,7 @@ function ChatInterface({ darkMode }: { darkMode: boolean }) {
       {/* Chat Interface */}
       {isOpen && (
         <div className={`
-          absolute bottom-16 right-0 w-[800px] h-[600px]
+          absolute bottom-16 right-0 w-full md:w-[800px] h-[600px]
           ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}
           rounded-lg shadow-xl border-2
           ${darkMode ? 'border-white' : 'border-black'}
