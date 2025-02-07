@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react'
 import { ComponentPropsWithoutRef } from 'react';
-import { BookOpen, ChevronRight, Sun, Moon, ChevronDown, Menu } from 'lucide-react'
+import { BookOpen, ChevronRight, Sun, Moon, ChevronDown, Menu, MessageCircle, X } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vs } from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -49,6 +49,8 @@ import chapter3_3_5BCW from '../content/5BCW/chapter3_3.md'
 import chapter4_1_5BCW from '../content/5BCW/chapter4_1.md'
 import chapter4_2_5BCW from '../content/5BCW/chapter4_2.md'
 import chapter4_3_5BCW from '../content/5BCW/chapter4_3.md'
+import { useChat } from 'ai/react'
+import { MemoizedMarkdown } from './memoized-markdown'
 
 
 const courses = [
@@ -423,6 +425,102 @@ const chapterContent = {
   },
 };
 
+function ChatInterface({ darkMode }: { darkMode: boolean }) {
+  const { messages, input, handleInputChange, handleSubmit } = useChat({
+    experimental_throttle: 50  // Add throttling for better performance
+  });
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className={`fixed bottom-4 right-4 z-50 ${isOpen ? 'w-[800px]' : 'w-auto'}`}>
+      {/* Chat Toggle Button */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`${
+          darkMode ? 'bg-white text-black' : 'bg-black text-white'
+        } p-4 rounded-full shadow-lg hover:opacity-90 transition-opacity`}
+      >
+        {isOpen ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
+      </button>
+
+      {/* Chat Interface */}
+      {isOpen && (
+        <div className={`
+          absolute bottom-16 right-0 w-[800px] h-[600px]
+          ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}
+          rounded-lg shadow-xl border-2
+          ${darkMode ? 'border-white' : 'border-black'}
+          flex flex-col
+        `}>
+          {/* Messages Container */}
+          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            {messages.map(message => (
+              <div key={message.id} className={`
+                flex flex-col gap-1 ${message.role === 'assistant' ? 'items-start' : 'items-end'}
+              `}>
+                {message.role === 'assistant' && (
+                  <span className="text-sm text-gray-500 dark:text-gray-400 ml-3">
+                    Meneer Schuyten
+                  </span>
+                )}
+                <div className={`
+                  flex gap-3 ${message.role === 'assistant' ? 'justify-start' : 'justify-end'}
+                  w-full
+                `}>
+                  <div className={`
+                    max-w-[80%] rounded-lg p-3 
+                    prose dark:prose-invert
+                    prose-pre:max-w-full prose-pre:overflow-x-auto
+                    prose-img:max-w-full prose-img:rounded
+                    prose-code:whitespace-pre-wrap
+                    ${message.role === 'assistant' 
+                      ? (darkMode ? 'bg-gray-700' : 'bg-gray-100')
+                      : (darkMode ? 'bg-blue-600' : 'bg-blue-500 text-white')}
+                  `}>
+                    <div className="max-w-full overflow-x-auto">
+                      <MemoizedMarkdown content={message.content} id={message.id} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Input Form */}
+          <form onSubmit={handleSubmit} className="p-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="flex gap-2">
+              <input
+                value={input}
+                onChange={handleInputChange}
+                placeholder="Ask a question..."
+                className={`
+                  flex-1 rounded-lg px-4 py-2 
+                  ${darkMode 
+                    ? 'bg-gray-700 text-white border-gray-600' 
+                    : 'bg-gray-100 text-black border-gray-300'}
+                  border focus:outline-none focus:ring-2 focus:ring-blue-500
+                `}
+              />
+              <button
+                type="submit"
+                className={`
+                  px-4 py-2 rounded-lg
+                  ${darkMode 
+                    ? 'bg-white text-black hover:bg-gray-200' 
+                    : 'bg-black text-white hover:bg-gray-800'}
+                  transition-colors
+                `}
+              >
+                Send
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearchParams | null }) {
   const router = useRouter()
   const pathname = usePathname()
@@ -733,6 +831,8 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
       <footer className="bg-white dark:bg-black p-4 text-center text-sm border-t-2 border-black dark:border-white">
         <p>&copy; 2024 INW - door Matthias Schuyten. Alle rechten voorbehouden.</p>
       </footer>
+      
+      <ChatInterface darkMode={darkMode} />
     </div>
   )
 }
