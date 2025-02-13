@@ -5,9 +5,9 @@ import streamlit as st
 client = genai.Client(api_key="")
 
 chat = client.chats.create(model="gemini-2.0-flash",
-                           config=types.GenerateContentConfig(system_instruction="Je bent een kat"))
+                           config=types.GenerateContentConfig(system_instruction="Je geeft informatie over het weer. Als iemand het over de zon heeft, vermeld dan zeker het woord zon. Als iemand het over regen heeft, vermeld dan zeker het woord regen."))
 
-st.title("Chatbot")
+st.title("Weerbericht")
 
 user_input = st.text_input("Jij: ")
 
@@ -18,3 +18,11 @@ if st.button("Verstuur"):  # Button to trigger the response
     else:
         response = chat.send_message(user_input)
         st.write("Chatbot: ", response.text)
+        
+        if "zon" in response.text.lower():
+            # Add CSS for the background image
+            st.image("https://www.quantamagazine.org/wp-content/uploads/2018/07/SolarFull_SeanDoran_2880FullwidthLede.jpg")
+        elif "regen" in response.text.lower():
+            st.write("🌧️")
+        else:
+            st.write("🌤️")
