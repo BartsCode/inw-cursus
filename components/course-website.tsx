@@ -425,9 +425,26 @@ const chapterContent = {
   },
 };
 
-function ChatInterface({ darkMode }: { darkMode: boolean }) {
+function ChatInterface({ 
+  darkMode, 
+  currentContent 
+}: { 
+  darkMode: boolean;
+  currentContent?: string;
+}) {
   const { messages, input, handleInputChange, handleSubmit } = useChat({
-    experimental_throttle: 50  // Add throttling for better performance
+    experimental_throttle: 50,
+    initialMessages: [
+      {
+        id: 'system',
+        role: 'system',
+        content: `You are a helpful teaching assistant for an informatics course that uses basic python. Answer questions about programming and related topics. Respond in the same language as the user (Dutch or English). Never give a straight answer, but rather ask a question to the user to help them find the answer themselves.${
+          currentContent 
+            ? `\n\nThe user is currently looking at the following chapter content:\n${currentContent}`
+            : ''
+        }`
+      }
+    ]
   });
   const [isOpen, setIsOpen] = useState(false);
 
@@ -446,7 +463,8 @@ function ChatInterface({ darkMode }: { darkMode: boolean }) {
       {/* Chat Interface */}
       {isOpen && (
         <div className={`
-          absolute bottom-16 right-0 w-full md:w-[800px] h-[600px]
+          absolute bottom-16 right-0 w-full md:w-[800px] 
+          h-[600px] max-h-[calc(100vh-8rem)]
           ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}
           rounded-lg shadow-xl border-2
           ${darkMode ? 'border-white' : 'border-black'}
@@ -454,36 +472,38 @@ function ChatInterface({ darkMode }: { darkMode: boolean }) {
         `}>
           {/* Messages Container */}
           <div className="flex-1 overflow-y-auto p-4 space-y-4">
-            {messages.map(message => (
-              <div key={message.id} className={`
-                flex flex-col gap-1 ${message.role === 'assistant' ? 'items-start' : 'items-end'}
-              `}>
-                {message.role === 'assistant' && (
-                  <span className="text-sm text-gray-500 dark:text-gray-400 ml-3">
-                    Meneer Schuyten
-                  </span>
-                )}
-                <div className={`
-                  flex gap-3 ${message.role === 'assistant' ? 'justify-start' : 'justify-end'}
-                  w-full
+            {messages
+              .filter(message => message.role !== 'system')
+              .map(message => (
+                <div key={message.id} className={`
+                  flex flex-col gap-1 ${message.role === 'assistant' ? 'items-start' : 'items-end'}
                 `}>
+                  {message.role === 'assistant' && (
+                    <span className="text-sm text-gray-500 dark:text-gray-400 ml-3">
+                      Meneer Schuyten
+                    </span>
+                  )}
                   <div className={`
-                    max-w-[80%] rounded-lg p-3 
-                    prose dark:prose-invert
-                    prose-pre:max-w-full prose-pre:overflow-x-auto
-                    prose-img:max-w-full prose-img:rounded
-                    prose-code:whitespace-pre-wrap
-                    ${message.role === 'assistant' 
-                      ? (darkMode ? 'bg-gray-700' : 'bg-gray-100')
-                      : (darkMode ? 'bg-blue-600' : 'bg-blue-500 text-white')}
+                    flex gap-3 ${message.role === 'assistant' ? 'justify-start' : 'justify-end'}
+                    w-full
                   `}>
-                    <div className="max-w-full overflow-x-auto">
-                      <MemoizedMarkdown content={message.content} id={message.id} />
+                    <div className={`
+                      max-w-[80%] rounded-lg p-3 
+                      prose dark:prose-invert
+                      prose-pre:max-w-full prose-pre:overflow-x-auto
+                      prose-img:max-w-full prose-img:rounded
+                      prose-code:whitespace-pre-wrap
+                      ${message.role === 'assistant' 
+                        ? (darkMode ? 'bg-gray-700' : 'bg-gray-100')
+                        : (darkMode ? 'bg-blue-600' : 'bg-blue-500 text-white')}
+                    `}>
+                      <div className="max-w-full overflow-x-auto">
+                        <MemoizedMarkdown content={message.content} id={message.id} />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
 
           {/* Input Form */}
@@ -832,7 +852,14 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
         <p>&copy; 2024 INW - door Matthias Schuyten. Alle rechten voorbehouden.</p>
       </footer>
       
-      <ChatInterface darkMode={darkMode} />
+      <ChatInterface 
+        darkMode={darkMode} 
+        currentContent={
+          selectedCourse && selectedSubchapter 
+            ? chapterContent[selectedCourse as keyof typeof chapterContent]?.[selectedSubchapter as keyof (typeof chapterContent)[keyof typeof chapterContent]]
+            : undefined
+        }
+      />
     </div>
   )
 }
