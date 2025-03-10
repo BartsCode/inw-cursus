@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react'
 import { ComponentPropsWithoutRef } from 'react';
-import { BookOpen, ChevronRight, Sun, Moon, ChevronDown, Menu, MessageCircle, X } from 'lucide-react'
+import { BookOpen, ChevronRight, Sun, Moon, ChevronDown, Menu, MessageCircle, X, ChevronLeft } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vs } from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -19,6 +19,7 @@ import chapter2_1_5WWI from '../content/5WWI/chapter2_1.md'
 import chapter2_2_5WWI from '../content/5WWI/chapter2_2.md'
 import chapter2_3_5WWI from '../content/5WWI/chapter2_3.md'
 import chapter2_4_5WWI from '../content/5WWI/chapter2_4.md'
+import chapter4_4_5WWI from '../content/5WWI/chapter4_4.md'
 
 import chapter1_1_5BWE from '../content/5BWE/chapter1_1.md'
 import chapter2_1_5BWE from '../content/5BWE/chapter2_1.md'
@@ -49,6 +50,9 @@ import chapter3_3_5BCW from '../content/5BCW/chapter3_3.md'
 import chapter4_1_5BCW from '../content/5BCW/chapter4_1.md'
 import chapter4_2_5BCW from '../content/5BCW/chapter4_2.md'
 import chapter4_3_5BCW from '../content/5BCW/chapter4_3.md'
+import chapter4_4_5BCW from '../content/5BCW/chapter4_4.md'
+import chapter4_5_5BCW from '../content/5BCW/chapter4_5.md'
+import chapter4_6_5BCW from '../content/5BCW/chapter4_6.md'
 import { useChat } from 'ai/react'
 import { MemoizedMarkdown } from './memoized-markdown'
 
@@ -94,6 +98,9 @@ const courses = [
           { id: '4.1', title: "4.1 Lijsten" },
           { id: '4.2', title: "4.2 Itereren over Lijsten" },
           { id: '4.3', title: "4.3 Oefeningen" },
+          { id: '4.4', title: "4.4 Dictionaries (Woordenboeken)" },
+          { id: '4.5', title: "4.5 While Loops" },
+          { id: '4.6', title: "4.6 Oefeningen: Dictionaries en While Loops" },
         ]
       },
     ]
@@ -368,6 +375,9 @@ const courses = [
           { id: '4.1', title: "4.1 Lijsten" },
           { id: '4.2', title: "4.2 Itereren over Lijsten" },
           { id: '4.3', title: "4.3 Oefeningen" },
+          { id: '4.4', title: "4.4 Dictionaries (Woordenboeken)" },
+          { id: '4.5', title: "4.5 While Loops" },
+          { id: '4.6', title: "4.6 Oefeningen: Dictionaries en While Loops" },
         ]
       },
     ]
@@ -389,6 +399,9 @@ const chapterContent = {
     '4.1': chapter4_1_5BCW,
     '4.2': chapter4_2_5BCW,
     '4.3': chapter4_3_5BCW,
+    '4.4': chapter4_4_5WWI,
+    '4.5': chapter4_5_5BCW,
+    '4.6': chapter4_6_5BCW,
   },
   'inw-5bwe': {
     '1.1': chapter1_1_5BWE,
@@ -422,6 +435,9 @@ const chapterContent = {
     '4.1': chapter4_1_5BCW,
     '4.2': chapter4_2_5BCW,
     '4.3': chapter4_3_5BCW,
+    '4.4': chapter4_4_5BCW,
+    '4.5': chapter4_5_5BCW,
+    '4.6': chapter4_6_5BCW,
   },
 };
 
@@ -683,8 +699,9 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
             <button 
               onClick={() => setIsSidebarOpen(!isSidebarOpen)} 
               className="mr-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 border border-black dark:border-white"
+              aria-label={isSidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
             >
-              <Menu className="w-6 h-6" />
+              {isSidebarOpen ? <ChevronLeft className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
             <h1 className="text-2xl font-bold">
               {selectedCourse ? courses.find(c => c.id === selectedCourse)?.title : 'Informaticawetenschappen'}
@@ -700,53 +717,76 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
         ) : (
           <div className="flex flex-1 p-8 gap-8">
             <nav className={`
-              ${isSidebarOpen ? 'w-64 p-4' : 'w-0 p-0'} 
+              ${isSidebarOpen ? 'w-64 p-4' : 'w-16 p-2'} 
               overflow-hidden transition-all duration-300 
               bg-white dark:bg-gray-800 rounded-lg shadow-lg 
               border-2 border-black dark:border-white
             `}>
-              <div className={`${isSidebarOpen ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}>
-                <h2 className="text-xl font-semibold mb-4">Hoofdstukken</h2>
-                <ul>
+              {isSidebarOpen ? (
+                <div className="opacity-100 transition-opacity duration-300">
+                  <h2 className="text-xl font-semibold mb-4">Hoofdstukken</h2>
+                  <ul>
+                    {courses.find(c => c.id === selectedCourse)?.chapters.map((chapter) => (
+                      <li key={chapter.id} className="mb-2">
+                        <button
+                          onClick={() => toggleChapterExpansion(chapter.id)}
+                          className={`flex items-center w-full p-2 rounded-lg transition duration-300 ${
+                            selectedChapter === chapter.id 
+                              ? 'bg-black text-white dark:bg-white dark:text-black' 
+                              : 'hover:bg-gray-200 dark:hover:bg-gray-700'
+                          }`}
+                        >
+                          <BookOpen className="w-4 h-4 mr-2 flex-shrink-0" />
+                          <span className="text-left truncate">{chapter.title}</span>
+                          <ChevronDown className={`w-4 h-4 ml-auto flex-shrink-0 transition-transform duration-300 ${expandedChapters[chapter.id] ? 'transform rotate-180' : ''}`} />
+                        </button>
+                        {expandedChapters[chapter.id] && (
+                          <ul className="ml-4 mt-2">
+                            {chapter.subchapters.map((subchapter) => (
+                              <li key={subchapter.id}>
+                                <button
+                                  onClick={() => {
+                                    router.push(`${pathname}?course=${selectedCourse}&chapter=${chapter.id}&subchapter=${subchapter.id}`)
+                                  }}
+                                  className={`flex items-center w-full p-2 rounded-lg transition duration-300 ${
+                                    selectedSubchapter === subchapter.id
+                                      ? 'bg-gray-300 dark:bg-gray-600'
+                                      : 'hover:bg-gray-200 dark:hover:bg-gray-700'
+                                  }`}
+                                >
+                                  <ChevronRight className="w-4 h-4 mr-2 flex-shrink-0" />
+                                  <span className="text-left truncate">{subchapter.title}</span>
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <div className="flex flex-col items-center">
                   {courses.find(c => c.id === selectedCourse)?.chapters.map((chapter) => (
-                    <li key={chapter.id} className="mb-2">
-                      <button
-                        onClick={() => toggleChapterExpansion(chapter.id)}
-                        className={`flex items-center w-full p-2 rounded-lg transition duration-300 ${
-                          selectedChapter === chapter.id 
-                            ? 'bg-black text-white dark:bg-white dark:text-black' 
-                            : 'hover:bg-gray-200 dark:hover:bg-gray-700'
-                        }`}
-                      >
-                        <BookOpen className="w-4 h-4 mr-2" />
-                        <span>{chapter.title}</span>
-                        <ChevronDown className={`w-4 h-4 ml-auto transition-transform duration-300 ${expandedChapters[chapter.id] ? 'transform rotate-180' : ''}`} />
-                      </button>
-                      {expandedChapters[chapter.id] && (
-                        <ul className="ml-4 mt-2">
-                          {chapter.subchapters.map((subchapter) => (
-                            <li key={subchapter.id}>
-                              <button
-                                onClick={() => {
-                                  router.push(`${pathname}?course=${selectedCourse}&chapter=${chapter.id}&subchapter=${subchapter.id}`)
-                                }}
-                                className={`flex items-center w-full p-2 rounded-lg transition duration-300 ${
-                                  selectedSubchapter === subchapter.id
-                                    ? 'bg-gray-300 dark:bg-gray-600'
-                                    : 'hover:bg-gray-200 dark:hover:bg-gray-700'
-                                }`}
-                              >
-                                <ChevronRight className="w-4 h-4 mr-2" />
-                                <span>{subchapter.title}</span>
-                              </button>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </li>
+                    <button
+                      key={chapter.id}
+                      onClick={() => {
+                        setIsSidebarOpen(true);
+                        toggleChapterExpansion(chapter.id);
+                      }}
+                      className={`p-2 mb-2 rounded-lg transition duration-300 flex items-center ${
+                        selectedChapter === chapter.id 
+                          ? 'bg-black text-white dark:bg-white dark:text-black' 
+                          : 'hover:bg-gray-200 dark:hover:bg-gray-700'
+                      }`}
+                      title={chapter.title}
+                    >
+                      <BookOpen className="w-5 h-5 mr-1" />
+                      <span className="text-sm font-semibold">{chapter.id}</span>
+                    </button>
                   ))}
-                </ul>
-              </div>
+                </div>
+              )}
             </nav>
             
             <main className="flex-1 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg border-2 border-black dark:border-white overflow-auto">
