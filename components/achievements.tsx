@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Award, Check, Star, BookOpen, Code, Brain, X } from 'lucide-react';
 
 export function Achievements({ currentCourse }: { currentCourse: string }) {
-  const [achievements, setAchievements] = useState([]);
+  const [achievements, setAchievements] = useState<string[]>([]);
   const [showAchievements, setShowAchievements] = useState(false);
   
   const achievementsList = [
@@ -23,18 +23,6 @@ export function Achievements({ currentCourse }: { currentCourse: string }) {
       setAchievements(JSON.parse(savedAchievements));
     }
   }, [currentCourse]);
-  
-  // This function would be called when a new achievement is unlocked
-  const unlockAchievement = (achievementId: string) => {
-    if (!achievements.includes(achievementId)) {
-      const newAchievements = [...achievements, achievementId];
-      setAchievements(newAchievements);
-      localStorage.setItem(`achievements_${currentCourse}`, JSON.stringify(newAchievements));
-      
-      // Show notification
-      // ...
-    }
-  };
   
   return (
     <>

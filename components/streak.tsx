@@ -5,7 +5,8 @@ import { Flame } from 'lucide-react';
 
 export function Streak() {
   const [currentStreak, setCurrentStreak] = useState(0);
-  const [lastVisit, setLastVisit] = useState(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_lastVisit, setLastVisit] = useState<null | string>(null);
   
   useEffect(() => {
     // Load streak data from localStorage
