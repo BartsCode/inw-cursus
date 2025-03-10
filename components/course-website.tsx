@@ -55,6 +55,12 @@ import chapter4_5_5BCW from '../content/5BCW/chapter4_5.md'
 import chapter4_6_5BCW from '../content/5BCW/chapter4_6.md'
 import { useChat } from 'ai/react'
 import { MemoizedMarkdown } from './memoized-markdown'
+import { Streak } from './streak';
+import { Achievements } from './achievements';
+import { Leaderboard } from './leaderboard';
+import { Quiz } from './quiz';
+import { CodeChallenge } from './code-challenge';
+import { ChapterQuiz } from './chapter-quiz';
 
 
 const courses = [
@@ -691,6 +697,25 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
     </div>
   )
 
+  const getChapterTitle = () => {
+    if (!selectedCourse || !selectedChapter || !selectedSubchapter) return '';
+    
+    const course = courses.find(c => c.id === selectedCourse);
+    if (!course) return '';
+    
+    const chapter = course.chapters.find(c => c.id === Number(selectedChapter));
+    if (!chapter) return '';
+    
+    const subchapter = chapter.subchapters.find(s => s.id === selectedSubchapter);
+    return subchapter ? subchapter.title : '';
+  };
+
+  const getChapterContent = () => {
+    if (!selectedCourse || !selectedSubchapter) return '';
+    
+    return chapterContent[selectedCourse as keyof typeof chapterContent]?.[selectedSubchapter as keyof (typeof chapterContent)[keyof typeof chapterContent]] || '';
+  };
+
   return (
     <div className={`flex flex-col min-h-screen ${darkMode ? 'dark' : ''}`}>
       <div className="flex-1 transition-colors duration-300 bg-gray-100 dark:bg-gray-900 text-black dark:text-white">
@@ -889,7 +914,7 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
       </div>
       
       <footer className="bg-white dark:bg-black p-4 text-center text-sm border-t-2 border-black dark:border-white">
-        <p>&copy; 2024 INW - door Matthias Schuyten. Alle rechten voorbehouden.</p>
+        <p>&copy; 2025 INW - door Matthias Schuyten. Alle rechten voorbehouden.</p>
       </footer>
       
       <ChatInterface 
@@ -900,6 +925,34 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
             : undefined
         }
       />
+
+      {selectedCourse && (
+        <div className="bg-white dark:bg-gray-800 p-4 mb-4 rounded-lg shadow-md border-2 border-black dark:border-white">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <ProgressBar 
+              currentCourse={selectedCourse} 
+              currentChapter={selectedChapter} 
+              currentSubchapter={selectedSubchapter} 
+            />
+            
+            <div className="flex items-center gap-3">
+              <Streak />
+              <Achievements currentCourse={selectedCourse} />
+              <Leaderboard />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {selectedChapter && selectedSubchapter && (
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border-2 border-black dark:border-white">
+          
+          <ChapterQuiz 
+            chapterId={selectedSubchapter} 
+            currentCourse={selectedCourse!} 
+          />
+        </div>
+      )}
     </div>
   )
 }
@@ -924,4 +977,43 @@ function ResumeButton() {
       Hervat laatste positie
     </button>
   )
+}
+
+function ProgressBar({ currentCourse, currentChapter, currentSubchapter }: { 
+  currentCourse: string; 
+  currentChapter: number | string; 
+  currentSubchapter: string; 
+}) {
+  const [progress, setProgress] = useState(0);
+  
+  useEffect(() => {
+    // Load progress from localStorage
+    const savedProgress = localStorage.getItem(`progress_${currentCourse}`);
+    const progressData = savedProgress ? JSON.parse(savedProgress) : { completed: [] };
+    
+    // Calculate percentage based on completed chapters
+    const course = courses.find(c => c.id === currentCourse);
+    if (course) {
+      const totalSubchapters = course.chapters.reduce(
+        (total, chapter) => total + chapter.subchapters.length, 0
+      );
+      const completedCount = progressData.completed.length;
+      setProgress(Math.round((completedCount / totalSubchapters) * 100));
+    }
+  }, [currentCourse, currentChapter, currentSubchapter]);
+  
+  return (
+    <div className="mb-4">
+      <div className="flex justify-between mb-1">
+        <span className="text-sm font-medium">Voortgang</span>
+        <span className="text-sm font-medium">{progress}%</span>
+      </div>
+      <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+        <div 
+          className="bg-blue-600 h-2.5 rounded-full transition-all duration-500" 
+          style={{ width: `${progress}%` }}
+        ></div>
+      </div>
+    </div>
+  );
 }
