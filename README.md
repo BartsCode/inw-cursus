@@ -45,7 +45,7 @@ Als u de inhoud wilt aanpassen aan uw specifieke leerplan:
     - Navigeer naar de map waar u het project wilt opslaan
     - Voer de volgende commando's uit:
       ```
-      git clone https://github.com/UW-GITHUB-GEBRUIKERSNAAM/informaticawetenschappen.git
+      git clone https://github.com/Schuyten/inw-cursus.git
       cd informaticawetenschappen
       npm install
       npm run dev
@@ -123,8 +123,8 @@ Als u de inhoud wilt aanpassen aan uw specifieke leerplan:
  ## Ondersteuning
  
  Heeft u vragen of loopt u tegen problemen aan? Neem contact op via:
- - GitHub Issues: [https://github.com/username/informaticawetenschappen/issues](https://github.com/username/informaticawetenschappen/issues)
- - E-mail: [support@informaticawetenschappen.be](mailto:support@informaticawetenschappen.be)
+ - GitHub Issues: [https://github.com/Schuyten/inw-cursus/issues](https://github.com/Schuyten/inw-cursus/issues)
+ - E-mail: [support@informaticawetenschappen.com](mailto:support@informaticawetenschappen.com)
  
  ## Bijdragen
  
