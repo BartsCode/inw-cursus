@@ -36,12 +36,12 @@ Je kunt de waarde van een specifieke sleutel opvragen door de sleutel tussen vie
 
 ```python
 student = {
-    "naam": "Jolan",
+    "naam": "Tobe",
     "leeftijd": 17,
     "klas": "5WWI"
 }
 
-print(student["naam"])  # Output: Jolan
+print(student["naam"])  # Output: Tobe
 print(student["leeftijd"])  # Output: 17
 ```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
@@ -50,7 +50,7 @@ Als je probeert een sleutel te benaderen die niet bestaat, krijg je een `KeyErro
 
 ```python
 student = {
-    "naam": "Nona",
+    "naam": "Mick",
     "leeftijd": 17,
     "klas": "5WWI"
 }
@@ -120,9 +120,9 @@ De standaard manier om over een dictionary te itereren is over de sleutels.
 
 ```python
 student = {
-    "naam": "Enes",
+    "naam": "Tille",
     "leeftijd": 17,
-    "klas": "5EWI"
+    "klas": "5WWI"
 }
 
 # Itereren over sleutels
@@ -174,7 +174,7 @@ Dictionaries kunnen complexe datastructuren bevatten, inclusief andere dictionar
 ```python
 school = {
     "5WWI": {
-        "klasleraar": "P. Janssens",
+        "klasleraar": "M. Schuyten",
         "lokaal": "B12",
         "studenten": ["Marjotte", "Jolan", "Nona", "Rosie"]
     },
@@ -184,7 +184,7 @@ school = {
         "studenten": ["Enes", "Moya", "Daniel", "Hafsa", "Yassin"]
     },
     "5LWI": {
-        "klasleraar": "M. Schuyten",
+        "klasleraar": "P. Janssens",
         "lokaal": "A15",
         "studenten": ["Sebbe"]
     }
