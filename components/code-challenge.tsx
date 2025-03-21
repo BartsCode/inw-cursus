@@ -1,9 +1,19 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vs } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { Code } from 'lucide-react';
+import { Code, Loader2 } from 'lucide-react';
+import { Editor, loader } from '@monaco-editor/react';
+import type { OnMount } from '@monaco-editor/react';
+import type * as Monaco from 'monaco-editor';
+
+// Configure Monaco loader to use unpkg CDN which is allowed by CSP
+loader.config({
+  paths: {
+    vs: 'https://unpkg.com/monaco-editor@0.52.2/min/vs'
+  }
+});
 
 export function CodeChallenge({ 
   initialCode, 
@@ -24,6 +34,85 @@ export function CodeChallenge({
   const [showHint, setShowHint] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [editorError, setEditorError] = useState<string | null>(null);
+  const editorRef = useRef<Monaco.editor.IStandaloneCodeEditor | null>(null);
+
+  // Setup error handling for Monaco loader
+  useEffect(() => {
+    const handleError = (event: ErrorEvent) => {
+      // Check if this is a Monaco-related error
+      if (event.filename && (
+          event.filename.includes('monaco') || 
+          event.message.includes('monaco') ||
+          event.filename.includes('vs/loader.js')
+      )) {
+        console.error('Monaco loading error:', event);
+        setEditorError('Failed to load code editor. Using fallback editor.');
+      }
+    };
+
+    // Listen for script loading errors
+    window.addEventListener('error', handleError, true);
+
+    return () => {
+      window.removeEventListener('error', handleError, true);
+    };
+  }, []);
+
+  // Check if dark mode is enabled
+  useEffect(() => {
+    // Check the initial color scheme
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    setIsDarkMode(mediaQuery.matches || document.documentElement.classList.contains('dark'));
+
+    // Listen for changes in color scheme
+    const handleChange = (e: MediaQueryListEvent) => {
+      setIsDarkMode(e.matches || document.documentElement.classList.contains('dark'));
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    
+    // Listen for changes in class on documentElement (for manual theme toggle)
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          setIsDarkMode(document.documentElement.classList.contains('dark'));
+        }
+      });
+    });
+    
+    observer.observe(document.documentElement, { attributes: true });
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+      observer.disconnect();
+    };
+  }, []);
+
+  // Handle editor mounting
+  const handleEditorDidMount: OnMount = (editor) => {
+    editorRef.current = editor;
+  };
+
+  // Custom loading component for Monaco
+  const LoadingEditor = () => (
+    <div className="flex items-center justify-center h-48 bg-gray-50 dark:bg-gray-900 border rounded-md">
+      <div className="flex flex-col items-center gap-2">
+        <Loader2 className="h-8 w-8 animate-spin text-blue-500" />
+        <p>Loading editor...</p>
+      </div>
+    </div>
+  );
+  
+  // Fallback editor when Monaco fails to load
+  const FallbackEditor = () => (
+    <textarea
+      value={code}
+      onChange={(e) => setCode(e.target.value)}
+      className="w-full h-[300px] p-4 font-mono text-sm bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md"
+    />
+  );
   
   const runCode = async () => {
     setIsLoading(true);
@@ -75,12 +164,37 @@ export function CodeChallenge({
     <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border-2 border-black dark:border-white my-6">
       <h3 className="text-xl font-bold mb-4">Code Challenge</h3>
       
-      <div className="mb-4">
-        <textarea
-          value={code}
-          onChange={(e) => setCode(e.target.value)}
-          className="w-full h-40 p-4 font-mono text-sm bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md"
-        />
+      <div className="mb-4 border rounded-md overflow-hidden">
+        {editorError ? (
+          <FallbackEditor />
+        ) : (
+          <Editor
+            value={code}
+            language="python"
+            height="300px"
+            onChange={(value) => setCode(value || '')}
+            onMount={handleEditorDidMount}
+            loading={<LoadingEditor />}
+            options={{
+              minimap: { enabled: false },
+              scrollBeyondLastLine: false,
+              fontSize: 14,
+              tabSize: 4,
+              automaticLayout: true,
+              insertSpaces: true,
+              detectIndentation: true,
+              wordWrap: 'on',
+              renderLineHighlight: 'all',
+              bracketPairColorization: { enabled: true },
+              guides: { bracketPairs: true },
+              suggest: {
+                showKeywords: true
+              }
+            }}
+            theme={isDarkMode ? 'vs-dark' : 'light'}
+            className="w-full"
+          />
+        )}
       </div>
       
       <div className="flex flex-wrap gap-2 mb-4">

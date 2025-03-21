@@ -11,6 +11,7 @@
   "dependencies": {
     "@ai-sdk/deepseek": "^0.1.6",
     "@ai-sdk/google": "^1.1.10",
+    "@monaco-editor/react": "^4.7.0-rc.0",
     "@types/react-syntax-highlighter": "^15.5.13",
     "@vercel/analytics": "^1.4.1",
     "ai": "^4.1.12",
