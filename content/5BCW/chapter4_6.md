@@ -74,7 +74,60 @@ Telefoonboek Menu:
 
 ---
 
-### Oefening 4: Woordenboekvertaler
+### Oefening 4: Cijferanalyse
+* **Moeilijkheidsgraad:** ★★☆☆☆
+
+Schrijf een programma dat een dictionary gebruikt om punten bij te houden. Gebruik de volgende data:
+
+```python
+cijfers = {
+    "Nederlands": 7,
+    "Engels": 6,
+    "Wiskunde": 8,
+    "Informatica": 9,
+    "Geschiedenis": 5,
+    "Aardrijkskunde": 7,
+    "Biologie": 6
+}
+```
+
+Het programma moet de volgende analyses uitvoeren en weergeven:
+1. Het gemiddelde cijfer (afgerond op 1 decimaal)
+2. Het hoogste cijfer en bijbehorende vak
+3. Het laagste cijfer en bijbehorende vak
+4. Een lijst van alle vakken met een voldoende (cijfer ≥ 6)
+5. Een lijst van alle vakken met een onvoldoende (cijfer < 6)
+
+Gebruik for loops om door de dictionary te itereren.
+
+---
+
+### Oefening 5: Dictionary Transformatie
+* **Moeilijkheidsgraad:** ★★★☆☆
+
+Maak een programma dat een dictionary met producten en prijzen transformeert op verschillende manieren:
+
+```python
+producten = {
+    "appel": 0.75,
+    "banaan": 1.20,
+    "sinaasappel": 1.50,
+    "kiwi": 2.00,
+    "druiven": 2.50,
+    "mango": 1.95,
+    "ananas": 3.25
+}
+```
+
+Het programma moet de volgende transformaties uitvoeren en telkens het resultaat weergeven:
+
+1. Verhoog alle prijzen met 5% (gebruik een gewone for loop)
+2. Maak een nieuwe dictionary met alleen producten die duurder zijn dan €1.50 (gebruik een for loop met conditie)
+3. Maak een nieuwe dictionary waarbij alle sleutels in hoofdletters staan
+
+---
+
+### Oefening 6: Woordenboekvertaler
 * **Moeilijkheidsgraad:** ★★★☆☆
 
 Maak een eenvoudige woordenboekvertaler met behulp van een geneste dictionary. De vertaler moet woorden kunnen vertalen van Nederlands naar Engels, Frans en Duits.
@@ -96,7 +149,7 @@ Vervolgens moet het programma de vertaling weergeven of een bericht dat het woor
 
 ---
 
-### Oefening 5: Studentenbeheer
+### Oefening 7: Studentenbeheer
 * **Moeilijkheidsgraad:** ★★★★☆
 
 Maak een programma voor studentenbeheer met behulp van dictionaries. Elke student heeft een uniek studentnummer en de volgende gegevens:
@@ -117,14 +170,14 @@ Het programma moet de volgende functionaliteiten hebben:
 
 ## Oefeningen met While Loops
 
-### Oefening 6: Aftellen
+### Oefening 8: Aftellen
 * **Moeilijkheidsgraad:** ★☆☆☆☆
 
 Schrijf een programma dat aftelt van 10 naar 1 en vervolgens "Start!" print. Gebruik een while-loop.
 
 ---
 
-### Oefening 7: Raad het Getal
+### Oefening 9: Raad het Getal
 * **Moeilijkheidsgraad:** ★★☆☆☆
 
 Schrijf een programma dat een willekeurig getal genereert tussen 1 en 100. De gebruiker moet dit getal raden. Na elke gok moet het programma aangeven of het getal te hoog, te laag of correct is. Het programma moet doorgaan totdat de gebruiker het juiste getal heeft geraden of opgeeft door 'q' in te voeren.
@@ -133,7 +186,7 @@ Schrijf een programma dat een willekeurig getal genereert tussen 1 en 100. De ge
 
 ---
 
-### Oefening 8: Wachtwoordvalidatie
+### Oefening 10: Wachtwoordvalidatie
 * **Moeilijkheidsgraad:** ★★★☆☆
 
 Schrijf een programma dat de gebruiker vraagt om een wachtwoord in te voeren. Het wachtwoord moet aan de volgende criteria voldoen:
@@ -148,7 +201,7 @@ Het programma moet blijven vragen om een wachtwoord totdat aan alle criteria is 
 
 ---
 
-### Oefening 9: Rekenmachine
+### Oefening 11: Rekenmachine
 * **Moeilijkheidsgraad:** ★★★☆☆
 
 Maak een eenvoudige rekenmachine die de gebruiker vraagt om twee getallen en een operator (+, -, *, /). Het programma moet de berekening uitvoeren en het resultaat weergeven. Gebruik een while-loop om het programma te laten doorgaan totdat de gebruiker besluit te stoppen.
@@ -166,7 +219,7 @@ Wil je nog een berekening uitvoeren? (ja/nee): ja
 
 ---
 
-### Oefening 10: Fibonacci-reeks
+### Oefening 12: Fibonacci-reeks
 * **Moeilijkheidsgraad:** ★★★★☆
 
 Schrijf een programma dat de Fibonacci-reeks genereert tot een door de gebruiker opgegeven limiet. De Fibonacci-reeks begint met 0 en 1, en elk volgend getal is de som van de twee voorgaande getallen (0, 1, 1, 2, 3, 5, 8, 13, ...).
@@ -175,7 +228,7 @@ Gebruik een while-loop om de reeks te genereren en sla de getallen op in een lij
 
 ---
 
-### Oefening 11: Priemgetallen
+### Oefening 13: Priemgetallen
 * **Moeilijkheidsgraad:** ★★★★☆
 
 Schrijf een programma dat alle priemgetallen vindt tot een door de gebruiker opgegeven limiet. Een priemgetal is een getal groter dan 1 dat alleen deelbaar is door 1 en zichzelf.
@@ -186,7 +239,7 @@ Gebruik een while-loop voor de hoofditeratie en een geneste loop om te controler
 
 ## Gecombineerde Oefeningen
 
-### Oefening 12: Woordenspel
+### Oefening 14: Woordenspel
 * **Moeilijkheidsgraad:** ★★★★☆
 
 Maak een woordenspel waarbij de computer een willekeurig woord kiest uit een lijst en de gebruiker dit woord moet raden. De gebruiker raadt één letter per keer. Als de letter in het woord voorkomt, wordt deze onthuld; zo niet, dan verliest de gebruiker een leven.
@@ -210,7 +263,7 @@ Levens: 5
 
 ---
 
-### Oefening 13: Quiz
+### Oefening 15: Quiz
 * **Moeilijkheidsgraad:** ★★★★★
 
 Maak een quizprogramma met behulp van dictionaries en while-loops. De quiz moet meerdere vragen bevatten, elk met meerdere antwoordopties. De gebruiker moet het juiste antwoord kiezen.
@@ -233,5 +286,3 @@ Het programma moet:
 2. De score bijhouden
 3. Aan het einde de totale score weergeven
 4. De mogelijkheid bieden om de quiz opnieuw te spelen
-
-*Uitbreiding:* Voeg een tijdslimiet toe voor elke vraag.

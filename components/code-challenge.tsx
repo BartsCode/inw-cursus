@@ -20,13 +20,15 @@ export function CodeChallenge({
   expectedOutput, 
   hint, 
   solution, 
-  onComplete 
+  onComplete,
+  showSolutionButton = false
 }: { 
   initialCode: string;
   expectedOutput: string;
   hint: string;
   solution: string;
   onComplete?: () => void;
+  showSolutionButton?: boolean;
 }) {
   const [code, setCode] = useState(initialCode);
   const [output, setOutput] = useState('');
@@ -136,17 +138,69 @@ export function CodeChallenge({
       if (data.error) {
         setOutput(data.output || 'An error occurred');
       } else {
-        // Extract output from the response
-        const outputText = data.output || 'No output';
+        // Extract output from the response and clean it
+        let outputText = data.output || 'No output';
+        
+        // Clean the output by removing "Exited with code 0" and any trailing/leading whitespace
+        outputText = outputText.replace(/Exited with code \d+/g, '').trim();
+        
         setOutput(outputText);
         
         // Check if output matches expected output
-        const normalizedOutput = outputText.trim().replace(/'/g, '"');
-        const normalizedExpected = expectedOutput.trim().replace(/'/g, '"');
-        setIsCorrect(normalizedOutput === normalizedExpected);
+        let isOutputCorrect = false;
+        
+        // Special handling for dictionary outputs
+        if (expectedOutput.trim().startsWith('{') && expectedOutput.trim().endsWith('}') && 
+            outputText.trim().startsWith('{') && outputText.trim().endsWith('}')) {
+          try {
+            // Extract just the dictionary part from the output if it contains other text
+            const dictRegex = /(\{[^{]*?\})/;
+            const outputDictMatch = outputText.match(dictRegex);
+            const actualDictText = outputDictMatch ? outputDictMatch[1] : outputText;
+            
+            // Convert both outputs to dictionaries for comparison
+            const expectedDict = JSON.parse(expectedOutput.replace(/'/g, '"'));
+            // Need to handle Python's single quotes in the output
+            const actualDict = JSON.parse(actualDictText.replace(/'/g, '"'));
+            
+            console.log("Comparing dictionaries:", { expected: expectedDict, actual: actualDict });
+            
+            // Compare dictionaries
+            isOutputCorrect = 
+              // Check if all expected keys exist in actual output with correct values
+              Object.keys(expectedDict).every(key => 
+                Object.prototype.hasOwnProperty.call(actualDict, key) && 
+                expectedDict[key] === actualDict[key]
+              ) && 
+              // Check if all actual keys exist in expected output
+              Object.keys(actualDict).every(key => 
+                Object.prototype.hasOwnProperty.call(expectedDict, key)
+              );
+          } catch (e) {
+            // If parsing fails, fall back to string comparison after cleaning
+            console.error("Error comparing dictionaries:", e);
+            
+            // Try to extract just the dictionary part
+            const dictRegex = /(\{[^{]*?\})/;
+            const expectedMatch = expectedOutput.match(dictRegex);
+            const outputMatch = outputText.match(dictRegex);
+            
+            const normalizedOutput = outputMatch ? outputMatch[1].trim().replace(/'/g, '"') : outputText.trim().replace(/'/g, '"');
+            const normalizedExpected = expectedMatch ? expectedMatch[1].trim().replace(/'/g, '"') : expectedOutput.trim().replace(/'/g, '"');
+            
+            isOutputCorrect = normalizedOutput === normalizedExpected;
+          }
+        } else {
+          // For non-dictionary outputs, use normal string comparison
+          const normalizedOutput = outputText.trim().replace(/'/g, '"');
+          const normalizedExpected = expectedOutput.trim().replace(/'/g, '"');
+          isOutputCorrect = normalizedOutput === normalizedExpected;
+        }
+        
+        setIsCorrect(isOutputCorrect);
         
         // Call onComplete if the answer is correct and the callback exists
-        if (normalizedOutput === normalizedExpected && onComplete) {
+        if (isOutputCorrect && onComplete) {
           onComplete();
         }
       }
@@ -216,12 +270,14 @@ export function CodeChallenge({
           {showHint ? 'Hide Hint' : 'Show Hint'}
         </button>
         
-        <button 
-          onClick={() => setShowSolution(!showSolution)}
-          className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded"
-        >
-          {showSolution ? 'Hide Solution' : 'Show Solution'}
-        </button>
+        {showSolutionButton && (
+          <button 
+            onClick={() => setShowSolution(!showSolution)}
+            className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded"
+          >
+            {showSolution ? 'Hide Solution' : 'Show Solution'}
+          </button>
+        )}
       </div>
       
       {showHint && (

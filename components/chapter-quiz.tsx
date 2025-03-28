@@ -61,33 +61,36 @@ const dictionaryQuizQuestions = [
 
 // Dictionary code challenge
 const dictionaryCodeChallenge = {
-  initialCode: `# Schrijf een functie die de frequentie van elk woord in een tekst telt
-# en het resultaat teruggeeft als een dictionary
+  initialCode: `# Maak een functie die een dictionary teruggeeft met 
+# studenten als sleutels en hun leeftijden als waarden
 
-def tel_woorden(tekst):
+def maak_leeftijd_dictionary():
+    # Gebruik deze gegevens
+    namen = ["Anna", "Bram", "Chen", "Daan", "Emma"]
+    leeftijden = [16, 17, 15, 16, 17]
+    
     # Jouw code hier
-    pass
+    
+    return student_leeftijden
 
 # Test je functie
-tekst = "de kat zit op de mat de kat is zwart"
-print(tel_woorden(tekst))`,
-  expectedOutput: "{'de': 3, 'kat': 2, 'zit': 1, 'op': 1, 'mat': 1, 'is': 1, 'zwart': 1}",
-  hint: "Split de tekst in woorden met de split() methode, en gebruik dan een dictionary om bij te houden hoe vaak elk woord voorkomt.",
-  solution: `def tel_woorden(tekst):
-    woorden = tekst.split()
-    frequentie = {}
+print(maak_leeftijd_dictionary())`,
+  expectedOutput: "{'Anna': 16, 'Bram': 17, 'Chen': 15, 'Daan': 16, 'Emma': 17}",
+  hint: "Begin met een lege dictionary",
+  solution: `def maak_leeftijd_dictionary():
+    # Gebruik deze gegevens
+    namen = ["Anna", "Bram", "Chen", "Daan", "Emma"]
+    leeftijden = [16, 17, 15, 16, 17]
     
-    for woord in woorden:
-        if woord in frequentie:
-            frequentie[woord] += 1
-        else:
-            frequentie[woord] = 1
+    # Methode 1: met indexen
+    student_leeftijden = {}
+    for i in range(len(namen)):
+        student_leeftijden[namen[i]] = leeftijden[i]
     
-    return frequentie
+    return student_leeftijden
 
 # Test je functie
-tekst = "de kat zit op de mat de kat is zwart"
-print(tel_woorden(tekst))`
+print(maak_leeftijd_dictionary())`
 };
 
 // Add a type for the chapter content
@@ -124,7 +127,7 @@ const chapterContent: ChapterContentType = {
 };
 
 export function ChapterQuiz({ 
-  chapterId, 
+  chapterId,
   currentCourse,
   modalMode = false
 }: { 
@@ -233,10 +236,9 @@ export function ChapterQuiz({
               </button>
             </div>
             
-            <Quiz 
-              questions={content.quiz} 
-              onComplete={(score, total) => markQuizCompleted(score, total)}
-            />
+            <Quiz questions={content.quiz} onComplete={(score, total) => {
+              markQuizCompleted(score, total);
+            }} />
           </div>
         </div>
       )}
@@ -259,7 +261,10 @@ export function ChapterQuiz({
               expectedOutput={content.codeChallenge.expectedOutput}
               hint={content.codeChallenge.hint}
               solution={content.codeChallenge.solution}
-              onComplete={markChallengeCompleted}
+              onComplete={() => {
+                markChallengeCompleted();
+              }}
+              showSolutionButton={false}
             />
           </div>
         </div>

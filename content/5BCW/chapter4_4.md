@@ -167,6 +167,55 @@ for sleutel, waarde in student.items():
 ```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
+## Combineren van For Loops en Dictionaries
+
+Dictionaries en for loops vormen samen een krachtige combinatie om data te verwerken en te transformeren.
+
+### Filteren van Dictionaries
+
+Je kunt een for loop gebruiken om een nieuwe dictionary te maken die alleen bepaalde sleutel-waarde paren bevat op basis van een conditie.
+
+```python
+scores = {
+    "Nederlands": 7,
+    "Wiskunde": 8,
+    "Engels": 6,
+    "Informatica": 9,
+    "Geschiedenis": 5
+}
+
+# Maak een nieuwe dictionary met alleen vakken met een voldoende (≥ 6)
+voldoendes = {}
+for vak, cijfer in scores.items():
+    if cijfer >= 6:
+        voldoendes[vak] = cijfer
+
+print(voldoendes)
+```
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+### Transformeren van Dictionaries
+
+Je kunt een for loop gebruiken om een nieuwe dictionary te maken die is afgeleid van een bestaande dictionary, maar met getransformeerde waarden.
+
+```python
+prijzen = {
+    "appel": 0.80,
+    "banaan": 1.20,
+    "sinaasappel": 1.50,
+    "kiwi": 2.00
+}
+
+# Verhoog alle prijzen met 10%
+nieuwe_prijzen = {}
+for product, prijs in prijzen.items():
+    nieuwe_prijzen[product] = round(prijs * 1.10, 2)
+
+print(nieuwe_prijzen)
+```
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+
 ## Geneste Dictionaries
 
 Dictionaries kunnen complexe datastructuren bevatten, inclusief andere dictionaries.
