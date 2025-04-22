@@ -19,16 +19,7 @@ export function Leaderboard() {
     // In a real implementation, this would fetch from a backend
     // For demo purposes, we'll use mock data
     const mockData = [
-      { name: "Marjotte", points: 850, completedChallenges: 12 },
-      { name: "Jolan", points: 720, completedChallenges: 10 },
-      { name: "Nona", points: 680, completedChallenges: 9 },
-      { name: "Rosie", points: 650, completedChallenges: 8 },
-      { name: "Sebbe", points: 620, completedChallenges: 8 },
-      { name: "Enes", points: 590, completedChallenges: 7 },
-      { name: "Moya", points: 540, completedChallenges: 7 },
-      { name: "Daniel", points: 510, completedChallenges: 6 },
-      { name: "Hafsa", points: 480, completedChallenges: 6 },
-      { name: "Yassin", points: 450, completedChallenges: 5 },
+      { name: "Mick", points: 50, completedChallenges: 1 },
     ];
     
     setLeaderboardData(mockData);
