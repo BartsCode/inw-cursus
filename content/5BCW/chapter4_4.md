@@ -186,7 +186,7 @@ school = {
 }
 
 # Toegang tot geneste waarden
-print(school["5BCW"]["klassenleraar"])  # Output: Mevr. Janssens
+print(school["5BCW"]["klasleraar"])  # Output: Mevr. Janssens
 print(school["5WWI"]["studenten"][1])   # Output: Thomas
 ```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
