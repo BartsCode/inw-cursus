@@ -53,6 +53,8 @@ import chapter4_3_5BCW from '../content/5BCW/chapter4_3.md'
 import chapter4_4_5BCW from '../content/5BCW/chapter4_4.md'
 import chapter4_5_5BCW from '../content/5BCW/chapter4_5.md'
 import chapter4_6_5BCW from '../content/5BCW/chapter4_6.md'
+import chapter5_1_5BCW from '../content/5BCW/chapter5_1.md'
+import chapter5_2_5BCW from '../content/5BCW/chapter5_2.md'
 import { useChat } from 'ai/react'
 import { MemoizedMarkdown } from './memoized-markdown'
 import { Streak } from './streak';
@@ -109,6 +111,14 @@ const courses = [
           { id: '4.6', title: "4.6 Oefeningen: Dictionaries en While Loops" },
         ]
       },
+      {
+        id: 5, 
+        title: "5. Functies", 
+        subchapters: [
+          { id: '5.1', title: "5.1 Functies" },
+          { id: '5.2', title: "5.2 Oefeningen: Functies" }
+        ]
+      }
     ]
   },
   {
@@ -386,6 +396,14 @@ const courses = [
           { id: '4.6', title: "4.6 Oefeningen: Dictionaries en While Loops" },
         ]
       },
+      {
+        id: 5, 
+        title: "5. Functies", 
+        subchapters: [
+          { id: '5.1', title: "5.1 Functies" },
+          { id: '5.2', title: "5.2 Oefeningen: Functies" }
+        ]
+      }
     ]
   }
 ];
@@ -408,6 +426,8 @@ const chapterContent = {
     '4.4': chapter4_4_5WWI,
     '4.5': chapter4_5_5BCW,
     '4.6': chapter4_6_5BCW,
+    '5.1': chapter5_1_5BCW,
+    '5.2': chapter5_2_5BCW,
   },
   'inw-5bwe': {
     '1.1': chapter1_1_5BWE,
@@ -444,6 +464,8 @@ const chapterContent = {
     '4.4': chapter4_4_5BCW,
     '4.5': chapter4_5_5BCW,
     '4.6': chapter4_6_5BCW,
+    '5.1': chapter5_1_5BCW,
+    '5.2': chapter5_2_5BCW,
   },
 };
 
