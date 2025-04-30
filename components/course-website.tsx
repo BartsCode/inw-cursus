@@ -122,7 +122,21 @@ const courses = [
         title: "5. Functies", 
         subchapters: [
           { id: '5.1', title: "5.1 Functies" },
-          { id: '5.2', title: "5.2 Oefeningen: Functies" }
+          { id: '5.2', title: "5.2 Oefeningen: Functies" },
+          { id: '5.3', title: "5.3 Introductie tot Algoritmen en Efficiëntie" },
+          { id: '5.4', title: "5.4 Analyse van Eenvoudige Algoritmen" },
+          { id: '5.5', title: "5.5 Oefeningen: Analyse en Vergelijking" },
+        ]
+      },
+      {
+        id: 6,
+        title: "6. Introductie tot Algoritmen en Efficiëntie",
+        subchapters: [
+          { id: '6.1', title: "6.1 Wat is een Algoritme?" },
+          { id: '6.2', title: "6.2 Efficiëntie: Waarom is het Belangrijk?" },
+          { id: '6.3', title: "6.3 Meten van Efficiëntie: Big O Notatie" },
+          { id: '6.4', title: "6.4 Analyse van Eenvoudige Algoritmen" },
+          { id: '6.5', title: "6.5 Oefeningen: Analyse en Vergelijking" },
         ]
       }
     ]
@@ -445,6 +459,11 @@ const chapterContent = {
     '4.6': chapter4_6_5BCW,
     '5.1': chapter5_1_5BCW,
     '5.2': chapter5_2_5BCW,
+    '6.1': chapter6_1_5BCW,
+    '6.2': chapter6_2_5BCW,
+    '6.3': chapter6_3_5BCW,
+    '6.4': chapter6_4_5BCW,
+    '6.5': chapter6_5_5BCW,
   },
   'inw-5bwe': {
     '1.1': chapter1_1_5BWE,
@@ -909,6 +928,7 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
                       {children}
                     </th>
                   ),
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   img: ({ node, ...props }: { node?: any; [key: string]: any }) => {
                     return (
                       <div className="my-4">
@@ -926,6 +946,7 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
                       </div>
                     )
                   },
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   bigochart: ({node, ...props}: { node?: unknown, [key: string]: any }) => <BigOComplexityChart {...props} />,
                 } as ComponentPropsWithoutRef<typeof ReactMarkdown>['components']}
                 rehypePlugins={[rehypeRaw]}
