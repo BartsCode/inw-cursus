@@ -55,6 +55,12 @@ import chapter4_5_5BCW from '../content/5BCW/chapter4_5.md'
 import chapter4_6_5BCW from '../content/5BCW/chapter4_6.md'
 import chapter5_1_5BCW from '../content/5BCW/chapter5_1.md'
 import chapter5_2_5BCW from '../content/5BCW/chapter5_2.md'
+import chapter6_1_5BCW from '../content/5BCW/chapter6_1.md'
+import chapter6_2_5BCW from '../content/5BCW/chapter6_2.md'
+import chapter6_3_5BCW from '../content/5BCW/chapter6_3.md'
+import chapter6_4_5BCW from '../content/5BCW/chapter6_4.md'
+import chapter6_5_5BCW from '../content/5BCW/chapter6_5.md'
+import BigOComplexityChart from './big-o-chart';
 import { useChat } from 'ai/react'
 import { MemoizedMarkdown } from './memoized-markdown'
 import { Streak } from './streak';
@@ -403,6 +409,17 @@ const courses = [
           { id: '5.1', title: "5.1 Functies" },
           { id: '5.2', title: "5.2 Oefeningen: Functies" }
         ]
+      },
+      {
+        id: 6,
+        title: "6. Introductie tot Algoritmen en Efficiëntie",
+        subchapters: [
+          { id: '6.1', title: "6.1 Wat is een Algoritme?" },
+          { id: '6.2', title: "6.2 Efficiëntie: Waarom is het Belangrijk?" },
+          { id: '6.3', title: "6.3 Meten van Efficiëntie: Big O Notatie" },
+          { id: '6.4', title: "6.4 Analyse van Eenvoudige Algoritmen" },
+          { id: '6.5', title: "6.5 Oefeningen: Analyse en Vergelijking" },
+        ]
       }
     ]
   }
@@ -466,6 +483,11 @@ const chapterContent = {
     '4.6': chapter4_6_5BCW,
     '5.1': chapter5_1_5BCW,
     '5.2': chapter5_2_5BCW,
+    '6.1': chapter6_1_5BCW,
+    '6.2': chapter6_2_5BCW,
+    '6.3': chapter6_3_5BCW,
+    '6.4': chapter6_4_5BCW,
+    '6.5': chapter6_5_5BCW,
   },
 };
 
@@ -887,7 +909,7 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
                       {children}
                     </th>
                   ),
-                  img: ({node, ...props}) => {
+                  img: ({ node, ...props }: { node?: any; [key: string]: any }) => {
                     return (
                       <div className="my-4">
                         <Image
@@ -904,7 +926,8 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
                       </div>
                     )
                   },
-                }}
+                  bigochart: ({node, ...props}: { node?: unknown, [key: string]: any }) => <BigOComplexityChart {...props} />,
+                } as ComponentPropsWithoutRef<typeof ReactMarkdown>['components']}
                 rehypePlugins={[rehypeRaw]}
               >
                 {chapterContent[selectedCourse as keyof typeof chapterContent]?.[selectedSubchapter as keyof (typeof chapterContent)[keyof typeof chapterContent]] || '# Selecteer een hoofdstuk om te beginnen'}
