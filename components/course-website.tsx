@@ -116,7 +116,7 @@ const courses = [
 ];
 
 const chapterContent = {
-  'inw-Dvm': {
+  'inw-DvM': {
     '1.1': chapter1_1,
     '1.2': chapter1_2,
     '1.3': chapter1_3,
