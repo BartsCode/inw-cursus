@@ -364,8 +364,7 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
         <h2 className="text-2xl mb-4">Kies een cursus om te beginnen</h2>
         <p className="mb-8 text-lg">
           Deze open source cursussen zijn ontwikkeld voor het vak informaticawetenschappen in de derde graad secundair onderwijs, 
-          afgestemd op de minimumdoelen van Katholiek Onderwijs Vlaanderen. De cursussen zijn 
-          beschikbaar op <a href="https://github.com/Schuyten/inw-cursus" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">mijn GitHub</a>  om te clonen en naar wens aan te passen. Pull requests zijn welkom.
+          afgestemd op de minimumdoelen van Katholiek Onderwijs Vlaanderen.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {courses.map((course) => (
