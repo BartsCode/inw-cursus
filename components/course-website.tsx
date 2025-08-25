@@ -12,29 +12,29 @@ import { useRouter, usePathname, ReadonlyURLSearchParams } from 'next/navigation
 import remarkGfm from 'remark-gfm';
 import Link from 'next/link'
 import Image from 'next/image';
-import chapter1_1_5BCW from '../content/5BCW/chapter1_1.md'
-import chapter1_2_5BCW from '../content/5BCW/chapter1_2.md'
-import chapter1_3_5BCW from '../content/5BCW/chapter1_3.md'
-import chapter2_1_5BCW from '../content/5BCW/chapter2_1.md'
-import chapter2_2_5BCW from '../content/5BCW/chapter2_2.md'
-import chapter2_3_5BCW from '../content/5BCW/chapter2_3.md'
-import chapter2_4_5BCW from '../content/5BCW/chapter2_4.md'
-import chapter3_1_5BCW from '../content/5BCW/chapter3_1.md'
-import chapter3_2_5BCW from '../content/5BCW/chapter3_2.md'
-import chapter3_3_5BCW from '../content/5BCW/chapter3_3.md'
-import chapter4_1_5BCW from '../content/5BCW/chapter4_1.md'
-import chapter4_2_5BCW from '../content/5BCW/chapter4_2.md'
-import chapter4_3_5BCW from '../content/5BCW/chapter4_3.md'
-import chapter4_4_5BCW from '../content/5BCW/chapter4_4.md'
-import chapter4_5_5BCW from '../content/5BCW/chapter4_5.md'
-import chapter4_6_5BCW from '../content/5BCW/chapter4_6.md'
-import chapter5_1_5BCW from '../content/5BCW/chapter5_1.md'
-import chapter5_2_5BCW from '../content/5BCW/chapter5_2.md'
-import chapter6_1_5BCW from '../content/5BCW/chapter6_1.md'
-import chapter6_2_5BCW from '../content/5BCW/chapter6_2.md'
-import chapter6_3_5BCW from '../content/5BCW/chapter6_3.md'
-import chapter6_4_5BCW from '../content/5BCW/chapter6_4.md'
-import chapter6_5_5BCW from '../content/5BCW/chapter6_5.md'
+import chapter1_1 from '../content/DvM/chapter1_1.md'
+import chapter1_2 from '../content/DvM/chapter1_2.md'
+import chapter1_3 from '../content/DvM/chapter1_3.md'
+import chapter2_1 from '../content/DvM/chapter2_1.md'
+import chapter2_2 from '../content/DvM/chapter2_2.md'
+import chapter2_3 from '../content/DvM/chapter2_3.md'
+import chapter2_4 from '../content/DvM/chapter2_4.md'
+import chapter3_1 from '../content/DvM/chapter3_1.md'
+import chapter3_2 from '../content/DvM/chapter3_2.md'
+import chapter3_3 from '../content/DvM/chapter3_3.md'
+import chapter4_1 from '../content/DvM/chapter4_1.md'
+import chapter4_2 from '../content/DvM/chapter4_2.md'
+import chapter4_3 from '../content/DvM/chapter4_3.md'
+import chapter4_4 from '../content/DvM/chapter4_4.md'
+import chapter4_5 from '../content/DvM/chapter4_5.md'
+import chapter4_6 from '../content/DvM/chapter4_6.md'
+import chapter5_1 from '../content/DvM/chapter5_1.md'
+import chapter5_2 from '../content/DvM/chapter5_2.md'
+import chapter6_1 from '../content/DvM/chapter6_1.md'
+import chapter6_2 from '../content/DvM/chapter6_2.md'
+import chapter6_3 from '../content/DvM/chapter6_3.md'
+import chapter6_4 from '../content/DvM/chapter6_4.md'
+import chapter6_5 from '../content/DvM/chapter6_5.md'
 import BigOComplexityChart from './big-o-chart';
 import { useChat } from 'ai/react'
 import { MemoizedMarkdown } from './memoized-markdown'
@@ -48,9 +48,9 @@ import { ChapterQuiz } from './chapter-quiz';
 
 const courses = [
   {
-    id: 'inw-5bcw',
-    title: 'INW - 5BCW: Introductie tot Python',
-    description: 'Een cursus Python, algoritmen en object-georiënteerd programmeren voor 5e jaars BCW-leerlingen.',
+    id: 'inw-DvM',
+    title: 'INW - DvM: Introductie tot Python',
+    description: 'Een cursus Python, algoritmen en object-georiënteerd programmeren voor 5e jaars leerlingen van DvM-humaniora uit Aalst.',
     chapters: [
       { 
         id: 1, 
@@ -116,30 +116,30 @@ const courses = [
 ];
 
 const chapterContent = {
-  'inw-5bcw': {
-    '1.1': chapter1_1_5BCW,
-    '1.2': chapter1_2_5BCW,
-    '1.3': chapter1_3_5BCW,
-    '2.1': chapter2_1_5BCW,
-    '2.2': chapter2_2_5BCW,
-    '2.3': chapter2_3_5BCW,
-    '2.4': chapter2_4_5BCW,
-    '3.1': chapter3_1_5BCW,
-    '3.2': chapter3_2_5BCW,
-    '3.3': chapter3_3_5BCW,
-    '4.1': chapter4_1_5BCW,
-    '4.2': chapter4_2_5BCW,
-    '4.3': chapter4_3_5BCW,
-    '4.4': chapter4_4_5BCW,
-    '4.5': chapter4_5_5BCW,
-    '4.6': chapter4_6_5BCW,
-    '5.1': chapter5_1_5BCW,
-    '5.2': chapter5_2_5BCW,
-    '6.1': chapter6_1_5BCW,
-    '6.2': chapter6_2_5BCW,
-    '6.3': chapter6_3_5BCW,
-    '6.4': chapter6_4_5BCW,
-    '6.5': chapter6_5_5BCW,
+  'inw-Dvm': {
+    '1.1': chapter1_1,
+    '1.2': chapter1_2,
+    '1.3': chapter1_3,
+    '2.1': chapter2_1,
+    '2.2': chapter2_2,
+    '2.3': chapter2_3,
+    '2.4': chapter2_4,
+    '3.1': chapter3_1,
+    '3.2': chapter3_2,
+    '3.3': chapter3_3,
+    '4.1': chapter4_1,
+    '4.2': chapter4_2,
+    '4.3': chapter4_3,
+    '4.4': chapter4_4,
+    '4.5': chapter4_5,
+    '4.6': chapter4_6,
+    '5.1': chapter5_1,
+    '5.2': chapter5_2,
+    '6.1': chapter6_1,
+    '6.2': chapter6_2,
+    '6.3': chapter6_3,
+    '6.4': chapter6_4,
+    '6.5': chapter6_5,
   },
 };
 
