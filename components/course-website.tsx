@@ -12,31 +12,6 @@ import { useRouter, usePathname, ReadonlyURLSearchParams } from 'next/navigation
 import remarkGfm from 'remark-gfm';
 import Link from 'next/link'
 import Image from 'next/image';
-import chapter1_1_5WWI from '../content/5WWI/chapter1_1.md'
-import chapter1_2_5WWI from '../content/5WWI/chapter1_2.md'
-import chapter1_3_5WWI from '../content/5WWI/chapter1_3.md'
-import chapter2_1_5WWI from '../content/5WWI/chapter2_1.md'
-import chapter2_2_5WWI from '../content/5WWI/chapter2_2.md'
-import chapter2_3_5WWI from '../content/5WWI/chapter2_3.md'
-import chapter2_4_5WWI from '../content/5WWI/chapter2_4.md'
-import chapter4_4_5WWI from '../content/5WWI/chapter4_4.md'
-
-import chapter1_1_5BWE from '../content/5BWE/chapter1_1.md'
-import chapter2_1_5BWE from '../content/5BWE/chapter2_1.md'
-import chapter2_2_5BWE from '../content/5BWE/chapter2_2.md'
-import chapter2_3_5BWE from '../content/5BWE/chapter2_3.md'
-import chapter2_4_5BWE from '../content/5BWE/chapter2_4.md'
-import chapter3_1_5BWE from '../content/5BWE/chapter3_1.md'
-import chapter3_2_5BWE from '../content/5BWE/chapter3_2.md'
-import chapter3_3_5BWE from '../content/5BWE/chapter3_3.md'
-
-import chapter1_1_6BWE from '../content/6BWE/chapter1_1.md'
-import chapter1_2_6BWE from '../content/6BWE/chapter1_2.md'
-import chapter2_1_6BWE from '../content/6BWE/chapter2_1.md'
-import chapter2_2_6BWE from '../content/6BWE/chapter2_2.md'
-import chapter2_3_6BWE from '../content/6BWE/chapter2_3.md'
-import chapter3_1_6BWE from '../content/6BWE/chapter3_1.md'
-
 import chapter1_1_5BCW from '../content/5BCW/chapter1_1.md'
 import chapter1_2_5BCW from '../content/5BCW/chapter1_2.md'
 import chapter1_3_5BCW from '../content/5BCW/chapter1_3.md'
