@@ -2,7 +2,7 @@
 
 In dit hoofdstuk ga je oefenen met het maken van vergelijkingen en het gebruiken van if-statements in Python. Deze oefeningen helpen je om de concepten uit de vorige lessen beter te begrijpen en toe te passen.
 
-Je kunt de oefeningen uitwerken in een nieuw `.py`-bestand in VS Code of een andere teksteditor. Door de code te **uitvoeren** kun je de output verifiëren en controleren of je oplossingen correct zijn.
+Je kunt de oefeningen uitwerken in een nieuw `.py`-bestand in IDLE of een andere teksteditor. Bewaar deze bestanden in je folder op de desktop. Door de code uit te voeren kun je de output verifiëren en controleren of je oplossingen correct zijn.
 
 ---
 
@@ -50,25 +50,7 @@ Sorry, je mag niet naar de film.
 
 ---
 
-## Oefening 3: Getal Raden
-
-- **Moeilijkheidsgraad:** ★★☆☆☆
-
-Schrijf een programma dat een geheim getal opslaat (bijvoorbeeld 7). Vraag de gebruiker om een getal te raden en geef feedback:
-
-- Als het geraden getal gelijk is aan het geheime getal, print "Gefeliciteerd, je hebt het getal geraden!"
-- Zo niet, print "Helaas, dat is niet correct. Probeer het nog eens."
-
-**Voorbeeldoutput:**
-
-```
-Raad het geheime getal tussen 1 en 10: 5
-Helaas, dat is niet correct. Probeer het nog eens.
-```
-
----
-
-## Oefening 4: Positief, Negatief of Nul
+## Oefening 3: Positief, Negatief of Nul
 
 - **Moeilijkheidsgraad:** ★★☆☆☆
 
@@ -81,7 +63,26 @@ Voer een getal in: -3
 Het getal is negatief.
 ```
 
-**Let op:** Hoewel we `elif` hier introduceren, hoef je je geen zorgen te maken; het is een combinatie van `else` en `if` en wordt in een later hoofdstuk verder besproken.
+---
+
+## Oefening 4: Getal Raden
+
+- **Moeilijkheidsgraad:** ★★★☆☆
+
+Schrijf een programma dat een geheim getal opslaat (bijvoorbeeld 7). Vraag de gebruiker om een getal te raden en geef feedback:
+
+- Als het geraden getal gelijk is aan het geheime getal, print "Gefeliciteerd, je hebt het getal geraden!"
+- Zo niet, is het gezochte getal hoger, print "Spijtig, het gezochte getal is groter"
+- anders print "Spijtig, het gezochte getal is kleiner"
+- Indien niet geraden print "Probeer het nog eens"
+
+**Voorbeeldoutput:**
+
+```
+Raad het geheime getal tussen 1 en 10: 5
+Spijtig, het gezochte getal is groter
+Probeer het nog eens
+```
 
 ---
 

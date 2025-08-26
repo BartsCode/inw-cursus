@@ -1,19 +1,22 @@
-# 3.1 Vergelijkingen en Voorwaarden
+# 3.1 Condities
 
 In het echte leven nemen we voortdurend beslissingen op basis van voorwaarden: "Als het regent, neem ik een paraplu mee", "Als het warmer is dan 25 graden, ga ik zwemmen". In Python kunnen we onze programma's ook beslissingen laten nemen met behulp van vergelijkingen en voorwaarden.
+
+In een programma zijn er ook vaak regels code die je alleen wilt uitvoeren onder bepaalde omstandigheden. Om dat te regelen, bieden alle programmeertalen zogeheten **condities of voorwaarden**: 
+Dit zijn expressies die een boolean (True / False) opleveren.
 
 ## Vergelijkingsoperatoren
 
 Python gebruikt verschillende operatoren om waarden te vergelijken. Het resultaat van een vergelijking is altijd een Boolean (`True` of `False`).
 
-| Operator | Betekenis | Voorbeeld | Resultaat |
-|----------|-----------|-----------|-----------|
-| `==` | Is gelijk aan | `5 == 5` | `True` |
-| `!=` | Is niet gelijk aan | `5 != 3` | `True` |
-| `>` | Is groter dan | `5 > 3` | `True` |
-| `<` | Is kleiner dan | `5 < 3` | `False` |
-| `>=` | Is groter dan of gelijk aan | `5 >= 5` | `True` |
-| `<=` | Is kleiner dan of gelijk aan | `5 <= 3` | `False` |
+| Operator 	| Betekenis 				| Voorbeeld | Resultaat |
+|----------	|-----------				|-----------|-----------|
+| `==` 		| Is gelijk aan 			| `5 == 5` 	| `True` 	|
+| `!=` 		| Is niet gelijk aan 		| `5 != 3` 	| `True` 	|
+| `>` 		| Is groter dan 			| `5 > 3` 	| `True` 	|
+| `<` 		| Is kleiner dan 			| `5 < 3` 	| `False` 	|
+| `>=` 		| Is groter dan of gelijk aan 	| `5 >= 5` | `True` |
+| `<=` 		| Is kleiner dan of gelijk aan 	| `5 <= 3` | `False`|
 
 Laten we deze operatoren in actie zien:
 

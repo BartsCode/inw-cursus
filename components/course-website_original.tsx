@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { ComponentPropsWithoutRef } from 'react';
 import { BookOpen, ChevronRight, Sun, Moon, ChevronDown, Menu, MessageCircle, X, ChevronLeft } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
@@ -12,7 +12,6 @@ import { useRouter, usePathname, ReadonlyURLSearchParams } from 'next/navigation
 import remarkGfm from 'remark-gfm';
 import Link from 'next/link'
 import Image from 'next/image';
-import chapter0_0 from '../content/DvM/chapter0_0.md'
 import chapter1_1 from '../content/DvM/chapter1_1.md'
 import chapter1_2 from '../content/DvM/chapter1_2.md'
 import chapter1_3 from '../content/DvM/chapter1_3.md'
@@ -20,7 +19,6 @@ import chapter2_1 from '../content/DvM/chapter2_1.md'
 import chapter2_2 from '../content/DvM/chapter2_2.md'
 import chapter2_3 from '../content/DvM/chapter2_3.md'
 import chapter2_4 from '../content/DvM/chapter2_4.md'
-import chapter2_5 from '../content/DvM/chapter2_5.md'
 import chapter3_1 from '../content/DvM/chapter3_1.md'
 import chapter3_2 from '../content/DvM/chapter3_2.md'
 import chapter3_3 from '../content/DvM/chapter3_3.md'
@@ -38,6 +36,7 @@ import chapter6_3 from '../content/DvM/chapter6_3.md'
 import chapter6_4 from '../content/DvM/chapter6_4.md'
 import chapter6_5 from '../content/DvM/chapter6_5.md'
 import BigOComplexityChart from './big-o-chart';
+import { useChat } from 'ai/react'
 import { MemoizedMarkdown } from './memoized-markdown'
 import { Streak } from './streak';
 import { Achievements } from './achievements';
@@ -46,6 +45,7 @@ import { Quiz } from './quiz';
 import { CodeChallenge } from './code-challenge';
 import { ChapterQuiz } from './chapter-quiz';
 
+
 const courses = [
   {
     id: 'inw-DvM',
@@ -53,19 +53,12 @@ const courses = [
     description: 'Een cursus Python, algoritmen en object-georiënteerd programmeren voor 5e jaars leerlingen van DvM-humaniora uit Aalst.',
     chapters: [
       { 
-        id: 0, 
-        title: "0. Inleiding",
-        subchapters: [
-		  { id: '0.0', title: "0.0 Voorwoord" }
-        ]
-      },
-      { 
         id: 1, 
         title: "1. Installatie",
         subchapters: [
-          { id: '1.1', title: "1.1 Installatie van Python" },
+          { id: '1.1', title: "1.1 Installatie: Python en VS Code" },
           { id: '1.2', title: "1.2 Python testen" },
-          { id: '1.3', title: "1.3 Python-bestand maken" },
+          { id: '1.3', title: "1.3 VS Code configureren" },
         ]
       },
       {
@@ -74,16 +67,15 @@ const courses = [
         subchapters: [
           { id: '2.1', title: "2.1 Variabelen" },
           { id: '2.2', title: "2.2 Datatypes" },
-		  { id: '2.3', title: "2.3 print()" },
-          { id: '2.4', title: "2.4 input()" },
-          { id: '2.5', title: "2.5 Oefeningen" },
+          { id: '2.3', title: "2.3 Gebruikersinvoer" },
+          { id: '2.4', title: "2.4 Oefeningen" },
         ]
       },
       {
         id: 3,
-        title: "3. Condities en If-statements",
+        title: "3. Vergelijkingen en If-statements",
         subchapters: [
-          { id: '3.1', title: "3.1 Condities" },
+          { id: '3.1', title: "3.1 Vergelijkingen en Voorwaarden" },
           { id: '3.2', title: "3.2 If-statements" },
           { id: '3.3', title: "3.3 Oefeningen" },
         ]
@@ -125,7 +117,6 @@ const courses = [
 
 const chapterContent = {
   'inw-DvM': {
-    '0.0': chapter0_0,
     '1.1': chapter1_1,
     '1.2': chapter1_2,
     '1.3': chapter1_3,
@@ -133,7 +124,6 @@ const chapterContent = {
     '2.2': chapter2_2,
     '2.3': chapter2_3,
     '2.4': chapter2_4,
-	'2.5': chapter2_5,
     '3.1': chapter3_1,
     '3.2': chapter3_2,
     '3.3': chapter3_3,
@@ -153,77 +143,6 @@ const chapterContent = {
   },
 };
 
-// Custom chat hook ter vervanging van useChat
-function useCustomChat(initialMessages: Array<{id: string, role: string, content: string}>) {
-  const [messages, setMessages] = useState(initialMessages);
-  const [input, setInput] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim()) return;
-
-    setIsLoading(true);
-    const userMessage = { id: Date.now().toString(), role: 'user', content: input };
-    setMessages(prev => [...prev, userMessage]);
-    setInput('');
-
-    try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: [...messages, userMessage] })
-      });
-
-      if (!response.body) throw new Error('No response body');
-
-      const reader = response.body.getReader();
-      const decoder = new TextDecoder();
-      let assistantMessage = '';
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        const textChunk = decoder.decode(value);
-        assistantMessage += textChunk;
-        
-        // Update de laatste message met de nieuwe content
-        setMessages(prev => {
-          const newMessages = [...prev];
-          if (newMessages[newMessages.length - 1]?.role === 'assistant') {
-            newMessages[newMessages.length - 1].content = assistantMessage;
-          } else {
-            newMessages.push({ id: Date.now().toString(), role: 'assistant', content: assistantMessage });
-          }
-          return newMessages;
-        });
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      setMessages(prev => [...prev, { 
-        id: Date.now().toString(), 
-        role: 'assistant', 
-        content: 'Sorry, er is een fout opgetreden.' 
-      }]);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
-  };
-
-  return {
-    messages,
-    input,
-    handleInputChange,
-    handleSubmit,
-    isLoading
-  };
-}
-
 function ChatInterface({ 
   darkMode, 
   currentContent 
@@ -231,17 +150,20 @@ function ChatInterface({
   darkMode: boolean;
   currentContent?: string;
 }) {
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useCustomChat([
-    {
-      id: 'system',
-      role: 'system',
-      content: `You are a helpful teaching assistant for an informatics course that uses basic python. Answer questions about programming and related topics. Respond in the same language as the user (Dutch or English). Never give a straight answer, but rather ask a question to the user to help them find the answer themselves.${
-        currentContent 
-          ? `\n\nThe user is currently looking at the following chapter content:\n${currentContent}`
-          : ''
-      }`
-    }
-  ]);
+  const { messages, input, handleInputChange, handleSubmit } = useChat({
+    experimental_throttle: 50,
+    initialMessages: [
+      {
+        id: 'system',
+        role: 'system',
+        content: `You are a helpful teaching assistant for an informatics course that uses basic python. Answer questions about programming and related topics. Respond in the same language as the user (Dutch or English). Never give a straight answer, but rather ask a question to the user to help them find the answer themselves.${
+          currentContent 
+            ? `\n\nThe user is currently looking at the following chapter content:\n${currentContent}`
+            : ''
+        }`
+      }
+    ]
+  });
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -276,7 +198,7 @@ function ChatInterface({
                 `}>
                   {message.role === 'assistant' && (
                     <span className="text-sm text-gray-500 dark:text-gray-400 ml-3">
-                      Meneer Bruyneel
+                      Meneer Schuyten
                     </span>
                   )}
                   <div className={`
@@ -309,26 +231,22 @@ function ChatInterface({
                 value={input}
                 onChange={handleInputChange}
                 placeholder="Ask a question..."
-                disabled={isLoading}
                 className={`
                   flex-1 rounded-lg px-4 py-2 
                   ${darkMode 
                     ? 'bg-gray-700 text-white border-gray-600' 
                     : 'bg-gray-100 text-black border-gray-300'}
                   border focus:outline-none focus:ring-2 focus:ring-blue-500
-                  ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}
                 `}
               />
               <button
                 type="submit"
-                disabled={isLoading}
                 className={`
                   px-4 py-2 rounded-lg
                   ${darkMode 
                     ? 'bg-white text-black hover:bg-gray-200' 
                     : 'bg-black text-white hover:bg-gray-800'}
                   transition-colors
-                  ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}
                 `}
               >
                 Send
@@ -694,7 +612,7 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
       </div>
       
       <footer className="bg-white dark:bg-black p-4 text-center text-sm border-t-2 border-black dark:border-white">
-        <p>&copy; 2025 INW - door Matthias Schuyten. Bewerking van B. Bruyneel. Alle rechten voorbehouden.</p>
+        <p>&copy; 2025 INW - door Matthias Schuyten. Alle rechten voorbehouden.</p>
       </footer>
       
       <ChatInterface 

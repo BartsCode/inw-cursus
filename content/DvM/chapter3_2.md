@@ -8,10 +8,12 @@ Een if-statement laat je code uitvoeren als een bepaalde voorwaarde waar (`True`
 
 ```python
 if voorwaarde:
-    # code die wordt uitgevoerd als de voorwaarde waar is
+    # code die wordt uitgevoerd als de voorwaarde waar is	
 ```
 
-Let op de dubbele punt (`:`) na de voorwaarde en de inspringing van de code die moet worden uitgevoerd!
+Let op de dubbele punt (`:`) na de voorwaarde en de inspringing van de code die moet worden uitgevoerd! 
+
+De code die bij het if-statement wordt uitgevoerd staat in een zogenaamde **codeblok** Dit wil zeggen dat deze code exact 4 spaties verder is ingesprongen dan het if-statement. Alle lijnen die daaronder ook 4 spaties inspringen behoren bij hetzelfde blok. Op deze manier weet het programma tot waar het code-block loopt. De eerste lijn die terug onder het if-statement begint geeft het einde aan van het code-block
 
 ### Voorbeeld:
 
@@ -20,6 +22,9 @@ leeftijd = 16
 
 if leeftijd >= 16:
     print("Je mag een bromfiets besturen!")
+	print("Maar nog geen pintjes drinken!")
+	
+print("Dit hoort niet tot het blok")
 ```
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
@@ -30,9 +35,9 @@ Vaak wil je iets anders doen als de voorwaarde niet waar is. Daarvoor gebruik je
 
 ```python
 if voorwaarde:
-    # code die wordt uitgevoerd als de voorwaarde waar is
+    # code blok die wordt uitgevoerd als de voorwaarde waar is
 else:
-    # code die wordt uitgevoerd als de voorwaarde niet waar is
+    # code blok die wordt uitgevoerd als de voorwaarde niet waar is
 ```
 
 ### Voorbeeld:
@@ -43,35 +48,42 @@ leeftijd = 15
 if leeftijd >= 16:
     print("Je mag een bromfiets besturen!")
 else:
-    print("Je moet nog even wachten met bromfietsen.")
+    print("Hou het bij een gewone fiets.")
+	print("En vergeet de fietshelm niet!")
 ```
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-## Voorbeelden uit de Praktijk
+## Het if-elif-else statement
 
-### Voorbeeld 1: Temperatuur
+Het leven is niet altijd zwart-wit, er zijn soms meer dan twee mogelijke uitkomsten. Om hier in te onderscheiden bestaat in Python het elif statement, wat een afkorting is voor `else-if`. Hier een voorbeeld
 
 ```python
-temperatuur = 24
-
-if temperatuur > 25:
-    print("Het is warm, vergeet niet om water te drinken!")
+if voorwaarde1:
+    # code die wordt uitgevoerd als de voorwaarde1 waar is
+elif voorwaarde2:
+	# code uitgevoerd als voorwaarde1 False is en voorwaarde2 True
+elif voorwaarde3:
+	# code uitgevoerd als alle voorgaande False en voorwaarde3 True
+elif voorwaarde4:
+	# Je mag zoveel elif structuren gebruiken als je wil...
 else:
-    print("De temperatuur is aangenaam.")
+    # code die wordt uitgevoerd als geen van alle voorwaarden voldaan is
 ```
 
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
-
-### Voorbeeld 2: Punten voor een test
+### Voorbeeld:
 
 ```python
-punten = 75
+punten = int(input("Geef je punten (op 10)"))
 
-if punten >= 50:
-    print("Gefeliciteerd, je bent geslaagd!")
+if punten == 10:
+    print("Je behaalde het maximum!")
+elif punten >= 8:
+	print("Goed gewerkt!")
+elif punten >= 5:
+	print("Je bent geslaagd")
 else:
-    print("Helaas, je moet de test opnieuw doen.")
+    print("Hoe ga je dat thuis uitleggen?")
 ```
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
@@ -105,7 +117,7 @@ heeft_ticket = True
 heeft_id = True
 
 if leeftijd >= 18 and heeft_ticket and heeft_id:
-    print("Welkom bij het evenement!")
+    print("Welkom op Marktrock!")
 else:
     print("Sorry, je hebt geen toegang.")
 ```

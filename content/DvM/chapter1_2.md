@@ -6,13 +6,13 @@ Na de installatie is het belangrijk om te controleren of Python correct is geïn
 2. Typ het volgende commando en druk op Enter:
 
 ```bash
-python --version
+python3 --version
 ```
 
 Als Python correct is geïnstalleerd, zou je de geïnstalleerde versie moeten zien, bijvoorbeeld:
 
 ```bash
-Python 3.12.4
+Python 3.13.1
 ```
 
 ## Je eerste Python-programma uitvoeren
@@ -35,3 +35,7 @@ Hello, World!
 ```
 
 Om de Python-interpreter te verlaten, typ `exit()` en druk op Enter.
+
+Herhaal bovenstaande oefening in IDLE. Punten 1 en 2 hoef je hierbij niet meer te doen, want deze prompt is speciaal gemaakt voor Python. 
+
+Bemerk dat IDLE de tekst kleur geeft. Dit helpt je om te zien of de computer jouw instructie correct interpreteert. Klopt de kleur niet met wat je verwacht, dan staat er waarschijnlijk een fout (*bug*) in je programma.

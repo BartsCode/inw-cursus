@@ -4,7 +4,9 @@ Variabelen zijn een fundamenteel concept in programmeren. Ze stellen ons in staa
 
 ## Wat is een variabele?
 
-In Python slaan we informatie op in variabelen in het geheugen van de computer. Je kunt een variabele zien als een label of een doosje waarin je een waarde bewaart. De waarde is de daadwerkelijke informatie die je in de variabele opslaat. Elke waarde heeft een bepaald datatype, dat aangeeft wat voor soort informatie het is (bijvoorbeeld tekst, getal, etc.).
+In Python slaan we informatie op in variabelen in het geheugen van de computer. **Je kunt een variabele zien als een label of een doosje waarin je een waarde bewaart.** De waarde is de daadwerkelijke informatie die je in de variabele opslaat. 
+
+De computer slaat die informatie op in binaire vorm - met eentjes en nulletjes. Daarom heeft elke waarde een bepaald datatype. **Het datatype geeft aan wat voor soort informatie is opgeslagen in de variablele** (bijvoorbeeld tekst, getal, etc.). Zo kan de computer weten hoe de informatie, bestaande uit eentjes en nulletjes te interpreteren als tekst, getal of iets anders.
 
 ## Variabelen toewijzen
 
@@ -16,72 +18,39 @@ print(boodschap)
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-Probeer de code hierboven uit te voeren. Je zult zien dat de tekst "Hallo, wereld!" wordt afgedrukt.
+Hierbij staat de variabele naam steeds voor het gelijkheidsteken en de waarde die in deze variabele wordt bewaard na het gelijkheidsteken.
+Probeer de code hierboven uit te voeren. Je zult zien dat de tekst "Hallo, wereld!" wordt afgedrukt. Dit wijst erop dat de variabele `boodschap` de waarde `"Hallo, wereld!"` bevatte.
 
 ## Variabelen wijzigen
 
 Je kunt de waarde van een variabele op elk moment wijzigen. Laten we een voorbeeld bekijken met een string:
 
 <pre><code>naam = "Alice"
-print("Hallo, " + naam)
+print(f"Hallo, {naam}")
 
 naam = "Bob"
-print("Hallo, " + naam)
+print("Hallo, {naam}")
 </code></pre>
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-Voer deze code uit en observeer hoe de begroeting verandert wanneer we de waarde van `naam` wijzigen.
+Voer deze code uit en observeer hoe de begroeting verandert wanneer we de waarde van `naam` wijzigen. Bemerk dat je een variabele enkel mag gebruiken nadat die een waarde werd toegewezen! De volgende code werkt daarom niet:
 
-## Numerieke variabelen
-
-Variabelen kunnen ook getallen bevatten. Laten we een voorbeeld bekijken met een numerieke variabele:
-
-<pre><code>leeftijd = 25
-print(f"Je bent {leeftijd} jaar oud.")
-
-leeftijd = leeftijd + 1
-print(f"Na je verjaardag ben je {leeftijd} jaar oud.")
+<pre><code>print(f"{buurman}, wat doet u nu?")
+buurman = "Kees"
 </code></pre>
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
-
-In dit voorbeeld zien we hoe we een getal kunnen opslaan en vervolgens kunnen verhogen.
+Hier werd gepoogd om de waarde van variabele `buurman` op het scherm te zetten, nog voor deze waarde was gekend. De computer leest immers de code doorgaans van boven naar onder. Pas op de tweede lijn wordt een waarde toegekend aan `buurman`, die nodig was op de eerste lijn.
 
 ## Oefening: String manipulatie
 
-Probeer nu zelf! Maak een variabele `stad` aan met de naam van je favoriete stad. Print deze uit, wijzig de waarde naar een andere stad, en print opnieuw.
+Probeer nu zelf! Maak een variabele `stad` aan met de naam van je favoriete stad. Print deze uit, met de begeleidende tekst "Mijn favoriete stad is...". Wijzig de waarde naar een andere stad, en print die opnieuw.
 
 <pre><code># Jouw code hier
 </code></pre>
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
-
-## Oefening: Rekenen met variabelen
-
-Maak twee numerieke variabelen `a` en `b` aan met willekeurige getallen. Tel ze op en sla het resultaat op in een nieuwe variabele `som`. Print vervolgens de som uit.
-
-<pre><code># Jouw code hier
-</code></pre>
-
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
-
-Via deze oefeningen krijg je een beter begrip van hoe variabelen werken in Python, zowel voor tekst (strings) als voor getallen (numbers).
-
-## Self-assignment (zelf-toewijzing)
-
-In Python kun je een variabele ook een nieuwe waarde geven die gebaseerd is op zijn huidige waarde. Dit noemen we self-assignment.
-
-<pre><code>teller = 0
-teller = teller + 1
-print(teller)
-teller += 1
-print(teller)
-</code></pre>
-
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
-
-Je kunt self-assignment gebruiken met alle rekenkundige operatoren (+, -, *, /, //, %, **).
 
 ## Naamgeving van variabelen
 

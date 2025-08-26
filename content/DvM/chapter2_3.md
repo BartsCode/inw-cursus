@@ -1,34 +1,33 @@
-# 2.3 Gebruikersinvoer
+# 2.3 print()
 
-Tot nu toe hebben we waarden rechtstreeks in onze code geschreven. Maar wat als we willen dat ons programma interactief wordt en reageert op wat de gebruiker invoert? Dat is waar de `input()` functie van pas komt.
+Als je in Python een naam tegenkomt, gevolgd door haakjes zoals bij `print(...)`, dan weet je dat je te maken hebt met een functie. Functies zullen we later in detail behandelen, maar nu we weten wat variabelen en expressies zijn, kunnen we hier dieper ingaan hoe we print() juist kunnen gebruiken.
 
-## De `input()` functie
+Kort gezegd drukt print(...) alle waarden af van de **argumenten** die tussen de haakjes staan. Deze argmumenten moeten steeds gescheiden worden door een komma. Een argument kan zowel een variabele naam zijn, of een **expressie**. 
 
-De `input()` functie laat je programma pauzeren en wachten tot de gebruiker iets intypt en op Enter drukt. Wat de gebruiker invoert, wordt opgeslagen als een string.
+Een expressie is een combinatie van één of meerdere waardes (zoals strings, integers, of floats) met behulp van operatoren, die dan een nieuwe waarde oplevert. Je kunt je expressies dus voorstellen als berekeningen.
 
-```python
-naam = input("Wat is je naam? ")
-print(f"Hallo, {naam}!")
-```
+<pre><code>a = "Hallo"
+b = "Elise"
 
-Probeer deze code uit te voeren in de terminal of in VS Code. Je zult zien dat het programma je vraagt om je naam in te voeren. Nadat je je naam hebt ingevoerd en op Enter hebt gedrukt, zal het programma je begroeten met je naam.
+print(a,b) # voorbeeld van een aanroep met 2 argumenten (twee variabele namen).
+print(2*(a+" ") + b) # voorbeeld van een aanroep met 1 argument (een expressie)
+print("De som van",2,"en",3,"is",2+3) # voorbeeld van een aanroep met 5 argumenten
+print(f"De som van 2 en 3 is {2+3}") # doet hetzelfde als vorige lijn met 1 expressie.
+</pre></code>
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-## `input()` geeft altijd een string
+Je ziet de aanhalingstekens van strings automatisch weggelaten worden. Expressies worden eerst uitgerekend en enkel de uitkomst wordt afgedrukt. Bij meerdere argumenten wordt de komma standaard vervangen door een spatie (" "). Elke printopdracht begint standaard op een nieuwe lijn.
 
-Het is belangrijk om te onthouden dat de `input()` functie altijd een string retourneert, zelfs als de gebruiker een getal invoert. Als je wilt rekenen met de invoer van de gebruiker, moet je deze eerst converteren naar het juiste datatype, bijvoorbeeld met `int()` of `float()`.
+Dit standaardgedrag kunnen we ook veranderen. Je doet dit door de betreffende variabele een andere waarde te geven. 
 
-```python
-leeftijd = input("Wat is je leeftijd? ")
-leeftijd = int(leeftijd)  # Converteren naar een integer
-print(f"Volgend jaar ben je {leeftijd + 1} jaar oud.")
-```
+1. De variabele `sep` regelt de separatie van de uitvoer tussen de argumenten. Standaard is die ingesteld op `sep=" "`, zodat de komma's vervangen wordt door een spatie. Als dit OK is, moet je niets doen. Vervang je de separator door een komma (sep=","), dan worden alle argumenten bij uitvoer gescheiden door een komma.
 
-## `input()` in de terminal en in `.py` bestanden
+2. De variabele `end` regelt het eindsymbool. Standaard is dit ingesteld op `end="\n"` , Dit is een speciaal karakter dat een *newline* symbool voorsteld. Hierdoor wordt de volgende print-opdracht op een nieuwe lijn gestart.  Vervang je dit door bv. een lege string (`end=""`), dan zal de volgende printopdracht achter de vorige printopdracht worden gezet zonder over te gaan naar een nieuwe lijn.
 
-Je kunt de `input()` functie zowel gebruiken wanneer je Python code direct in de terminal uitvoert, als wanneer je code schrijft en opslaat in een `.py` bestand. Het gedrag is hetzelfde: het programma zal pauzeren en wachten op invoer van de gebruiker.
+<pre><code>
+print("De som van",2,"en",3,"is",2+3,sep=" / ",end=" $ ") # separator en 
+print(f"De som van 2 en 3 is {2+3}") 					  # end-symbool vervangen
+</pre></code>
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-## Oefening
 
-Schrijf een programma dat de gebruiker vraagt om twee getallen in te voeren. Converteer de invoer naar integers, tel de getallen bij elkaar op en print het resultaat.
-
-**Tip:** Vergeet niet om duidelijke instructies te geven aan de gebruiker over wat hij/zij moet invoeren! 

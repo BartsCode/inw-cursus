@@ -1,6 +1,6 @@
 # 2.2 Datatypes
 
-In Python zijn er verschillende datatypes die we kunnen gebruiken om verschillende soorten informatie op te slaan. In dit hoofdstuk zullen we de meest voorkomende datatypes bespreken: strings, integers, floats en booleans.
+In Python zijn er verschillende datatypes die we kunnen gebruiken om verschillende soorten informatie op te slaan. In dit hoofdstuk zullen we de meest voorkomende datatypes bespreken: **strings, integers, floats en booleans**.
 
 ## De type() functie
 
@@ -17,30 +17,45 @@ print(type(y))
 
 ## Strings
 
-Strings stellen tekst voor. Het zijn als het ware reeksen van karakters (letters, cijfers, symbolen, etc.). Ze worden gebruikt om tekst op te slaan en te manipuleren. Ze kunnen gedefinieerd worden door de tekst tussen aanhalingstekens te zetten. Indien je de tekst niet tussen aanhalingstekens zet, zal Python deze als een variabele beschouwen. Als je een variabele probeert te printen die nog niet gedefinieerd is (dus nog geen waarde heeft), zal Python een foutmelding geven.
+Strings stellen tekst voor. Het zijn als het ware reeksen van karakters (letters, cijfers, symbolen, etc.). Ze worden gebruikt om tekst op te slaan en te manipuleren. Ze kunnen gedefinieerd worden door de tekst tussen aanhalingstekens te zetten. Indien je de tekst niet tussen aanhalingstekens zet, zal Python deze als een variabele beschouwen.
 
 ```python
 boodschap = "Hallo, wereld!"
-print(boodschap)
-
-print(onbekende_variabele) # Dit zal een foutmelding geven
+print(f"{boodschap} heeft als type {type(boodschap)})
 ```
 
 Python biedt veel ingebouwde methoden om strings te manipuleren. Een methode is een functie die specifiek is voor een bepaald datatype die kan worden aangeroepen op een object (in dit geval een string) met een punt, gevolgd door de naam van de methode en eventueel parameters tussen haakjes. Hier zijn enkele voorbeelden:
 
-<pre><code>tekst = "5BCW is geweldig"
+<pre><code>tekst = "DvM is geweldig"
 print(tekst.upper()) # Alles in hoofdletters
 print(tekst.lower()) # Alles in kleine letters
-print(tekst.replace("geweldig", "fantastisch")) # Vervang een woord
+print(tekst.replace("geweldig", "FANTASTISCH")) # Vervang een woord
 </code></pre>
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-Je kan de methodes die toegepast kunnen worden op strings terugvinden in de [Python documentatie](https://docs.python.org/3/library/stdtypes.html#string-methods).
+Je kan ook twee strings optellen. Het resultaat is een nieuwe string die bestaat uit beide oorspronkelijke strings achter elkaar. Hier een voorbeeld:
+
+<pre><code>voornaam = "An"
+achternaam = "Anas"
+fruit = voornaam+achternaam
+print(fruit)
+</code></pre>
+
+Je kan een string ook vermenigvuldigen met een geheel getal. De vermenigvuldiging is dan logisch om te zetten naar een som. Tracht daarom te voorspellen wat volgende code doet.
+
+<pre><code>tekst1 = "hiep "
+tekst2 = "hoera"
+jarig = 3*tekst1 + tekst2
+print(jarig)
+</code></pre>
+
+Je kan de methodes die toegepast kunnen worden op strings terugvinden in de [Python documentatie](https://docs.python.org/3/library/stdtypes.html#string-methods) of in je samenvatting.
 
 ### Oefening 2.2.1: String manipulatie
 
-Maak een string variabele met je volledige naam (voornaam en achternaam). Gebruik string methoden om:
+Maak een string variabele met je volledige naam (voornaam en achternaam). 
+Gebruik string methoden om:
 1. Je naam in hoofdletters te printen
 2. Het aantal karakters in je naam te tellen
 3. Je voornaam te vervangen door `Programmeur`
@@ -52,9 +67,33 @@ Je zal hiervoor de Python documentatie moeten raadplegen.
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
+
+## f-strings
+
+f-strings of formatted strings bieden een gemakkelijke manier om variabelen in strings in te voegen. We pasten dit reeds enkele keren toe in print()-opdrachten.
+
+Als je de `f`van `format` vooraan een string plaatst, worden alle variabele namen die tussen accolades staan `{...}` vervangen door de waarde die deze variabelen op dat moment hebben:
+
+```python
+naam = "Alice"
+leeftijd = 16
+print(f"Hallo, mijn naam is {naam} en ik ben {leeftijd} jaar oud.")
+```
+
+### Oefening 2.2.3: f-strings
+
+Maak variabelen voor je naam, leeftijd en favoriete vakantiebestemming. Gebruik een f-string om een zin te maken die deze informatie bevat en print deze zin.
+
+<pre><code># Jouw code hier
+</code></pre>
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+
 ## Integers en Floats
 
 Integers zijn gehele getallen, terwijl floats decimale getallen (kommagetallen) zijn.
+Het onderscheid wordt gemaakt door het punt: waarden met een punt in zijn kommagetallen en per definitie `float`. Komt er geen punt in de waarde, dan is het een geheel getal of `integer`.
 
 ```python
 leeftijd = 25 # integer
@@ -74,6 +113,47 @@ print(a // b) # Gehele deling -> Output: 3 (resultaat is altijd een integer)
 print(a % b) # Modulo (rest na deling) -> Output: 1
 print(a ** b) # Machtsverheffing -> Output: 1000
 ```
+Nu je dit weet, probeer te voorspellen wat het type is van volgende variabelen voor je het programma runt:
+<pre><code>
+a = 4
+b = 43.0
+
+print(f"a+2 heeft als type: {type(a+2)}")
+print(f"a+b heeft als type: {type(a+b)}")
+print(f"a*2 heeft als type: {type(a*2)}")
+print(f"a**2 heeft als type: {type(a**2)}")
+print(f"b%a heeft als type: {type(b%a)}")
+</code></pre>
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+
+## Self-assignment (zelf-toewijzing)
+
+In Python kun je een variabele ook een nieuwe waarde geven die gebaseerd is op zijn huidige waarde. Dit noemen we self-assignment.
+
+<pre><code>teller = 0
+teller = teller + 1
+print(teller)
+teller += 1
+print(teller)
+</code></pre>
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+Je kunt self-assignment gebruiken met alle rekenkundige operatoren (+, -, *, /, //, %, **).
+
+## Oefening: Rekenen met variabelen
+
+Maak twee numerieke variabelen `a` en `b` aan met willekeurige getallen. Tel ze op en sla het resultaat op in een nieuwe variabele `som`. Print vervolgens de som uit.
+
+<pre><code># Jouw code hier
+</code></pre>
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+Via deze oefeningen krijg je een beter begrip van hoe variabelen werken in Python, zowel voor tekst (strings) als voor getallen (numbers).
+
 
 ### Oefening 2.2.2: Berekeningen
 
@@ -84,24 +164,6 @@ Schrijf een programma dat de oppervlakte van een cirkel berekent. Gebruik een va
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-## f-strings
-
-f-strings of formatted strings bieden een gemakkelijke manier om variabelen in strings in te voegen.
-
-```python
-naam = "Alice"
-leeftijd = 16
-print(f"Hallo, mijn naam is {naam} en ik ben {leeftijd} jaar oud.")
-```
-
-### Oefening 2.2.3: f-strings
-
-Maak variabelen voor je naam, leeftijd en favoriete vakantiebestemming. Gebruik een f-string om een zin te maken die deze informatie bevat en print deze zin.
-
-<pre><code># Jouw code hier
-</code></pre>
-
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ## Booleans
 
@@ -127,13 +189,30 @@ Enkele veelgebruikte vergelijkingsoperatoren zijn:
 
 Het resultaat van deze vergelijkingen is altijd een Boolean waarde (`True` of `False`).
 
-<pre><code>x = 5  # Assignment
+<pre><code>
+x = 5  # Assignment
 y = 5  # Assignment
 
 print(x == y)  # Vergelijking
 print(x != y)  # Vergelijking
 </pre></code>
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+Deze vergelijkingsoperatoren kunnen we ook gebruiken bij strings! De rangorde wordt bij strings bepaald door het alfabet: als string1 < string2 betekent dat string1 alfabetisch voor string2 komt. Let op! Hoofdletters worden hierbij voor kleine letters gerekend. Voorspel daarom wat volgende code uitprint: True of False?
+
+<pre><code>
+x = "appel"
+y = "peer"
+z = "Banaan"
+
+print(x <= y)  		# Vergelijking
+print(x == "Appel") # Vergelijking
+print(x > z)  		# Vergelijking
+print(y != "Peer")  # Vergelijking
+</pre></code>
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+
 
 ## Type casting
 

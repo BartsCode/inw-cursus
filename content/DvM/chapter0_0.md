@@ -1,0 +1,20 @@
+# Voorwoord
+
+Het doel van deze cursus is niet om je een expert te maken in programmeren van Python, maar om je zelfstandig wiskundige problemen te leren oplossen en je daarvoor de nodige tools en achtergrond te geven.
+
+Het leren van een nieuwe programmeertaal kan soms vermoeiend zijn, en vergt het nodige doorzettingsvermogen. Vergelijk het met skien: Leren skien is niet vermoeiend en onaangenaam, maar eens je het kunt wordt het plezant.
+
+De leerstof **bouwt op**: wat we de eerste les zien moet je ook de tiende les nog kunnen. Oppervlakkig studeren zal je op het einde windeieren opleveren. Daarom zullen **de toetsen over de eerste 6 hoofdstukken op papier en zonder samenvatting afgenomen worden**. Een samenvatting van de leerstof vind je op smartschool.
+Hier volgen nog enkele tips om deze cursus correct te studeren. Deze tips komen niet van mij, maar uit het zeer gekende boek [**De Programmeeursleerling**](https://www.spronck.net/pythonbook/dutchindex.xhtml) van Pieter Spronck:
+
+   1. **Je moet aan de opgaves werken totdat je ze opgelost hebt**. Het volstaat niet om een beetje te proberen en dan het antwoord op te zoeken. Een dergelijke aanpak is volstrekt zinloos. Je zult nooit leren programmeren als je niet nadenkt over oplossingsmethodieken, code schrijft, en code test. Als je een opgave niet kunt oplossen zelfs als je er lange tijd aan hebt gewerkt, doe je er beter aan hulp te vragen dan het antwoord op te zoeken. (Dus geen ChatGPT of dergelijke!). Het niet kunnen oplossen van een opgave betekent dat er iets in het materiaal zit dat je nog niet begrijpt, en het is belangrijk dat je ontdekt wat dat is, zodat je dat gebrek kunt verhelpen.
+
+   2. Je moet **alle opgaves maken**. De enige manier om te leren programmeren is te oefenen. Je zult veel code moeten schrijven om de praktijk van het programmeren te internaliseren. De paar opgaves die ik aan het einde van ieder hoofdstuk op heb genomen zijn nog niet voldoende om dat te bereiken, maar ze zijn een begin. Als je niet de moeite neemt om al die opgaves te doen, hoef je ook niet de moeite te doen om te proberen programmeren te leren.
+
+   3. Je moet de opgaves **zelfstandig** maken. Aan de opgaves werken in groepsverband laat één persoon leren terwijl de rest erbij zit en toekijkt. Studenten vertellen me vaak dat ze een leermethode hebben waarbij ze aan opdrachten werken in groepsverband en antwoorden bediscussiëren. Dat werkt misschien voor het analyseren van teksten en het opzetten van experimenten, maar werkt meestal niet voor coderen. Toekijken hoe iemand anders code schrijft leert je erg weinig over het schrijven van code. Je moet zelf code schrijven.
+
+   4. Voor geen van de opgaves is informatie nodig die nog niet naar voren was gebracht op het moment dat de opgave in het boek verschijnt. Vaak zijn er wel betere manieren om een opgave op te lossen door gebruik te maken van Python constructies die later in het boek komen. Maar die zijn op zich niet nodig. **Het doel van de opgaves is te oefenen met het materiaal dat je op dat moment kent**. Ze zijn niet bedoeld om toekomstig materiaal te bestuderen. Zelfs als je bekend bent met andere manieren van oplossen, probeer je dan toch te beperken tot het materiaal dat voor de opgave staat. Als je dat eenmaal gedaan hebt, en je wilt later terugkeren bij een opgave om het op een andere manier te doen, is dat natuurlijk uitstekend.
+
+   5. Als je een opgave hebt opgelost en je je oplossing goed getest hebt, kun je je oplossing vergelijken met het antwoord dat ik geef. Je zult vaak zien dat mijn antwoord anders is dan het jouwe. Dat betekent niet dat jouw antwoord fout is! **Er zijn meestal verschillende manieren om een programmeerprobleem op te lossen**. Sommige zijn “beter” in bepaalde opzichten dan andere. Vele zijn “precies even goed.” Wat van belang is dat je een probleem kunt oplossen door code te schrijven, niet dat je een probleem kunt oplossen door de meest efficiënte code te schrijven. Het volstaat om het probleem op te lossen; oplossingen efficiënt maken is van veel minder belang. Bijvoorbeeld, “efficiëntie” is minder belangrijk dan “begrijpbaarheid” en “onderhoudbaarheid.”
+
+
