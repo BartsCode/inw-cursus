@@ -1,4 +1,6 @@
 // app/api/chat/route.ts
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import OpenAI from "openai";
 import { NextResponse } from "next/server";
 
