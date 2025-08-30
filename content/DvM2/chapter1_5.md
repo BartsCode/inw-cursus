@@ -1,4 +1,4 @@
-# 6.5 Oefeningen: Analyse en Vergelijking
+# 1.5 Oefeningen: Analyse en Vergelijking
 
 Nu is het tijd om zelf aan de slag te gaan met het analyseren van de tijdcomplexiteit van Python code.
 

@@ -23,3 +23,18 @@ in te vullen in file:
 http://localhost:3000
 
 
+#GitHub updaten:
+Voeg alle gewijzigde bestanden toe aan staging 
+>>>cd inw_cursus
+>>>git add .
+Commit je wijzigingen met een beschrijvende message
+>>>git commit -m "Beschrijf wat je hebt gewijzigd"
+Push naar GitHub (vervang 'main' door je branch naam als die anders is)
+>>>git push origin main
+
+
+#GitHub: usr = BartsCode
+#Vercel:
+inloggen via email: bart.j.... , je ontvangt een code...
+link: https://inw-cursus-bartscodes-projects.vercel.app/
+

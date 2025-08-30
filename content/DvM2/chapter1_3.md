@@ -1,4 +1,4 @@
-# 6.3 Meten van Efficiëntie: Big O Notatie
+# 1.3 Meten van Efficiëntie: Big O Notatie
 
 We hebben vastgesteld dat efficiëntie belangrijk is, maar hoe *meten* en *vergelijken* we de efficiëntie van verschillende algoritmen op een gestandaardiseerde manier? Hiervoor gebruiken we de **Big O notatie**.
 

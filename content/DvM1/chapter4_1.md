@@ -40,22 +40,48 @@ Elementen kunnen worden opgevraagd via hun index.
 
 ```python
 cijfers = [1, 2, 3, 4, 5]
-eerste_cijfer = cijfers[0]  # Geeft 1
-derde_cijfer = cijfers[2]  # Geeft 3
-laatste_cijfer = cijfers[-1]  # Geeft 5
+eerste_cijfer  = cijfers[0]    # Geeft 1
+derde_cijfer   = cijfers[2]    # Geeft 3
+laatste_cijfer = cijfers[-1]   # Geeft 5
 ```
 
-
-### Wijzigen van Elementen
-
-Je kunt de waarde van een element wijzigen door de index te specificeren.
+Je kan ook een deel van een lijst selecteren via **slicing**. Dit doe je zo: `lijst[start:stop]`
+Hierbij is
+- `start` de index waar de deellijst begint (tellende vanaf nul)
+- `stop` de index waar de deellijst eindigt. 
+**Het element op de stop-index zelf hoort niet tot de deellijst**
+Bijkomend kan men start en stop ook weglaten:
+- Laat je `start` weg, dan wordt aangenomen dat de lijst vanaf nul begint.
+- Laat je `stop` weg, wordt aangenomen dat de deellijst tot het einde van de van de oorsponkelijke lijst loopt.
 
 ```python
 cijfers = [1, 2, 3, 4, 5]
-cijfers[0] = 10  # Wijzigt het eerste element naar 10
-print(cijfers)  # Output: [10, 2, 3, 4, 5]
+deellijst = cijfers[1:3]  # Geeft [2,3]
+deellijst = cijfers[:3]   # Geeft [1,2,3]
+deellijst = cijfers[1:]   # Geeft [2,3,4,5]
+deellijst = cijfers[:]    # Geeft [1,2,3,4,5]
+```
+Tot slot kun je naast `start` en `stop` ook een `stap` ingeven. Hiermee begin je met de deellijst op `start` en ga je telkens `stap`posities verder in de rij. Enkele voorbeelden:
+
+```python
+cijfers = [1, 2, 3, 4, 5]
+deellijst = cijfers[0::2]  # Geeft [1,3,5]
+deellijst = cijfers[1:3]   # Geeft [2,5]
+deellijst = cijfers[::-1]  # Geeft [5,4,3,2,1]
 ```
 
+### Wijzigen van Elementen
+
+Je kunt de waarde van een element of een deellijst wijzigen door de index te specificeren.
+
+```python
+cijfers = [1, 2, 3, 4, 5]
+cijfers[0] = 10               # -> cijfers is nu [10, 2, 3, 4, 5]
+cijfers[2:4] = ["b","ar","t"] # -> cijfers is nu [10, 2, "b","ar","t", 5]
+cijfers[:4] = []			  # -> cijfers is nu ["t", 5]
+```
+
+Er zijn nog manieren om lijsten te wijzigen. We lijsten de belangrijkste hier op, maar je zal merken dat je dat eigenlijk via slicing ook kan doen. Veel van deze methoden zijn daarom overbodig als je slicing onder de knie hebt.
 
 ### Elementen Toevoegen
 
@@ -97,18 +123,19 @@ print(cijfers)  # Output: [10, 2, 3, 4, 5]
   # Nu is cijfers: [2, 3, 4, 5]
   ```
 
-### Lengte van een Lijst
+### Lijst vs String
 
-Gebruik de `len()` functie om het aantal elementen in een lijst te bepalen.
+***De meeste functies en operatoren die we zien voor lijsten werken ook voor strings en omgekeerd! Dit komt omdat Python strings ziet als een verzameling (geen lijst) van characters.*** 
+We illustreren deze overeenkomst hier met enkele functies die we al kennen:
+
+Met `len()` kun je het aantal elementen in een lijst bepalen:
 
 ```python
 cijfers = [7, 23, 3, 100, 29]
 lengte = len(cijfers)  # output: 5
 ```
 
-### Lijsten samenvoegen
-
-Twee lijsten kunnen worden samengevoegd met de `+` operator.
+Twee lijsten kunnen ook worden samengevoegd met de `+` operator.
 
 ```python
 lijst_1 = [1, 2, 3]
@@ -116,14 +143,29 @@ lijst_2 = [4, 5, 6]
 lijst_3 = lijst_1 + lijst_2  
 print(lijst_3) # output: [1, 2, 3, 4, 5, 6]
 ```
+Of wat dacht je wat dacht je van deze lijst? 
+Probeer eerst te raden wat dit wordt eer je de code runt:
+
+<pre><code>Lijst = 10*[0]
+print(Lijst)
+</code></pre>
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+Een Sting is geen lijst, maar je kan elke string casten tot een lijst en omgekeerd, want net zoals int(), str(), float() bestaat er ook een list(). Kijk hoe dit werkt:
+
+<pre><code>fruit = "peer"
+print("fruit bevat nu",fruit)
+lijst = list(fruit)
+print("lijst bevat nu",lijst)
+tekst = str(lijst)
+print("tekst bevat nu \"",tekst,"\"",sep="")
+</code></pre>
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 
 ## Belangrijke Concepten
-
-### Mutable vs. Immutable
-
-- **Mutable (Veranderlijk):** Lijsten zijn veranderlijk; je kunt hun inhoud wijzigen na creatie.
-- **Immutable (Onveranderlijk):** Datastructuren zoals tuplen zijn onveranderlijk; eenmaal gecreëerd, kunnen ze niet worden gewijzigd.
 
 ### Geneste Lijsten
 
@@ -135,6 +177,7 @@ print(genest[0]) # Output: [1, 2]
 print(genest[0][1]) # Output: 2
 ```
 
+Dit wordt veel toegepast in de wiskunde. Immers kan je een vector voorstellen als een lijst, en dan kan je op deze geneste manier een matrix voorstellen.
 
 ## Toepassingen van Lijsten
 

@@ -1,14 +1,14 @@
 # 4.2 Itereren over Lijsten
 
-In het programmeren is iteratie een fundamenteel concept dat verwijst naar het herhaaldelijk uitvoeren van een set instructies over een verzameling gegevens. Bij lijsten betekent dit dat we over elk element in de lijst gaan en er een bewerking op uitvoeren. In dit hoofdstuk bespreken we de algemene concepten van het itereren over lijsten en hoe dit efficiënt kan worden gedaan. De algemene principes zijn van toepassing op vrijwel alle programmeertalen.
+In het programmeren is **iteratie** een fundamenteel concept dat verwijst naar het herhaaldelijk uitvoeren van een set instructies over een verzameling gegevens. Bij lijsten betekent dit dat we over elk element in de lijst gaan en er een bewerking op uitvoeren. In dit hoofdstuk bespreken we de algemene concepten van het itereren over lijsten en hoe dit efficiënt kan worden gedaan. De algemene principes zijn van toepassing op vrijwel alle programmeertalen.
 
 ## Wat is Iteratie?
 
-Iteratie is het proces waarbij een reeks instructies meerdere keren wordt uitgevoerd, meestal één keer voor elk element in een collectie zoals een lijst. Dit stelt ons in staat om herhalende taken uit te voeren zonder de code telkens opnieuw te schrijven.
+Iteratie is het proces waarbij een reeks instructies meerdere keren wordt uitgevoerd, meestal één keer voor elk element in een collectie of verzameling zoals een lijst of een string. Dit stelt ons in staat om herhalende taken uit te voeren zonder de code telkens opnieuw te schrijven.
 
 ## Manieren om over Lijsten te Itereren
 
-Er zijn verschillende manieren om over de elementen van een lijst te itereren:
+Er zijn verschillende manieren om over de elementen van een verzameling te itereren:
 
 ### 1. Gebruik van een `for`-lus
 
@@ -87,7 +87,6 @@ for i in range(len(woorden)):
 
 
 **Uitleg:**
-
 
 - `len(woorden)` geeft het aantal elementen in de lijst `woorden`, in dit geval `3`.
 - `range(len(woorden))` genereert de reeks `0, 1, 2`.

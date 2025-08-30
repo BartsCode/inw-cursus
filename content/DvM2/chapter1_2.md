@@ -1,4 +1,4 @@
-# 6.2 Efficiëntie: Waarom is het Belangrijk?
+# 1.2 Efficiëntie: Waarom is het Belangrijk?
 
 In de vorige sectie hebben we geleerd wat een algoritme is. Een cruciaal aspect van een algoritme, vooral in de informatica, is de **efficiëntie**. Maar wat betekent dat precies en waarom is het zo belangrijk?
 

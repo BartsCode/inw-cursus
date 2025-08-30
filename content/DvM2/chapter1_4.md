@@ -1,4 +1,4 @@
-# 6.4 Analyse van Eenvoudige Algoritmen
+# 1.4 Analyse van Eenvoudige Algoritmen
 
 Nu we de Big O notatie kennen, kunnen we beginnen met het analyseren van de tijdcomplexiteit van eenvoudige Python codefragmenten en algoritmen. Het doel is om te bepalen hoe de uitvoeringstijd schaalt met de grootte van de input `n`.
 

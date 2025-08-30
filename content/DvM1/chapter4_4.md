@@ -1,4 +1,4 @@
-# 4.5 While Loops
+# 4.4 While Loops
 
 In het vorige hoofdstuk hebben we kennisgemaakt met for-loops, die ons in staat stellen om over een reeks elementen te itereren. In dit hoofdstuk introduceren we een ander type lus: de while-loop. Terwijl for-loops worden gebruikt om over een bekende reeks elementen te itereren, worden while-loops gebruikt om code herhaaldelijk uit te voeren zolang aan een bepaalde voorwaarde wordt voldaan.
 

@@ -12,45 +12,58 @@ import { useRouter, usePathname, ReadonlyURLSearchParams } from 'next/navigation
 import remarkGfm from 'remark-gfm';
 import Link from 'next/link'
 import Image from 'next/image';
-import chapter0_0 from '../content/DvM/chapter0_0.md'
-import chapter1_1 from '../content/DvM/chapter1_1.md'
-import chapter1_2 from '../content/DvM/chapter1_2.md'
-import chapter1_3 from '../content/DvM/chapter1_3.md'
-import chapter2_1 from '../content/DvM/chapter2_1.md'
-import chapter2_2 from '../content/DvM/chapter2_2.md'
-import chapter2_3 from '../content/DvM/chapter2_3.md'
-import chapter2_4 from '../content/DvM/chapter2_4.md'
-import chapter2_5 from '../content/DvM/chapter2_5.md'
-import chapter3_1 from '../content/DvM/chapter3_1.md'
-import chapter3_2 from '../content/DvM/chapter3_2.md'
-import chapter3_3 from '../content/DvM/chapter3_3.md'
-import chapter4_1 from '../content/DvM/chapter4_1.md'
-import chapter4_2 from '../content/DvM/chapter4_2.md'
-import chapter4_3 from '../content/DvM/chapter4_3.md'
-import chapter4_4 from '../content/DvM/chapter4_4.md'
-import chapter4_5 from '../content/DvM/chapter4_5.md'
-import chapter4_6 from '../content/DvM/chapter4_6.md'
-import chapter5_1 from '../content/DvM/chapter5_1.md'
-import chapter5_2 from '../content/DvM/chapter5_2.md'
-import chapter6_1 from '../content/DvM/chapter6_1.md'
-import chapter6_2 from '../content/DvM/chapter6_2.md'
-import chapter6_3 from '../content/DvM/chapter6_3.md'
-import chapter6_4 from '../content/DvM/chapter6_4.md'
-import chapter6_5 from '../content/DvM/chapter6_5.md'
+
+//invoer van bestanden DvM-deel1
+import chapter0_0_1 from '../content/DvM1/chapter0_0.md'
+import chapter1_1_1 from '../content/DvM1/chapter1_1.md'
+import chapter1_2_1 from '../content/DvM1/chapter1_2.md'
+import chapter1_3_1 from '../content/DvM1/chapter1_3.md'
+import chapter2_1_1 from '../content/DvM1/chapter2_1.md'
+import chapter2_2_1 from '../content/DvM1/chapter2_2.md'
+import chapter2_3_1 from '../content/DvM1/chapter2_3.md'
+import chapter2_4_1 from '../content/DvM1/chapter2_4.md'
+import chapter2_5_1 from '../content/DvM1/chapter2_5.md'
+import chapter3_1_1 from '../content/DvM1/chapter3_1.md'
+import chapter3_2_1 from '../content/DvM1/chapter3_2.md'
+import chapter3_3_1 from '../content/DvM1/chapter3_3.md'
+import chapter4_1_1 from '../content/DvM1/chapter4_1.md'
+import chapter4_2_1 from '../content/DvM1/chapter4_2.md'
+import chapter4_3_1 from '../content/DvM1/chapter4_3.md'
+import chapter4_4_1 from '../content/DvM1/chapter4_4.md'
+import chapter4_5_1 from '../content/DvM1/chapter4_5.md'
+import chapter5_1_1 from '../content/DvM1/chapter5_1.md'
+import chapter5_2_1 from '../content/DvM1/chapter5_2.md'
+import chapter6_1_1 from '../content/DvM1/chapter6_1.md'
+import chapter6_2_1 from '../content/DvM1/chapter6_2.md'
+import chapter6_3_1 from '../content/DvM1/chapter6_3.md'
+
+//invoer van bestanden DvM-deel2
+import chapter0_0_2 from '../content/DvM2/chapter0_0.md'
+import chapter1_1_2 from '../content/DvM2/chapter1_1.md'
+import chapter1_2_2 from '../content/DvM2/chapter1_2.md'
+import chapter1_3_2 from '../content/DvM2/chapter1_3.md'
+import chapter1_4_2 from '../content/DvM2/chapter1_4.md'
+import chapter1_5_2 from '../content/DvM2/chapter1_5.md'
+import chapter2_1_2 from '../content/DvM2/chapter2_1.md'
+import chapter2_2_2 from '../content/DvM2/chapter2_2.md'
+import chapter2_3_2 from '../content/DvM2/chapter2_3.md'
+import chapter2_4_2 from '../content/DvM2/chapter2_4.md'
+import chapter2_5_2 from '../content/DvM2/chapter2_5.md'
+import chapter3_1_2 from '../content/DvM2/chapter3_1.md'
+import chapter3_2_2 from '../content/DvM2/chapter3_2.md'
+import chapter3_3_2 from '../content/DvM2/chapter3_3.md'
+import chapter3_4_2 from '../content/DvM2/chapter3_4.md'
+import chapter3_5_2 from '../content/DvM2/chapter3_5.md'
+import chapter3_6_2 from '../content/DvM2/chapter3_6.md'
+
 import BigOComplexityChart from './big-o-chart';
 import { MemoizedMarkdown } from './memoized-markdown'
-import { Streak } from './streak';
-import { Achievements } from './achievements';
-import { Leaderboard } from './leaderboard';
-import { Quiz } from './quiz';
-import { CodeChallenge } from './code-challenge';
-import { ChapterQuiz } from './chapter-quiz';
 
 const courses = [
   {
-    id: 'inw-DvM',
-    title: 'INW - DvM: Introductie tot Python',
-    description: 'Een cursus Python, algoritmen en object-georiënteerd programmeren voor 5e jaars leerlingen van DvM-humaniora uit Aalst.',
+    id: 'inw-deel1',
+    title: 'INW1: Introductie tot Python.',
+    description: 'Een inleidende cursus Python voor leerlingen 3e graad.',
     chapters: [
       { 
         id: 0, 
@@ -94,10 +107,9 @@ const courses = [
         subchapters: [
           { id: '4.1', title: "4.1 Lijsten" },
           { id: '4.2', title: "4.2 Itereren over Lijsten" },
-          { id: '4.3', title: "4.3 Oefeningen" },
-          { id: '4.4', title: "4.4 Dictionaries (Woordenboeken)" },
-          { id: '4.5', title: "4.5 While Loops" },
-          { id: '4.6', title: "4.6 Oefeningen: Dictionaries en While Loops" },
+          { id: '4.3', title: "4.3 Oefeningen: Lijsten" },
+          { id: '4.4', title: "4.4 While Loops" },
+          { id: '4.5', title: "4.5 Oefeningen" },
         ]
       },
       {
@@ -105,51 +117,127 @@ const courses = [
         title: "5. Functies", 
         subchapters: [
           { id: '5.1', title: "5.1 Functies" },
-          { id: '5.2', title: "5.2 Oefeningen: Functies" }
+          { id: '5.2', title: "5.2 Oefeningen" }
         ]
       },
       {
         id: 6,
-        title: "6. Introductie tot Algoritmen en Efficiëntie",
+        title: "6. Bestanden",
         subchapters: [
-          { id: '6.1', title: "6.1 Wat is een Algoritme?" },
-          { id: '6.2', title: "6.2 Efficiëntie: Waarom is het Belangrijk?" },
-          { id: '6.3', title: "6.3 Meten van Efficiëntie: Big O Notatie" },
-          { id: '6.4', title: "6.4 Analyse van Eenvoudige Algoritmen" },
-          { id: '6.5', title: "6.5 Oefeningen: Analyse en Vergelijking" },
+          { id: '6.1', title: "Openen van bestanden" },
+          { id: '6.2', title: "Bewerken van bestanden" },
+		  { id: '6.3', title: "Oefeningen" },
         ]
       }
     ]
-  }
+  },
+  {
+  id: 'inw-deel2',
+  title: 'INW2: Algoritmische en numerieke methoden ',
+  description: 'Leer enkele algoritmische technieken en numierieke methoden toepassen om wiskundige problemen op te lossen',
+  chapters: [
+  	{ 
+    	id: 0, 
+    	title: "0. Inleiding",
+    	subchapters: [
+	  		{ id: '0.0', title: "0.0 Voorwoord" }
+    	]
+  	},
+  	{ 
+    	id: 1, 
+    	title: "1. Algoritmen",
+    	subchapters: [
+	  		{ id: '1.1', title: "1.1 Wat is een Algoritme?" },
+			{ id: '1.2', title: "1.2 Efficiëntie" },
+			{ id: '1.3', title: "1.3 Meten van Efficiëntie" },
+			{ id: '1.4', title: "1.4 Analyse van Algoritmen" },
+			{ id: '1.5', title: "1.5 Oefeningen" },
+    	]
+  	},
+  	{ 
+    	id: 2, 
+    	title: "2. Algoritmische Technieken",
+    	subchapters: [
+	  		{ id: '2.1', title: "2.1 Verdeel en Heers " },
+			{ id: '2.2', title: "2.2 Greedy Algoritmen" },
+			{ id: '2.3', title: "2.3 Recursie" },
+			{ id: '2.4', title: "2.4 Brute Force" },
+			{ id: '2.5', title: "2.5 Oefeningen" },
+    	]
+  	},
+  	{ 
+    	id: 3, 
+    	title: "3. Numerieke Methoden",
+    	subchapters: [
+	  		{ id: '3.1', title: "3.1 Introductie" },
+			{ id: '3.2', title: "3.2 Fouten in Numerieke Methoden" },
+			{ id: '3.3', title: "3.3 Toepassing: Nulpuntbepaling" },
+			{ id: '3.4', title: "3.4 Toepassing: Numerieke Integratie" },
+			{ id: '3.5', title: "3.5 Gebruik van Softwarebibliotheken" },
+			{ id: '3.6', title: "3.6 Oefeningen" },
+    	]
+  	},
+	]
+  },
+  {
+  id: 'inw-extra',
+  title: 'Extra oefeningen: ',
+  description: 'Onder constructie',
+  chapters: [
+  	{ 
+    	id: 0, 
+    	title: "0. Inleiding",
+    	subchapters: [
+	  		{ id: '0.0', title: "0.0 Voorwoord" }
+    	]
+  	},
+	]
+  },
 ];
 
 const chapterContent = {
-  'inw-DvM': {
-    '0.0': chapter0_0,
-    '1.1': chapter1_1,
-    '1.2': chapter1_2,
-    '1.3': chapter1_3,
-    '2.1': chapter2_1,
-    '2.2': chapter2_2,
-    '2.3': chapter2_3,
-    '2.4': chapter2_4,
-	'2.5': chapter2_5,
-    '3.1': chapter3_1,
-    '3.2': chapter3_2,
-    '3.3': chapter3_3,
-    '4.1': chapter4_1,
-    '4.2': chapter4_2,
-    '4.3': chapter4_3,
-    '4.4': chapter4_4,
-    '4.5': chapter4_5,
-    '4.6': chapter4_6,
-    '5.1': chapter5_1,
-    '5.2': chapter5_2,
-    '6.1': chapter6_1,
-    '6.2': chapter6_2,
-    '6.3': chapter6_3,
-    '6.4': chapter6_4,
-    '6.5': chapter6_5,
+  'inw-deel1': {
+    '0.0': chapter0_0_1,
+    '1.1': chapter1_1_1,
+    '1.2': chapter1_2_1,
+    '1.3': chapter1_3_1,
+    '2.1': chapter2_1_1,
+    '2.2': chapter2_2_1,
+    '2.3': chapter2_3_1,
+    '2.4': chapter2_4_1,
+	'2.5': chapter2_5_1,
+    '3.1': chapter3_1_1,
+    '3.2': chapter3_2_1,
+    '3.3': chapter3_3_1,
+    '4.1': chapter4_1_1,
+    '4.2': chapter4_2_1,
+    '4.3': chapter4_3_1,
+    '4.4': chapter4_4_1,
+    '4.5': chapter4_5_1,
+    '5.1': chapter5_1_1,
+    '5.2': chapter5_2_1,
+    '6.1': chapter6_1_1,
+    '6.2': chapter6_2_1,
+	'6.3': chapter6_3_1,
+  },
+  'inw-deel2': {
+    '0.0': chapter0_0_2,
+    '1.1': chapter1_1_2,
+    '1.2': chapter1_2_2,
+    '1.3': chapter1_3_2,
+	'1.4': chapter1_4_2,
+	'1.5': chapter1_5_2,
+    '2.1': chapter2_1_2,
+    '2.2': chapter2_2_2,
+    '2.3': chapter2_3_2,
+    '2.4': chapter2_4_2,
+	'2.5': chapter2_5_2,
+    '3.1': chapter3_1_2,
+    '3.2': chapter3_2_2,
+    '3.3': chapter3_3_2,
+	'3.4': chapter3_4_2,
+	'3.5': chapter3_5_2,
+	'3.6': chapter3_6_2,
   },
 };
 
@@ -474,25 +562,6 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
     </div>
   )
 
-  const getChapterTitle = () => {
-    if (!selectedCourse || !selectedChapter || !selectedSubchapter) return '';
-    
-    const course = courses.find(c => c.id === selectedCourse);
-    if (!course) return '';
-    
-    const chapter = course.chapters.find(c => c.id === Number(selectedChapter));
-    if (!chapter) return '';
-    
-    const subchapter = chapter.subchapters.find(s => s.id === selectedSubchapter);
-    return subchapter ? subchapter.title : '';
-  };
-
-  const getChapterContent = () => {
-    if (!selectedCourse || !selectedSubchapter) return '';
-    
-    return chapterContent[selectedCourse as keyof typeof chapterContent]?.[selectedSubchapter as keyof (typeof chapterContent)[keyof typeof chapterContent]] || '';
-  };
-
   return (
     <div className={`flex flex-col min-h-screen ${darkMode ? 'dark' : ''}`}>
       <div className="flex-1 transition-colors duration-300 bg-gray-100 dark:bg-gray-900 text-black dark:text-white">
@@ -694,7 +763,7 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
       </div>
       
       <footer className="bg-white dark:bg-black p-4 text-center text-sm border-t-2 border-black dark:border-white">
-        <p>&copy; 2025 INW - door Matthias Schuyten. Bewerking van B. Bruyneel. Alle rechten voorbehouden.</p>
+        <p>&copy; 2025 INW - door Matthias Schuyten. Bewerking van B. Bruyneel voor DvM Humaniora Aalst. Alle rechten voorbehouden.</p>
       </footer>
       
       <ChatInterface 
@@ -705,95 +774,6 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
             : undefined
         }
       />
-
-      {selectedCourse && (
-        <div className="bg-white dark:bg-gray-800 p-4 mb-4 rounded-lg shadow-md border-2 border-black dark:border-white">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <ProgressBar 
-              currentCourse={selectedCourse} 
-              currentChapter={selectedChapter} 
-              currentSubchapter={selectedSubchapter} 
-            />
-            
-            <div className="flex items-center gap-3">
-              <Streak />
-              <Achievements currentCourse={selectedCourse} />
-              <Leaderboard />
-            </div>
-          </div>
-        </div>
-      )}
-
-      {selectedChapter && selectedSubchapter && (
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border-2 border-black dark:border-white">
-          
-          <ChapterQuiz 
-            chapterId={selectedSubchapter} 
-            currentCourse={selectedCourse!} 
-          />
-        </div>
-      )}
     </div>
   )
-}
-
-function ResumeButton() {
-  const router = useRouter()
-  const pathname = usePathname()
-
-  const handleResume = () => {
-    const lastPosition = localStorage.getItem('lastPosition')
-    if (lastPosition) {
-      const { course, chapter, subchapter } = JSON.parse(lastPosition)
-      router.push(`${pathname}?course=${course}&chapter=${chapter}&subchapter=${subchapter}`)
-    }
-  }
-
-  return (
-    <button
-      onClick={handleResume}
-      className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-    >
-      Hervat laatste positie
-    </button>
-  )
-}
-
-function ProgressBar({ currentCourse, currentChapter, currentSubchapter }: { 
-  currentCourse: string; 
-  currentChapter: number | string; 
-  currentSubchapter: string; 
-}) {
-  const [progress, setProgress] = useState(0);
-  
-  useEffect(() => {
-    // Load progress from localStorage
-    const savedProgress = localStorage.getItem(`progress_${currentCourse}`);
-    const progressData = savedProgress ? JSON.parse(savedProgress) : { completed: [] };
-    
-    // Calculate percentage based on completed chapters
-    const course = courses.find(c => c.id === currentCourse);
-    if (course) {
-      const totalSubchapters = course.chapters.reduce(
-        (total, chapter) => total + chapter.subchapters.length, 0
-      );
-      const completedCount = progressData.completed.length;
-      setProgress(Math.round((completedCount / totalSubchapters) * 100));
-    }
-  }, [currentCourse, currentChapter, currentSubchapter]);
-  
-  return (
-    <div className="mb-4">
-      <div className="flex justify-between mb-1">
-        <span className="text-sm font-medium">Voortgang</span>
-        <span className="text-sm font-medium">{progress}%</span>
-      </div>
-      <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-        <div 
-          className="bg-blue-600 h-2.5 rounded-full transition-all duration-500" 
-          style={{ width: `${progress}%` }}
-        ></div>
-      </div>
-    </div>
-  );
 }

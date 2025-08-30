@@ -4,7 +4,7 @@ In de vorige hoofdstukken hebben we code geschreven die stap voor stap wordt uit
 
 ## Wat zijn Functies?
 
-Een functie is een **blok code** dat een specifieke taak uitvoert en een naam heeft. Je kunt een functie zien als een mini-programma binnen je hoofdprogramma. Het grote voordeel is dat je dit blok code kunt **hergebruiken** door simpelweg de naam van de functie aan te roepen. Dit maakt je code:
+Een functie is een **code blok** dat een specifieke taak uitvoert en een naam heeft. Je kunt een functie zien als een mini-programma binnen je hoofdprogramma. Het grote voordeel is dat je dit code blok kunt **hergebruiken** door simpelweg de naam van de functie aan te roepen. Dit maakt je code:
 
 - **Modulair:** Je kunt complexe problemen opdelen in kleinere, beheersbare taken (functies).
 - **Herbruikbaar:** Je hoeft dezelfde logica niet telkens opnieuw te schrijven (DRY - Don't Repeat Yourself).
@@ -35,6 +35,8 @@ begroet()
 begroet() # Je kunt de functie meerdere keren aanroepen
 ```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+Let er wel op dat de definitie steeds voor de anroep moet komen zodat de functie gekend is door de computer voor die gebruikt wordt.
 
 ## Parameters en Argumenten
 
@@ -76,13 +78,13 @@ print(f"Nog een berekening: {tel_op(1, 2)}") # Gebruik de return waarde direct
 ```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-Zodra een `return` statement wordt uitgevoerd, stopt de functie onmiddellijk en wordt de opgegeven waarde teruggestuurd. Een functie kan ook meerdere waarden teruggeven (meestal als een tuple).
+Zodra een `return` statement wordt uitgevoerd, stopt de functie onmiddellijk en wordt de opgegeven waarde teruggestuurd. Een functie kan ook meerdere waarden teruggeven. Je scheid die dan door een komma.
 
 ```python
 def bereken_omtrek_en_oppervlakte(breedte, hoogte):
   omtrek = 2 * (breedte + hoogte)
   oppervlakte = breedte * hoogte
-  return omtrek, oppervlakte # Geeft een tuple terug
+  return omtrek, oppervlakte # Geeft twee waarden terug
 
 afmetingen = bereken_omtrek_en_oppervlakte(5, 4)
 print(f"Omtrek en oppervlakte: {afmetingen}") # Output: Omtrek en oppervlakte: (18, 20)
@@ -90,14 +92,18 @@ print(f"Omtrek: {afmetingen[0]}")
 print(f"Oppervlakte: {afmetingen[1]}")
 
 # Je kunt de waarden ook direct uitpakken
-o, opp = bereken_omtrek_en_oppervlakte(10, 2)
-print(f"Omtrek: {o}, Oppervlakte: {opp}")
+omtrek, opp = bereken_omtrek_en_oppervlakte(10, 2)
+print(f"Omtrek: {omtrek}, Oppervlakte: {opp}")
 ```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ## Scope van Variabelen
 
 Variabelen die binnen een functie worden gedefinieerd, zijn **lokaal** voor die functie. Ze bestaan alleen binnen die functie en zijn niet toegankelijk van buitenaf. Variabelen die buiten alle functies worden gedefinieerd, zijn **globaal**.
+
+Om dit te verstaan kun je de analogie maken met een berekening maken op papier. Stel je bent het hoofdprogramma aan het berekenen op een stuk papier. Als je een aanroep van een functie tegenkomt, dan komt dat overeen met het maken van een tussenberekening op een kladblad. Hierbij kun je steeds gebruik maken van 'globale' variabelen die op je net blad staan. Eens de berekening van de functieaanroep is voltooid schrijf je enkel de uitkomsten hiervan op het net blad - dit zijn de return waarden. De rest van het kladblad, inclusief de waarden van de lokale variabelen, wordt weggegooid. 
+
+Het zelfde gebeurt in het geheugen van de computer: eens de deelberekening van een functie-aanroep is voltooid wordt dat deel van het geheugen gewist. Enkel de return-variabelen worden doorgegeven via een toewijzing aan de variabele(n) die voor het gelijkheidsteken staat/staan. Alle andere informatie, zoals de waarden van locale variabelen wordt daarna gewist.
 
 ```python
 globale_var = "Ik ben globaal"
@@ -118,7 +124,7 @@ Het is over het algemeen beter om gegevens aan functies door te geven via parame
 
 ## Docstrings
 
-Het is een goede gewoonte om je functies te documenteren met een **docstring**. Dit is een string literal die direct na de `def` regel komt en beschrijft wat de functie doet.
+Het is een goede gewoonte om je functies te documenteren met een **docstring**. Dit is een string die direct na de `def` regel komt en beschrijft wat de functie doet.
 
 ```python
 def tel_op(getal1, getal2):
@@ -139,5 +145,3 @@ def tel_op(getal1, getal2):
 # help(tel_op) # In een Python interpreter
 ```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
-
-Functies zijn een essentieel onderdeel van programmeren in Python (en vele andere talen). Ze helpen je om je code georganiseerd, efficiënt en leesbaar te houden. In het volgende hoofdstuk gaan we oefenen met het schrijven en gebruiken van functies. 
