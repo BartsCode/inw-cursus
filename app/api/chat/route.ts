@@ -23,15 +23,20 @@ export async function POST(req: Request) {
       messages: [
         {
           role: "system",
-          content: "You are a helpful teaching assistant for an informatics course that uses basic python. Answer questions about programming and related topics. Respond in the same language as the user (Dutch or English). Never give a straight answer, but rather ask a question to the user to help them find the answer themselves."
+          content: `
+You are a helpful teaching assistant for an informatics course that uses basic Python.
+Answer questions about programming and related topics.
+Respond in the same language as the user (Dutch or English).
+Never give a straight answer, but rather ask a question to the user to help them find the answer themselves.
+          `,
         },
-        ...body.messages
+        ...body.messages,
       ],
       stream: true,
       max_tokens: 500,
     });
 
-    // Create a ReadableStream that the useChat hook expects
+    // ReadableStream voor Next.js useChat
     const readableStream = new ReadableStream({
       async start(controller) {
         try {
@@ -42,13 +47,13 @@ export async function POST(req: Request) {
             }
           }
           controller.close();
-        } catch (error) {
-          controller.error(error);
+        } catch (error: unknown) {
+          const err = error instanceof Error ? error : new Error(String(error));
+          controller.error(err);
         }
       },
     });
 
-    // Return the stream response with the correct headers
     return new Response(readableStream, {
       headers: {
         "Content-Type": "text/plain; charset=utf-8",
@@ -56,11 +61,16 @@ export async function POST(req: Request) {
       },
     });
 
-  } catch (err: any) {
-    console.error("Fout bij OpenAI:", err);
-    return NextResponse.json({ 
-      error: err.message || "Interne serverfout",
-      details: "Controleer je OPENAI_API_KEY en modelnaam"
-    }, { status: 500 });
+  } catch (err: unknown) {
+    const error = err instanceof Error ? err : new Error(String(err));
+    console.error("Fout bij OpenAI:", error);
+
+    return NextResponse.json(
+      {
+        error: error.message || "Interne serverfout",
+        details: "Controleer je OPENAI_API_KEY en modelnaam",
+      },
+      { status: 500 }
+    );
   }
 }
