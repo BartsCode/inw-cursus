@@ -1,4 +1,5 @@
 // app/api/chat/route.ts
+// op hoop van zegen...
 import OpenAI from "openai";
 import { NextResponse } from "next/server";
 
