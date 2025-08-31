@@ -301,7 +301,7 @@ function useCustomChat(initialMessages: Array<{id: string, role: string, content
     }
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value);
   };
 
@@ -337,7 +337,7 @@ function ChatInterface({
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Nieuwe functie toevoegen
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSubmit(e as unknown as React.FormEvent);
