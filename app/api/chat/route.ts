@@ -3,6 +3,12 @@ import OpenAI from "openai";
 import { NextResponse } from "next/server";
 import { AI_CONFIG } from "../../../components/ai-config";
 
+// Voeg deze interface toe
+interface ChatMessage {
+  role: string;
+  content: string;
+}
+
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -18,8 +24,8 @@ export async function POST(req: Request) {
       );
     }
 
-    // Filter out system messages from the request (we gebruiken onze eigen system prompt)
-    const userMessages = body.messages.filter((msg: any) => msg.role !== 'system');
+    // Vervang 'any' met de ChatMessage interface
+    const userMessages = body.messages.filter((msg: ChatMessage) => msg.role !== 'system');
 
     const stream = await client.chat.completions.create({
       model: "gpt-4o-mini",
