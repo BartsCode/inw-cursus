@@ -1,7 +1,7 @@
 // app/api/chat/route.ts
+// op hoop van zegen...
 import OpenAI from "openai";
 import { NextResponse } from "next/server";
-import { AI_CONFIG } from "../../../components/ai-config";
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -10,6 +10,7 @@ const client = new OpenAI({
 export async function POST(req: Request) {
   try {
     const body = await req.json();
+    console.log("Ontvangen body:", body);
 
     if (!body.messages || !Array.isArray(body.messages)) {
       return NextResponse.json(
@@ -18,22 +19,25 @@ export async function POST(req: Request) {
       );
     }
 
-    // Filter out system messages from the request (we gebruiken onze eigen system prompt)
-    const userMessages = body.messages.filter((msg: any) => msg.role !== 'system');
-
     const stream = await client.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
         {
           role: "system",
-          content: AI_CONFIG.systemPrompt,
+          content: `
+You are a helpful teaching assistant for an informatics course that uses basic Python.
+Answer questions about programming and related topics.
+Respond in the same language as the user (Dutch or English).
+Never give a straight answer, but rather ask a question to the user to help them find the answer themselves.
+          `,
         },
-        ...userMessages,
+        ...body.messages,
       ],
       stream: true,
       max_tokens: 500,
     });
 
+    // ReadableStream voor Next.js useChat
     const readableStream = new ReadableStream({
       async start(controller) {
         try {
@@ -45,7 +49,8 @@ export async function POST(req: Request) {
           }
           controller.close();
         } catch (error: unknown) {
-          controller.error(error instanceof Error ? error : new Error(String(error)));
+          const err = error instanceof Error ? error : new Error(String(error));
+          controller.error(err);
         }
       },
     });
@@ -58,11 +63,13 @@ export async function POST(req: Request) {
     });
 
   } catch (err: unknown) {
-    console.error("Fout bij OpenAI:", err);
+    const error = err instanceof Error ? err : new Error(String(err));
+    console.error("Fout bij OpenAI:", error);
 
     return NextResponse.json(
       {
-        error: "Interne serverfout",
+        error: error.message || "Interne serverfout",
+        details: "Controleer je OPENAI_API_KEY en modelnaam",
       },
       { status: 500 }
     );

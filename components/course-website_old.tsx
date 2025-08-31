@@ -336,20 +336,12 @@ function ChatInterface({
   const [isOpen, setIsOpen] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Nieuwe functie toevoegen
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleSubmit(e as unknown as React.FormEvent);
-    }
-  };
-
   // Auto-scroll naar beneden wanneer nieuwe messages komen
   useEffect(() => {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [messages]);
+  }, [messages]); // Triggers wanneer messages veranderen
 
   const scrollToBottom = () => {
     if (messagesEndRef.current) {
@@ -357,6 +349,7 @@ function ChatInterface({
     }
   };
 
+  // Ook scroll wanneer de chat opent
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => scrollToBottom(), 100);
@@ -408,37 +401,31 @@ function ChatInterface({
                       prose-pre:max-w-full prose-pre:overflow-x-auto
                       prose-img:max-w-full prose-img:rounded
                       prose-code:whitespace-pre-wrap
-                      whitespace-pre-wrap
                       ${message.role === 'assistant' 
                         ? (darkMode ? 'bg-gray-700' : 'bg-gray-100')
                         : (darkMode ? 'bg-blue-600' : 'bg-blue-500 text-white')}
                     `}>
                       <div className="max-w-full overflow-x-auto">
-                        {message.role === 'user' ? (
-                          <div className="whitespace-pre-wrap">{message.content}</div>
-                        ) : (
-                          <MemoizedMarkdown content={message.content} id={message.id} />
-                        )}
+                        <MemoizedMarkdown content={message.content} id={message.id} />
                       </div>
                     </div>
                   </div>
                 </div>
               ))}
+            {/* Invisible element om naar te scrollen */}
             <div ref={messagesEndRef} />
           </div>
 
           {/* Input Form */}
           <form onSubmit={handleSubmit} className="p-4 border-t border-gray-200 dark:border-gray-700">
             <div className="flex gap-2">
-              <textarea
+              <input
                 value={input}
                 onChange={handleInputChange}
-                onKeyDown={handleKeyDown}
-                placeholder="Ask a question... (Shift+Enter voor nieuwe regel)"
+                placeholder="Ask a question..."
                 disabled={isLoading}
-                rows={3}
                 className={`
-                  flex-1 rounded-lg px-4 py-2 resize-y
+                  flex-1 rounded-lg px-4 py-2 
                   ${darkMode 
                     ? 'bg-gray-700 text-white border-gray-600' 
                     : 'bg-gray-100 text-black border-gray-300'}
