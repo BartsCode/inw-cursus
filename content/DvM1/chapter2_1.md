@@ -12,10 +12,10 @@ De computer slaat die informatie op in binaire vorm - met eentjes en nulletjes. 
 
 In Python wijs je een waarde toe aan een variabele met het gelijkheidsteken (`=`). Hier is een eenvoudig voorbeeld:
 
-<pre><code>boodschap = "Hallo, wereld!"
+```python
+boodschap = "Hallo, wereld!"
 print(boodschap)
-</code></pre>
-
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 Hierbij staat de variabele naam steeds voor het gelijkheidsteken en de waarde die in deze variabele wordt bewaard na het gelijkheidsteken.
@@ -25,31 +25,32 @@ Probeer de code hierboven uit te voeren. Je zult zien dat de tekst "Hallo, werel
 
 Je kunt de waarde van een variabele op elk moment wijzigen. Laten we een voorbeeld bekijken met een string:
 
-<pre><code>naam = "Alice"
+```python
+naam = "Alice"
 print(f"Hallo, {naam}")
 
 naam = "Bob"
 print("Hallo, {naam}")
-</code></pre>
-
+````
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 Voer deze code uit en observeer hoe de begroeting verandert wanneer we de waarde van `naam` wijzigen. Bemerk dat je een variabele enkel mag gebruiken nadat die een waarde werd toegewezen! De volgende code werkt daarom niet:
 
-<pre><code>print(f"{buurman}, wat doet u nu?")
+```python
+print(f"{buurman}, wat doet u nu?")
 buurman = "Kees"
-</code></pre>
-
+````
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
 Hier werd gepoogd om de waarde van variabele `buurman` op het scherm te zetten, nog voor deze waarde was gekend. De computer leest immers de code doorgaans van boven naar onder. Pas op de tweede lijn wordt een waarde toegekend aan `buurman`, die nodig was op de eerste lijn.
 
 ## Oefening: String manipulatie
 
 Probeer nu zelf! Maak een variabele `stad` aan met de naam van je favoriete stad. Print deze uit, met de begeleidende tekst "Mijn favoriete stad is...". Wijzig de waarde naar een andere stad, en print die opnieuw.
 
-<pre><code># Jouw code hier
-</code></pre>
-
+```python
+ # Jouw code hier
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ## Naamgeving van variabelen
@@ -84,7 +85,7 @@ Bij het kiezen van namen voor variabelen zijn er enkele regels:
 Voordat we overgaan naar de verschillende datatypes, is het goed om te weten hoe je commentaar kunt schrijven in Python. Commentaar/comments zijn stukjes tekst in je code die beschrijven wat de code doet, die niet alleen nuttig zijn voor andere mensen die de code lezen, maar ook voor jezelf om later de code te begrijpen. Als je samenwerkt in teams, is het belangrijk dat je comments schrijft die de code duidelijk maken voor anderen.
 
 ```python
-# Dit is een enkele regel comment
+ # Dit is één enkele regel comment
 """
 Dit is een
 multi-line

@@ -12,10 +12,10 @@ Maak drie variabelen: `voornaam`, `achternaam`, en `leeftijd`. Wijs er waarden a
 Verwachte output (met jouw gegevens):
 Hallo, ik ben [voornaam] [achternaam] en ik ben [leeftijd] jaar oud.
 
-<pre><code># Jouw code hier
+```python
+ # Jouw code hier
 
-</code></pre>
-
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ## Oefening 2: String manipulatie
@@ -28,10 +28,10 @@ Maak een variabele `zin` met de waarde "Python programmeren is leuk!". Gebruik s
 
 Print de resultaten van elke stap.
 
-<pre><code># Jouw code hier
+```python
+ # Jouw code hier
 
-</code></pre>
-
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 ---
 ## Oefening 3: Rekenen met variabelen
@@ -41,10 +41,10 @@ Je hebt €50 in je portemonnee. Een boek kost €12,50 en een tijdschrift kost 
 
 Verwachte output: Na het kopen van 2 boeken en 3 tijdschriften heb ik nog €13.75 over.
 
-<pre><code># Jouw code hier
+```python
+ # Jouw code hier
 
-</code></pre>
-
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ## Oefening 4: Type conversie
@@ -54,10 +54,10 @@ Een gebruiker geeft zijn geboortejaar als tekst in: ```"2001"```. Bereken hun le
 
 Output: In 2030 zul je 29 jaar oud zijn.
 
-<pre><code># Jouw code hier
+```python
+ # Jouw code hier
 
-</code></pre>
-
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ## Oefening 5: Boolean logica
@@ -70,10 +70,10 @@ Maak twee variabelen `a` en `b` en wijs er willekeurige gehele getallen aan toe.
 
 Gebruik hiervoor if-statements (die we in een later hoofdstuk in detail zullen bespreken).
 
-<pre><code># Jouw code hier
+```python
+ # Jouw code hier
 
-</code></pre>
-
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ## Oefening 6: BMI Calculator
@@ -92,10 +92,10 @@ Tip: Je kunt de uitkomst verifiëren door online een weersite te raadplegen en d
 
 Voorbeeld output: 75°F is gelijk aan 23.9°C
 
-<pre><code># Jouw code hier
+```python
+ # Jouw code hier
 
-</code></pre>
-
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 
@@ -116,10 +116,10 @@ Zorg ervoor dat de naam altijd gecentreerd is op de bovenste regel, ongeacht de 
 
 Tip: Gebruik string formatting methoden en de `len()` functie.
 
-<pre><code># Jouw code hier
+```python
+ # Jouw code hier
 
-</code></pre>
-
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 
@@ -131,10 +131,10 @@ Schrijf een programma dat euro's naar dollars converteert. Vraag de gebruiker om
 
 Voorbeeld output: 100 EUR is gelijk aan 118.00 USD
 
-<pre><code># Jouw code hier
+```python
+ # Jouw code hier
 
-</code></pre>
-
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 
@@ -146,15 +146,15 @@ In de code hieronder werd gepoogd om de waarde in beide variabelen te wisselen, 
 
 Tip: je kan extra print-opdrachten toevoegen om de waarden tussendoor van a en b op te vragen, zo kan je je een beter beeld vormen van wat er juist misloopt. Dit is een veelgebruikte techniek in het zoeken naar fouten, ook wel `debuggen`genoemd.
 
-<pre><code># Dit zijn de oorspronkelijke waarden:
+```python
+ # Dit zijn de oorspronkelijke waarden:
 a = 2
 b = 3.0
-# We wisselen de waarden in a en b:
+ # We wisselen de waarden in a en b:
 b = a
 a = b
-# We drukken beide waarden af:
+ # We drukken beide waarden af:
 print(f"de waarden zijn a:{a} en b:{b}")
-</code></pre>
-
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 

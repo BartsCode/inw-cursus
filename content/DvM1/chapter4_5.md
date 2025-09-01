@@ -43,7 +43,7 @@ Het programma moet blijven vragen om een wachtwoord totdat aan alle criteria is 
 Maak een eenvoudige rekenmachine die de gebruiker vraagt om twee getallen en een operator (+, -, *, /). Het programma moet de berekening uitvoeren en het resultaat weergeven. Gebruik een while-loop om het programma te laten doorgaan totdat de gebruiker besluit te stoppen.
 
 Voorbeeld:
-```
+```bash
 Voer het eerste getal in: 5
 Voer de operator in (+, -, *, /): *
 Voer het tweede getal in: 3
@@ -83,7 +83,7 @@ Maak een woordenspel waarbij de computer een willekeurig woord kiest uit een lij
 Gebruik een string om bij te houden welke letters al zijn geraden en een while-loop om het spel te laten doorgaan totdat de gebruiker het woord heeft geraden of alle levens heeft verloren.
 
 Voorbeeld:
-```
+```python
 Woord: _ _ _ _ _
 Levens: 6
 Raad een letter: a

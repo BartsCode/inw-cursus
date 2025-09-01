@@ -6,6 +6,11 @@ Na de installatie is het belangrijk om te controleren of Python correct is geïn
 2. Typ het volgende commando en druk op Enter:
 
 ```bash
+python --version
+```
+
+Opmerking: in sommige installaties werkt bovenstaand commando niet. Dit kan gebeuren bijvoorbeeld omdat er meerdere versies van Python zijn geïnstalleerd. Probeer dan:
+```bash
 python3 --version
 ```
 

@@ -7,9 +7,10 @@ In dit hoofdstuk gaan we oefenen met het definiëren en gebruiken van functies i
 
 Schrijf een functie genaamd `print_welkom` die de boodschap "Welkom bij de functie oefeningen!" print. Roep de functie daarna aan.
 
-<pre><code># Jouw code hier
+```python
+ # Jouw code hier
 
-</code></pre>
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ## Oefening 2: Persoonlijke Groet
@@ -17,9 +18,10 @@ Schrijf een functie genaamd `print_welkom` die de boodschap "Welkom bij de funct
 
 Schrijf een functie genaamd `groet_gebruiker` die één parameter `naam` accepteert. De functie moet een gepersonaliseerde groet printen, zoals "Hallo, [naam]!". Roep de functie aan met je eigen naam als argument.
 
-<pre><code># Jouw code hier
+```python
+ # Jouw code hier
 
-</code></pre>
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ## Oefening 3: Optellen met Return
@@ -27,9 +29,10 @@ Schrijf een functie genaamd `groet_gebruiker` die één parameter `naam` accepte
 
 Schrijf een functie genaamd `som` die twee getallen als parameters (`a` en `b`) accepteert en hun som **teruggeeft** met het `return` sleutelwoord. Roep de functie aan met twee getallen naar keuze en print het resultaat.
 
-<pre><code># Jouw code hier
+```python
+ # Jouw code hier
 
-</code></pre>
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ## Oefening 4: Bereken Vierkant
@@ -44,9 +47,10 @@ Schrijf een functie genaamd `vind_maximum` die een lijst van getallen als parame
 
 *Tip:* Houd een variabele bij voor het huidige maximum en loop door de lijst.
 
-<pre><code># Jouw code hier
+```python
+ # Jouw code hier
 
-</code></pre>
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ## Oefening 6: Even Getallen Filteren
@@ -54,11 +58,12 @@ Schrijf een functie genaamd `vind_maximum` die een lijst van getallen als parame
 
 Schrijf een functie genaamd `filter_even_getallen` die een lijst van getallen als parameter neemt. De functie moet een **nieuwe lijst** teruggeven die alleen de even getallen uit de oorspronkelijke lijst bevat.
 
-<pre><code># Jouw code hier
+```python
+ # Jouw code hier
 
 getallen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-</code></pre>
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ## Oefening 7: Dobbelsteen Werpen
@@ -68,9 +73,10 @@ Schrijf een functie genaamd `werp_dobbelsteen` die geen parameters nodig heeft. 
 
 *Tip:* Je hebt de `random` module nodig. Zoek op hoe je `import random` gebruikt en welke functie je kunt gebruiken om een willekeurig geheel getal te genereren.
 
-<pre><code># Jouw code hier
+```python
+ # Jouw code hier
 
-</code></pre>
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ## Oefening 8: BMI Calculator met Functie

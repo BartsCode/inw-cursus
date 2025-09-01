@@ -14,7 +14,7 @@ Schrijf een programma dat een geheel getal van de gebruiker vraagt en bepaalt of
 
 **Voorbeeldoutput:**
 
-```
+```bash
 Voer een geheel getal in: 7
 Het getal 7 is oneven.
 ```
@@ -34,7 +34,7 @@ Schrijf een programma dat de leeftijd van de gebruiker vraagt en of ze met een v
 
 **Voorbeeldoutput 1:**
 
-```
+```bash
 Wat is je leeftijd? 15
 Ben je met een volwassene? (ja/nee): ja
 Je mag naar de film.
@@ -42,7 +42,7 @@ Je mag naar de film.
 
 **Voorbeeldoutput 2:**
 
-```
+```bash
 Wat is je leeftijd? 15
 Ben je met een volwassene? (ja/nee): nee
 Sorry, je mag niet naar de film.
@@ -58,7 +58,7 @@ Vraag de gebruiker om een getal in te voeren en bepaal of het getal positief, ne
 
 **Voorbeeldoutput:**
 
-```
+```bash
 Voer een getal in: -3
 Het getal is negatief.
 ```
@@ -78,7 +78,7 @@ Schrijf een programma dat een geheim getal opslaat (bijvoorbeeld 7). Vraag de ge
 
 **Voorbeeldoutput:**
 
-```
+```bash
 Raad het geheime getal tussen 1 en 10: 5
 Spijtig, het gezochte getal is groter
 Probeer het nog eens
@@ -99,7 +99,7 @@ Schrijf een programma dat het cijfer en de aanwezigheid van de student vraagt en
 
 **Voorbeeldoutput:**
 
-```
+```bash
 Wat is je cijfer? 65
 Wat is je aanwezigheid in procenten? 85
 Gefeliciteerd, je bent geslaagd voor het vak!
@@ -118,7 +118,7 @@ Schrijf een programma dat bepaalt of een gegeven jaar een schrikkeljaar is. Een 
 
 **Voorbeeldoutput:**
 
-```
+```bash
 Voer een jaartal in: 2020
 2020 is een schrikkeljaar.
 ```
@@ -135,7 +135,7 @@ Vraag de gebruiker om een getal tussen 1 en 100. Controleer of het getal binnen 
 
 **Voorbeeldoutput:**
 
-```
+```bash
 Voer een getal tussen 1 en 100 in: 150
 Het getal ligt buiten het interval.
 ```
@@ -157,7 +157,7 @@ Schrijf een programma dat het aankoopbedrag vraagt en de uiteindelijke prijs na 
 
 **Voorbeeldoutput:**
 
-```
+```bash
 Voer het aankoopbedrag in: 120
 Je krijgt 10% korting.
 De uiteindelijke prijs is: €108.0

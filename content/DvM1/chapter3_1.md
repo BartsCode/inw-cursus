@@ -32,7 +32,6 @@ print(x >= y)  # True
 print(x <= y)  # False
 ```
 
-
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ## Vergelijken van Verschillende Types

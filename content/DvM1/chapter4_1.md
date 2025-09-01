@@ -146,22 +146,22 @@ print(lijst_3) # output: [1, 2, 3, 4, 5, 6]
 Of wat dacht je wat dacht je van deze lijst? 
 Probeer eerst te raden wat dit wordt eer je de code runt:
 
-<pre><code>Lijst = 10*[0]
+```python
+Lijst = 10*[0]
 print(Lijst)
-</code></pre>
-
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 Een Sting is geen lijst, maar je kan elke string casten tot een lijst en omgekeerd, want net zoals int(), str(), float() bestaat er ook een list(). Kijk hoe dit werkt:
 
-<pre><code>fruit = "peer"
+```python
+fruit = "peer"
 print("fruit bevat nu",fruit)
 lijst = list(fruit)
 print("lijst bevat nu",lijst)
 tekst = str(lijst)
 print("tekst bevat nu \"",tekst,"\"",sep="")
-</code></pre>
-
+````
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 

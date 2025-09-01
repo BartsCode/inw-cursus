@@ -6,13 +6,13 @@ In Python zijn er verschillende datatypes die we kunnen gebruiken om verschillen
 
 Python heeft een ingebouwde functie `type()` die je kunt gebruiken om het datatype van een variabele te achterhalen:
 
-<pre><code>x = 5
+```python
+x = 5
 print(type(x))
 
 y = "Hello"
 print(type(y))
-</code></pre>
-
+````
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ## Strings
@@ -26,29 +26,32 @@ print(f"{boodschap} heeft als type {type(boodschap)})
 
 Python biedt veel ingebouwde methoden om strings te manipuleren. Een methode is een functie die specifiek is voor een bepaald datatype die kan worden aangeroepen op een object (in dit geval een string) met een punt, gevolgd door de naam van de methode en eventueel parameters tussen haakjes. Hier zijn enkele voorbeelden:
 
-<pre><code>tekst = "DvM is geweldig"
+```python
+tekst = "DvM is geweldig"
 print(tekst.upper()) # Alles in hoofdletters
 print(tekst.lower()) # Alles in kleine letters
 print(tekst.replace("geweldig", "FANTASTISCH")) # Vervang een woord
-</code></pre>
-
+````
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 Je kan ook twee strings optellen. Het resultaat is een nieuwe string die bestaat uit beide oorspronkelijke strings achter elkaar. Hier een voorbeeld:
 
-<pre><code>voornaam = "An"
+```python
+voornaam = "An"
 achternaam = "Anas"
 fruit = voornaam+achternaam
 print(fruit)
-</code></pre>
+```
 
 Je kan een string ook vermenigvuldigen met een geheel getal. De vermenigvuldiging is dan logisch om te zetten naar een som. Tracht daarom te voorspellen wat volgende code doet.
 
-<pre><code>tekst1 = "hiep "
+```python
+tekst1 = "hiep "
 tekst2 = "hoera"
 jarig = 3*tekst1 + tekst2
 print(jarig)
-</code></pre>
+```
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 Je kan de methodes die toegepast kunnen worden op strings terugvinden in de [Python documentatie](https://docs.python.org/3/library/stdtypes.html#string-methods) of in je samenvatting.
 
@@ -62,9 +65,9 @@ Gebruik string methoden om:
 
 Je zal hiervoor de Python documentatie moeten raadplegen.
 
-<pre><code># Jouw code hier
-</code></pre>
-
+```python
+ # Jouw code hier
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 
@@ -84,9 +87,9 @@ print(f"Hallo, mijn naam is {naam} en ik ben {leeftijd} jaar oud.")
 
 Maak variabelen voor je naam, leeftijd en favoriete vakantiebestemming. Gebruik een f-string om een zin te maken die deze informatie bevat en print deze zin.
 
-<pre><code># Jouw code hier
-</code></pre>
-
+```python
+ # Jouw code hier
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 
@@ -114,7 +117,8 @@ print(a % b) # Modulo (rest na deling) -> Output: 1
 print(a ** b) # Machtsverheffing -> Output: 1000
 ```
 Nu je dit weet, probeer te voorspellen wat het type is van volgende variabelen voor je het programma runt:
-<pre><code>
+
+```python
 a = 4
 b = 43.0
 
@@ -123,8 +127,7 @@ print(f"a+b heeft als type: {type(a+b)}")
 print(f"a*2 heeft als type: {type(a*2)}")
 print(f"a**2 heeft als type: {type(a**2)}")
 print(f"b%a heeft als type: {type(b%a)}")
-</code></pre>
-
+````
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 
@@ -132,13 +135,13 @@ print(f"b%a heeft als type: {type(b%a)}")
 
 In Python kun je een variabele ook een nieuwe waarde geven die gebaseerd is op zijn huidige waarde. Dit noemen we self-assignment.
 
-<pre><code>teller = 0
+```python
+teller = 0
 teller = teller + 1
 print(teller)
 teller += 1
 print(teller)
-</code></pre>
-
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 Je kunt self-assignment gebruiken met alle rekenkundige operatoren (+, -, *, /, //, %, **).
@@ -147,9 +150,9 @@ Je kunt self-assignment gebruiken met alle rekenkundige operatoren (+, -, *, /, 
 
 Maak twee numerieke variabelen `a` en `b` aan met willekeurige getallen. Tel ze op en sla het resultaat op in een nieuwe variabele `som`. Print vervolgens de som uit.
 
-<pre><code># Jouw code hier
-</code></pre>
-
+```python
+ # Jouw code hier
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 Via deze oefeningen krijg je een beter begrip van hoe variabelen werken in Python, zowel voor tekst (strings) als voor getallen (numbers).
@@ -159,9 +162,9 @@ Via deze oefeningen krijg je een beter begrip van hoe variabelen werken in Pytho
 
 Schrijf een programma dat de oppervlakte van een cirkel berekent. Gebruik een variabele `straal` en de constante `pi`. Zoek hiervoor op hoe je pi kan vinden in Python. Je zal hiervoor een bibliotheek moeten importeren. Bibliotheken zullen in een volgende les besproken worden, maar je kan op deze manier al oefenen hoe een echte programmeur via zoekopdrachten bibliotheken en andere oplossingen kan vinden. Print het resultaat met 2 decimalen.
 
-<pre><code># Jouw code hier
-</code></pre>
-
+```python
+ # Jouw code hier
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 
@@ -189,18 +192,18 @@ Enkele veelgebruikte vergelijkingsoperatoren zijn:
 
 Het resultaat van deze vergelijkingen is altijd een Boolean waarde (`True` of `False`).
 
-<pre><code>
+```python
 x = 5  # Assignment
 y = 5  # Assignment
 
 print(x == y)  # Vergelijking
 print(x != y)  # Vergelijking
-</pre></code>
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 Deze vergelijkingsoperatoren kunnen we ook gebruiken bij strings! De rangorde wordt bij strings bepaald door het alfabet: als string1 < string2 betekent dat string1 alfabetisch voor string2 komt. Let op! Hoofdletters worden hierbij voor kleine letters gerekend. Voorspel daarom wat volgende code uitprint: True of False?
 
-<pre><code>
+```python
 x = "appel"
 y = "peer"
 z = "Banaan"
@@ -209,7 +212,7 @@ print(x <= y)  		# Vergelijking
 print(x == "Appel") # Vergelijking
 print(x > z)  		# Vergelijking
 print(y != "Peer")  # Vergelijking
-</pre></code>
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 
