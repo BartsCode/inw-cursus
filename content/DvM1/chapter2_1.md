@@ -30,7 +30,7 @@ naam = "Alice"
 print(f"Hallo, {naam}")
 
 naam = "Bob"
-print("Hallo, {naam}")
+print(f"Hallo, {naam}")
 ````
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
@@ -75,7 +75,7 @@ Bij het kiezen van namen voor variabelen zijn er enkele regels:
 * `1ste_leerling` (begint met een cijfer)
 * `x` (niet beschrijvend)
 * `for` (Python keyword)
-* `mijnVariabele` (camelCase wordt niet aanbevolen in Python)
+* `kl@s` (speciale characters mogen niet)
 
 **Tip:** Kies namen die logisch zijn en die je later nog begrijpt, zelfs als je de code een tijdje niet hebt gezien.
 

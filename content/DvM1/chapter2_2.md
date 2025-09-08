@@ -42,6 +42,7 @@ achternaam = "Anas"
 fruit = voornaam+achternaam
 print(fruit)
 ```
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 Je kan een string ook vermenigvuldigen met een geheel getal. De vermenigvuldiging is dan logisch om te zetten naar een som. Tracht daarom te voorspellen wat volgende code doet.
 

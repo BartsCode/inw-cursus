@@ -4,7 +4,7 @@ Als je in Python een naam tegenkomt, gevolgd door haakjes zoals bij `print(...)`
 
 Kort gezegd drukt print(...) alle waarden af van de **argumenten** die tussen de haakjes staan. Deze argmumenten moeten steeds gescheiden worden door een komma. Een argument kan zowel een variabele naam zijn, of een **expressie**. 
 
-Een expressie is een combinatie van één of meerdere waardes (zoals strings, integers, of floats) met behulp van operatoren, die dan een nieuwe waarde oplevert. Je kunt je expressies dus voorstellen als berekeningen.
+Een **expressie** is een combinatie van één of meerdere waardes (zoals strings, integers, of floats) met behulp van operatoren, die dan een nieuwe waarde oplevert. Je kunt je expressies voorstellen als iets dat een waarde oplevert.
 
 ```python
 a = "Hallo"
@@ -12,7 +12,7 @@ b = "Elise"
 
 print(a,b) # voorbeeld van een aanroep met 2 argumenten (twee variabele namen).
 print(2*(a+" ") + b) # voorbeeld van een aanroep met 1 argument (een expressie)
-print("De som van",2,"en",3,"is",2+3) # voorbeeld van een aanroep met 5 argumenten
+print("De som van",2,"en",3,"is",2+3) # voorbeeld van een aanroep met 6 argumenten
 print(f"De som van 2 en 3 is {2+3}") # doet hetzelfde als vorige lijn met 1 expressie.
 ```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
