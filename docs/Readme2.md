@@ -35,6 +35,7 @@ Push naar GitHub (vervang 'main' door je branch naam als die anders is)
 
 #GitHub: usr = BartsCode
 #Vercel:
+(gebruik firefox - eerst in github inloggen, dan vercel...)
 inloggen via email: bart.j.... , je ontvangt een code...
 link: https://inw-cursus-bartscodes-projects.vercel.app/
 

@@ -66,10 +66,10 @@ Output: In 2030 zul je 29 jaar oud zijn.
 Maak twee variabelen a en b en wijs er willekeurige gehele getallen aan toe.
 Schrijf vervolgens een code die volgende booleaanse uitkomst print:
 
-Output:
-a is groter dan b is ....
-b is kleiner of gelijk aan 2a is ....
-de rest bij deling van b door a is kleiner dan a is ...
+Output:\
+a is groter dan b is ... \
+b is kleiner of gelijk aan 2a is ... \
+de rest bij deling van b door a is kleiner dan a is ... 
 
 Laat de computer de expressie berekenen zodat
 op de puntjes ... True of False komt te staan!
