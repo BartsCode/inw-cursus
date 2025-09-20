@@ -63,12 +63,16 @@ Output: In 2030 zul je 29 jaar oud zijn.
 ## Oefening 5: Boolean logica
 • Moeilijkheidsgraad: ★★★☆☆
 
-Maak twee variabelen `a` en `b` en wijs er willekeurige gehele getallen aan toe. Schrijf vervolgens code die het volgende print:
-- "a is groter dan b" als a groter is dan b
-- "b is groter dan a" als b groter is dan a
-- "a en b zijn gelijk" als ze gelijk zijn
+Maak twee variabelen a en b en wijs er willekeurige gehele getallen aan toe.
+Schrijf vervolgens een code die volgende booleaanse uitkomst print:
 
-Gebruik hiervoor if-statements (die we in een later hoofdstuk in detail zullen bespreken).
+Output:
+a is groter dan b is ....
+b is kleiner of gelijk aan 2a is ....
+de rest bij deling van b door a is kleiner dan a is ...
+
+Laat de computer de expressie berekenen zodat
+op de puntjes ... True of False komt te staan!
 
 ```python
  # Jouw code hier

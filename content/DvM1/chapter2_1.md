@@ -57,7 +57,7 @@ Probeer nu zelf! Maak een variabele `stad` aan met de naam van je favoriete stad
 
 Bij het kiezen van namen voor variabelen zijn er enkele regels:
 
-* Gebruik enkel kleine letters, cijfers en underscores.
+* Gebruik enkel letters, cijfers en underscores.
 * Begin nooit met een cijfer.
 * Gebruik beschrijvende namen die duidelijk maken waar de variabele voor dient.
 * Vermijd het gebruik van Python keywords als variabelenamen (zoals `if`, `else`, `for`, etc.).

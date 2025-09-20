@@ -84,7 +84,7 @@ leeftijd = 16
 print(f"Hallo, mijn naam is {naam} en ik ben {leeftijd} jaar oud.")
 ```
 
-### Oefening 2.2.3: f-strings
+### Oefening 2.2.2: f-strings
 
 Maak variabelen voor je naam, leeftijd en favoriete vakantiebestemming. Gebruik een f-string om een zin te maken die deze informatie bevat en print deze zin.
 
@@ -159,9 +159,9 @@ Maak twee numerieke variabelen `a` en `b` aan met willekeurige getallen. Tel ze 
 Via deze oefeningen krijg je een beter begrip van hoe variabelen werken in Python, zowel voor tekst (strings) als voor getallen (numbers).
 
 
-### Oefening 2.2.2: Berekeningen
+### Oefening 2.2.3: Berekeningen
 
-Schrijf een programma dat de oppervlakte van een cirkel berekent. Gebruik een variabele `straal` en de constante `pi`. Zoek hiervoor op hoe je pi kan vinden in Python. Je zal hiervoor een bibliotheek moeten importeren. Bibliotheken zullen in een volgende les besproken worden, maar je kan op deze manier al oefenen hoe een echte programmeur via zoekopdrachten bibliotheken en andere oplossingen kan vinden. Print het resultaat met 2 decimalen.
+Schrijf een programma dat de oppervlakte van een cirkel berekent. Gebruik een variabele `straal` en definieer de constante `pi`. Print het resultaat met 2 decimalen.
 
 ```python
  # Jouw code hier
