@@ -22,12 +22,14 @@ leeftijd = 16
 
 if leeftijd >= 16:
     print("Je mag een bromfiets besturen!")
-	print("Maar nog geen pintjes drinken!")
+    print("Maar nog geen pintjes drinken!")
 	
-print("Dit hoort niet tot het blok")
+print("Fietsen mag iedereen!")
 ```
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+Verander de leeftijd hierboven naar 15 en tracht te voorspellen wat de uitvoer nu zal zijn.
 
 ## Het if-else statement
 
@@ -48,11 +50,13 @@ leeftijd = 15
 if leeftijd >= 16:
     print("Je mag een bromfiets besturen!")
 else:
-    print("Hou het bij een gewone fiets.")
+	print("Hou het bij een gewone fiets.")
 	print("En vergeet de fietshelm niet!")
 ```
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+Verander de leeftijd hierboven naar 17 en tracht te voorspellen wat de uitvoer nu zal zijn.
 
 ## Het if-elif-else statement
 
@@ -74,7 +78,7 @@ else:
 ### Voorbeeld:
 
 ```python
-punten = int(input("Geef je punten (op 10)"))
+punten = 6
 
 if punten == 10:
     print("Je behaalde het maximum!")
@@ -87,6 +91,8 @@ else:
 ```
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+Verander het puntenaantal en tracht telkens te voorspellen wat de nieuwe uitvoer zal worden.
 
 ## Geneste if-statements
 
@@ -132,8 +138,10 @@ Schrijf een programma dat bepaalt of iemand in een attractie mag. De regels zijn
 
 Vraag de gebruiker om hun leeftijd en lengte, en print dan of ze in de attractie mogen.
 
-<pre><code># Jouw code hier
-</code></pre>
+```python
+ # Jouw code hier
+ 
+```
 
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 

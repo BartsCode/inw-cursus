@@ -65,28 +65,45 @@ Het getal is negatief.
 
 ---
 
-## Oefening 4: Getal Raden
+## Oefening 4: Maximum van drie getallen
 
 - **Moeilijkheidsgraad:** ★★★☆☆
 
-Schrijf een programma dat een geheim getal opslaat (bijvoorbeeld 7). Vraag de gebruiker om een getal te raden en geef feedback:
-
-- Als het geraden getal gelijk is aan het geheime getal, print "Gefeliciteerd, je hebt het getal geraden!"
-- Zo niet, is het gezochte getal hoger, print "Spijtig, het gezochte getal is groter"
-- anders print "Spijtig, het gezochte getal is kleiner"
-- Indien niet geraden print "Probeer het nog eens"
+Vraag aan de gebruiker 3 getallen en bepaal het maximum 
 
 **Voorbeeldoutput:**
 
 ```bash
-Raad het geheime getal tussen 1 en 10: 5
-Spijtig, het gezochte getal is groter
-Probeer het nog eens
+geef eerste getal: 4.5
+geef tweede getal: 3.3
+geef derde getal : 8
+Het maximum bedraagt 8
 ```
 
 ---
 
-## Oefening 5: Meerdere Voorwaarden
+## Oefening 5: Soort driehoek
+
+- **Moeilijkheidsgraad:** ★★★☆☆
+
+Vraag aan de gebruiker om de lengtes van de 3 zijden van een driehoek te geven.
+Bepaal hieruit om welk type driehoek het gaat (mogelijke uitkomsten zijn: Gelijkzijdige driehoek, gelijkbenige driehoek, Ongelijkzijdige driehoek, Geen geldige driehoek)
+
+Tip: om te testen of je met 3 zijden een driehoek kan maken, kun je de driehoeksongelijkheid gebruiken.
+Deze stelt dat één zijde van een driehoek altijd kleiner moet zijn dan de som van de andere twee zijden.
+
+**Voorbeeldoutput:**
+
+```bash
+geef zijde a: 4.0
+geef zijde b: 6
+geef zijde c: 4
+Dit is een gelijkzijdige driehoek
+```
+
+---
+
+## Oefening 6: Meerdere Voorwaarden
 
 - **Moeilijkheidsgraad:** ★★★☆☆
 
@@ -107,7 +124,7 @@ Gefeliciteerd, je bent geslaagd voor het vak!
 
 ---
 
-## Oefening 6: Schrikkeljaar
+## Oefening 7: Schrikkeljaar
 
 - **Moeilijkheidsgraad:** ★★★★☆
 
@@ -127,7 +144,7 @@ Voer een jaartal in: 2020
 
 ---
 
-## Oefening 7: Getal in Interval
+## Oefening 8: Getal in Interval
 
 - **Moeilijkheidsgraad:** ★★★★☆
 
@@ -143,7 +160,7 @@ Het getal ligt buiten het interval.
 
 ---
 
-## Oefening 8: Kortingscalculator
+## Oefening 9: Kortingscalculator
 
 - **Moeilijkheidsgraad:** ★★★★☆
 
@@ -164,6 +181,47 @@ De uiteindelijke prijs is: €108.0
 ```
 
 **Let op:** Hoewel we hier meerdere condities hebben, kun je dit oplossen met geneste if-else statements.
+
+---
+
+## Oefening 10: Kwadratische vergelijkingen
+
+- **Moeilijkheidsgraad:** ★★★★☆
+
+Schrijf een programma dat de discriminant van een vierkantsvergelijking berekent.
+De invoer zijn de drie parameters a,b,c van de vergelijking
+\[
+ax^2 + bx + c = 0
+\]
+Op basis van de uitkomst van deze discriminant bereken je de oplossingen van de vergelijking.
+Hiervoor zul je de wortel van een getal moeten berekenen. Deze functie kun je invoegen door de regel
+
+```python
+from math import sqrt as wortel
+```
+
+bovenaan je programma te plaatsen zoals in volgend voorbeeld:
+
+```python
+from math import sqrt as wortel
+
+print(f"De wortel van 2 is {wortel(2)}")
+```
+
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+**Voorbeeld uitvoer:**
+
+```bash
+geef a: 1
+geef b: 4
+geef c: -5
+Discriminant:
+D = 36
+Er zijn 2 oplossingen:
+x1 = 1
+x2 = -5
+```
 
 ---
 
