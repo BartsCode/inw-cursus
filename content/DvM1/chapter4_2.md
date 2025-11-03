@@ -14,11 +14,11 @@ Er zijn verschillende manieren om over de elementen van een verzameling te itere
 
 De meest gebruikelijke manier om over een lijst te itereren is met een `for`-lus. Hierbij wordt elk element in de lijst één voor één benaderd.
 
-**Voorbeeld:**
+
 ```python
 cijfers = [1, 2, 3, 4, 5]
 for cijfer in cijfers:
-  print(cijfer)
+    print(cijfer)
 ```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
