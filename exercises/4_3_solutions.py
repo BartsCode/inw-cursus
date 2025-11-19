@@ -1,3 +1,24 @@
+
+#oefening 1
+kleuren = ["rood","geel","blauw"]
+kleuren.append("groen")
+kleuren.pop(0)
+print(kleuren)
+
+#oefening 2
+dagen = ["maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag", "zondag"]
+print(dagen[0])
+print(dagen[3])
+print(dagen[6])
+
+#oefening 3
+getallen = [5, 10, 15, 20, 25]
+som = 0
+for x in getallen:
+    som += x
+print("De  som van de getallen is",som)
+    
+
 #oefening 4
 aantal_getallen = int(input("Hoeveel getallen wil je invoeren? "))
 getallen = []
@@ -33,6 +54,13 @@ for woord in woorden:
         omgekeerd_woord += woord[len(woord) - letterpositie - 1]
     omgekeerde_woorden.append(omgekeerd_woord)
 
+print(omgekeerde_woorden)
+
+#nog een alternatievere oplossing oefening 5:
+woorden = ["Python", "is", "Leuk"]
+omgekeerde_woorden = []
+for woord in woorden:
+    omgekeerde_woorden.append(woord[::-1])
 print(omgekeerde_woorden)
 
 #oefening 6
@@ -103,4 +131,5 @@ for getal in range(2,51):
         priemgetallen.append(getal)
 
 print(priemgetallen)
+
 

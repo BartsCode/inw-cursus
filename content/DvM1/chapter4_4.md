@@ -72,6 +72,10 @@ In dit voorbeeld:
 - Als `teller` even is, gebruiken we `continue` om de rest van de code in die iteratie over te slaan.
 - Als gevolg hiervan worden alleen oneven getallen afgedrukt.
 
+***Opmerking:*** Break en continue statements kunnen ook in een for-lus gebruikt worden. 
+Deze statements hebben uitsluitend invloed op de ***dichtste lus*** die rond deze woorden ligt.
+Je kan break en continue ***niet gebruiken buiten een lus***. 
+
 ## While Loop met Else Clause
 
 Net als bij for-loops kan een while-loop een `else` clause hebben die wordt uitgevoerd nadat de lus is voltooid (d.w.z., wanneer de voorwaarde onwaar wordt).
@@ -117,15 +121,14 @@ while True:
     if leeftijd.lower() == 'q':
         break
     
-    try:
-        leeftijd = int(leeftijd)
-        if leeftijd < 0 or leeftijd > 120:
-            print("Ongeldige leeftijd. Probeer opnieuw.")
-        else:
-            print(f"Je leeftijd is {leeftijd}.")
-            break
-    except ValueError:
-        print("Ongeldige invoer. Voer een getal in of 'q' om te stoppen.")
+    leeftijd = int(leeftijd)
+    if leeftijd < 0 or leeftijd > 120:
+        print("Ongeldige leeftijd. Probeer opnieuw.")
+    else:
+        print(f"Je leeftijd is {leeftijd}.")
+        break
+
+    print("Ongeldige invoer. Voer een getal in of 'q' om te stoppen.")
 ```
 
 ### 2. Spellen en Simulaties

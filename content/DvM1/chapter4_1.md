@@ -66,7 +66,7 @@ Tot slot kun je naast `start` en `stop` ook een `stap` ingeven. Hiermee begin je
 ```python
 cijfers = [1, 2, 3, 4, 5]
 deellijst = cijfers[0::2]  # Geeft [1,3,5]
-deellijst = cijfers[1:3]   # Geeft [2,5]
+deellijst = cijfers[1::3]  # Geeft [2,5]
 deellijst = cijfers[::-1]  # Geeft [5,4,3,2,1]
 ```
 
@@ -161,7 +161,24 @@ lijst = list(fruit)
 print("lijst bevat nu",lijst)
 tekst = str(lijst)
 print("tekst bevat nu \"",tekst,"\"",sep="")
-````
+```
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+### in operator
+
+De ***in*** operator test of een waarde voorkomt in een collectie. De uitkomst van deze test is een boolean (True of False).
+Er zijn verschillende soorten collecties in Python, maar de enige die ik tot nu hebt gezien is de string en de list. 
+De tegenhanger van de in operator is de ***not in*** operator, die True oplevert als in False oplevert, en vice versa. 
+Bijvoorbeeld:
+
+```python
+print( "y" in "Python" )
+print( "x" in "Python" )
+print( "p" in "Python" )
+print( "th" in "Python" )
+print( "to" in ["wan","to","trie"] )
+print( 7 not in [1,2,3,4] )
+```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 

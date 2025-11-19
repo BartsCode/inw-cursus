@@ -18,7 +18,14 @@ Schrijf een programma dat aftelt van 10 naar 1 en vervolgens "Start!" print. Geb
 
 Schrijf een programma dat een willekeurig getal genereert tussen 1 en 100. De gebruiker moet dit getal raden. Na elke gok moet het programma aangeven of het getal te hoog, te laag of correct is. Het programma moet doorgaan totdat de gebruiker het juiste getal heeft geraden of opgeeft door 'q' in te voeren.
 
-*Tip:* Gebruik de `random` module om een willekeurig getal te genereren.
+*Tip:* Gebruik de `random` module om een willekeurig getal te genereren:
+```python
+from random import randint
+raad_me = randint(1,99) 
+#raad_me is nu een willekeurige integer tussen 1 en 100, kijk maar:
+print(raad_me)
+```
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ---
 
@@ -82,6 +89,8 @@ Maak een woordenspel waarbij de computer een willekeurig woord kiest uit een lij
 
 Gebruik een string om bij te houden welke letters al zijn geraden en een while-loop om het spel te laten doorgaan totdat de gebruiker het woord heeft geraden of alle levens heeft verloren.
 
+*Tip:* Gebruik de `random` module uit oefening 2 om een willekeurig getal te genereren.
+
 Voorbeeld:
 ```python
 Woord: _ _ _ _ _
@@ -120,7 +129,6 @@ quiz = [vraag0,vraag1]
 ```
 
 Het programma moet:
-1. De vragen in willekeurige volgorde stellen
-2. De score bijhouden
-3. Aan het einde de totale score weergeven
-4. De mogelijkheid bieden om de quiz opnieuw te spelen
+1. De score bijhouden
+2. Aan het einde de totale score weergeven
+3. De mogelijkheid bieden om de quiz opnieuw te spelen
