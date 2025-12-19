@@ -161,23 +161,17 @@ else:
     print(f"Game over! Het woord was: {woord}")
 
 
+
 #oefening 8  #####################################
 vragen = [
-    {
-        "vraag": "Wat is de hoofdstad van Frankrijk?",
-        "opties": ["A. Londen", "B. Berlijn", "C. Parijs", "D. Madrid"],
-        "antwoord": "C"
-    },
-    {
-        "vraag": "Hoeveel poten heeft een spin?",
-        "opties": ["A. 6", "B. 8", "C. 10", "D. 12"],
-        "antwoord": "B"
-    },
-    {
-        "vraag": "Welke programmeertaal is dit?",
-        "opties": ["A. Java", "B. C++", "C. Python", "D. Chinees"],
-        "antwoord": "C"
-    }
+    ["Wat is de hoofdstad van Frankrijk?",
+    ["A. Londen", "B. Berlijn", "C. Parijs", "D. Madrid"],"C"],
+
+    ["Hoeveel poten heeft een spin?",
+    ["A. 6", "B. 8", "C. 10", "D. 12"],"B"],
+
+    ["Welke programmeertaal is dit?",
+    ["A. Java", "B. C++", "C. Python", "D. Chinees"],"C"]
 ]
 
 score = 0
@@ -188,17 +182,17 @@ print("Welkom bij de quiz!\n")
 while huidige_vraag < len(vragen):
     vraag_data = vragen[huidige_vraag]
     
-    print(f"Vraag {huidige_vraag + 1}: {vraag_data['vraag']}")
-    for optie in vraag_data["opties"]:
+    print(f"Vraag {huidige_vraag + 1}: {vraag_data[0]}")
+    for optie in vraag_data[1]:
         print(optie)
     
     antwoord = input("\nJouw antwoord (A/B/C/D): ").upper()
     
-    if antwoord == vraag_data["antwoord"]:
+    if antwoord == vraag_data[2]:
         print("Correct!\n")
         score += 1
     else:
-        print(f"Fout! Het juiste antwoord was: {vraag_data['antwoord']}\n")
+        print(f"Fout! Het juiste antwoord was: {vraag_data[2]}\n")
     
     huidige_vraag += 1
 

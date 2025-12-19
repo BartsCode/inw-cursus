@@ -58,6 +58,11 @@ import chapter3_4_2 from '../content/DvM2/chapter3_4.md'
 import chapter3_5_2 from '../content/DvM2/chapter3_5.md'
 import chapter3_6_2 from '../content/DvM2/chapter3_6.md'
 
+//invoer van bestanden DvM-deel3
+import chapter1_2_3 from '../content/DvM3/HH2.md'
+import chapter1_3_3 from '../content/DvM3/HH3.md'
+import chapter1_4_3 from '../content/DvM3/HH4.md'
+
 import BigOComplexityChart from './big-o-chart';
 import { MemoizedMarkdown } from './memoized-markdown'
 
@@ -184,14 +189,16 @@ const courses = [
   {
   id: 'inw-extra',
   title: 'Extra oefeningen: ',
-  description: 'Onder constructie',
+  description: 'Meer oefeningen nodig? Dan moet je hier zijn!',
   chapters: [
   	{ 
-    	id: 0, 
-    	title: "0. Inleiding",
+    	id: 1, 
+    	title: "1. Herhaling",
     	subchapters: [
-	  		{ id: '0.0', title: "0.0 Voorwoord" }
-    	]
+			{ id: '1.2', title: "1.2 Herhaling H2" },
+			{ id: '1.3', title: "1.3 Herhaling H3" },
+			{ id: '1.4', title: "1.4 Herhaling H4" },
+    	],
   	},
 	]
   },
@@ -240,6 +247,11 @@ const chapterContent = {
 	'3.4': chapter3_4_2,
 	'3.5': chapter3_5_2,
 	'3.6': chapter3_6_2,
+  },
+  'inw-extra': {
+    '1.2': chapter1_2_3,
+    '1.3': chapter1_3_3,
+    '1.4': chapter1_4_3,
   },
 };
 
