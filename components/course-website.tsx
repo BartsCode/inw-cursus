@@ -165,11 +165,10 @@ const courses = [
     	id: 2, 
     	title: "2. Algoritmische Technieken",
     	subchapters: [
-	  		{ id: '2.1', title: "2.1 Verdeel en Heers " },
-			{ id: '2.2', title: "2.2 Greedy Algoritmen" },
-			{ id: '2.3', title: "2.3 Recursie" },
-			{ id: '2.4', title: "2.4 Brute Force" },
-			{ id: '2.5', title: "2.5 Oefeningen" },
+	  		{ id: '2.1', title: "2.1 Brute Force" },
+			{ id: '2.2', title: "2.2 Recursie" },
+			{ id: '2.3', title: "2.3 Verdeel en Heers " },
+			{ id: '2.4', title: "2.4 Greedy Algoritmen" },
     	]
   	},
   	{ 
@@ -240,7 +239,6 @@ const chapterContent = {
     '2.2': chapter2_2_2,
     '2.3': chapter2_3_2,
     '2.4': chapter2_4_2,
-	'2.5': chapter2_5_2,
     '3.1': chapter3_1_2,
     '3.2': chapter3_2_2,
     '3.3': chapter3_3_2,

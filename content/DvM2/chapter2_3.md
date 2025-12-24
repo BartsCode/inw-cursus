@@ -24,67 +24,85 @@ Als je wil bepalen hoeveel keer je hiervoor moet wegen, kan je dat als volgt doe
 $$O(n) = 1+ O(n/2)$$
 
 
-Zo een probleem noemen we een **recursief** probleem.
-Deze heeft als **randvoorwaarde** dat: 
+Zo een probleem noemen we een recursieve functie.
+Deze heeft als randvoorwaarde dat: 
 
 $$ O(1) = 0 $$ 
 
 want als je slechts één munt als lichtste over hebt, moet die wel vals zijn.
-De oplossing van dit recusief probleem is:
+De oplossing van dit recusief probleem is (zie oefeningen recursie):
 
 $$ O(n) = ln_2(n) $$
 
-(Ga na dat deze formule voldoet)
-Omdat logaritmische functies zeer traag stijgen als functie van $n$, heb je met deze techniek veel sneller het antwoord gevonden.
+Omdat logaritmische functies zeer traag stijgen als functie van $n$, heb je met deze techniek veel sneller het antwoord gevonden dan indien je alle munten 2 per 2 zou testen.
 
 ------------------------------------------------------------------------
 
-### 🎯 Wat is *Verdeel en Heers*?
+## 🎯 Wat is *Verdeel en Heers*?
 
 **Verdeel en Heers** is een strategie waarbij je een probleem oplost door:
 
-1.  Het probleem op te **splitsen** in twee of meer kleinere delen\
-2.  Los de kleinere delen op, meestal **recursief** \
-3.  **Combineer** deze twee (of meer) oplossingen tot een oplossing van de oorspronkelijke (grotere) instantie
+1.  Het probleem op te **splitsen** in twee of meer kleinere delen
+2.  De kleinere delen op te lossen, diwijls gebeurt dit **recursief**
+3.  De deeloplossingen **combineren** tot een oplossing van het oorspronkelijke probleem
 
-------------------------------------------------------------------------
+### 🧩 Basisstructuur in Python
 
-## 🧩 Basisstructuur in Python
-
-Je kan symbolisch een algemeen schema geven van een verdeel-en-heers-
+Je kan symbolisch een algemeen schema geven van een verdeel-en-heers- als volgt:
 
 ``` python
-def divide_and_conquer(problem):
-    if is_klein(problem):
-        return los_op(problem)
+def divide_and_conquer(probleem):
+    if is_klein(probleem):
+        return los_op(probleem)
 
-    deel1, deel2 = verdeel(problem)
+    deel1, deel2 = splits(probleem)
+	# deelproblemen recursief oplossen:
     oplossing1 = divide_and_conquer(deel1)
     oplossing2 = divide_and_conquer(deel2)
 
     return combineer(oplossing1, oplossing2)
 ```
 
+Verdeel en heers kan ook winst opleveren als je **meerdere processoren** ter beschikking hebt.
+Indien je n processoren hebt, kun je het probleem opsplitsen in n deelproblemen. Elk deelprobleem kan dan
+in parallel door een verschillende processor worden opgelost. Op deze manier wordt het proces een factor n versneld. 
+
 ------------------------------------------------------------------------
 
 # 📌 Voorbeelden
 
+Mergesort kan je makkelijk aantonen met behulp van een spel kaarten...   
+Om een spel kaarten te sorteren, deel je de kaarten in 2 stapels.
+Elke stapel geef je een verschillende leerling om te sorteren.
+Als je de gesorteerde stapels terugkrijgt, moet je slechts één maal door beide stapels gezamelijk gaan
+om er één gesorteerde stapel van te maken.
+
+Deze methode noemt men **mergesort** en is een schoolvoorbeeld van verdeel en heers.
+De twee leerlingen die elk een deel van de kaarten kregen kunnen op hun beurt de stapel sorteren
+door die in twee te delen en twee andere leerlingen elk een deel van de stapel te geven met opdracht die te sorteren.
+Dit is het **recursieve** deel van het algoritme.
 
 
-## 1. **Mergesort** (klassiek divide-and-conquer sorteeralgoritme)
+### Voorbeeld 1: Sorteeralgoritme **Mergesort** 
+
+Hier volgt een implementatie van het algoritme Mergesort:
 
 ``` python
 def mergesort(lst):
+	# Als er maar één element in de lijst is, hoef je niet te sorteren:
     if len(lst) <= 1:
         return lst
 
+	# Anders: deel de lijst in 2 gelijke delen, en sorteer ze recursief:
     mid = len(lst) // 2
     left = mergesort(lst[:mid])
     right = mergesort(lst[mid:])
 
+	# Als de delen gesorteerd zijn, gaan we ze samenvoegen (zie hieronder)
     return merge(left, right)
 
 def merge(left, right):
+	# Deze routine voegt twee gesorteerde rijen samen tot één gesorteerde rij:
     resultaat = []
     i = j = 0
 
@@ -99,11 +117,23 @@ def merge(left, right):
     resultaat.extend(left[i:])
     resultaat.extend(right[j:])
     return resultaat
+	
+rij = [14,7,3,12]
+print(mergesort(rij))
 ```
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+Hoe het werkt:
+![MergeSort](/images/MergeSort.png)
+
+Het voordeel van deze methode is dat ze veel sneller is (O(nlog_2(n))) dan een Brute force (0(n^2)) sorteermethode.
+
 
 ------------------------------------------------------------------------
 
-## 2. **Maximale waarde vinden in een lijst** met divide-and-conquer
+### 2. **Maximale waarde vinden in een lijst** met divide-and-conquer
+
+Ook andere zaken van een lijst zoals het maximum, minimum, som, product,... laten zich ook via verdeel en heers berekenen. Al is deze methode niet sneller dan zijn simpel alternatief (éénmaal door de lijst lopen). Beide methodes hebben orde O(n). Hier demonstreren we hoe je het maximium in een lijst kan vinden via verdeel en heers:
 
 ``` python
 def max_divide_and_conquer(lst):
@@ -115,99 +145,41 @@ def max_divide_and_conquer(lst):
     right_max = max_divide_and_conquer(lst[mid:])
 
     return left_max if left_max > right_max else right_max
+	
+rij = [14,7,3,12,18,2,9,5]
+print(max_divide_and_conquer(rij))
 ```
+<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 ------------------------------------------------------------------------
 
-## 3. **Som van een lijst** via divide-and-conquer
+# ✏️ Oefeningen 
 
-``` python
-def sum_divide_and_conquer(lst):
-    if len(lst) == 0:
-        return 0
-    if len(lst) == 1:
-        return lst[0]
+• Moeilijkheidsgraad: ★☆☆☆☆
 
-    mid = len(lst) // 2
-    return sum_divide_and_conquer(lst[:mid]) + sum_divide_and_conquer(lst[mid:])
-```
+1. Schrijf een functie `count_elements(lst)` die via divide-and-conquer het **aantal elementen** in een lijst teruggeeft.
 
-------------------------------------------------------------------------
 
-# ✏️ Oefeningen (Eenvoudig)
+• Moeilijkheidsgraad: ★★★☆☆
 
-## **Oefening 1 -- Teller van elementen**
+2. Zoek een element (zoekwaarde) in een **gesorteerde** lijst.  
+   Je kan dit programma bv noemen:
+   `def BinarySearch(lijst,zoekwaarde)`
 
-Schrijf een functie `count_elements(lst)` die via divide-and-conquer het
-**aantal elementen** in een lijst teruggeeft.
+   Zo ga je tewerk: In plaats van elk element één voor één te bekijken:
+   - Kijk naar het middelste element in de lijst
+   - Vergelijk het met de zoekwaarde
+   - Gooi de helft van de lijst weg
+   - Herhaal op de overblijvende helft
+    
+	Elke stap halveert zo het probleem, vandaar dat dit een **binairy search** algoritme wordt genoemd.
 
-------------------------------------------------------------------------
+• Moeilijkheidsgraad: ★★★★☆
 
-## **Oefening 2 -- Minimum zoeken**
 
-Schrijf een functie `min_divide_and_conquer(lst)` die het **kleinste
-element** in een lijst recursief bepaalt.
+3. Gebruik divide-and-conquer om te controleren of een string een palindroom is.
 
-------------------------------------------------------------------------
+4. Kijk of mergesort effectief O(nlog_2(n)) is door de tijd op te meten die het programma nodig heeft voor lijsten met verschillende n. Maak een grafiek van deze tijd en vergelijk met de theoretische voorspelling.
 
-## **Oefening 3 -- Tellen van even getallen**
 
-Schrijf een functie `count_even(lst)` die het aantal **even** getallen
-telt met divide-and-conquer.
 
-------------------------------------------------------------------------
-
-# ✏️ Oefeningen (Gemiddeld)
-
-## **Oefening 4 -- Grootste verschil**
-
-Vind het **grootste absolute verschil** tussen twee elementen in een
-lijst via divide-and-conquer.
-
-------------------------------------------------------------------------
-
-## **Oefening 5 -- Zoek of een waarde voorkomt**
-
-Schrijf een functie `contains(lst, target)` die recursief controleert of
-`target` in de lijst zit.
-
-------------------------------------------------------------------------
-
-# 🚀 Uitdagender
-
-## **Oefening 6 -- Palindroomcheck**
-
-Gebruik divide-and-conquer om te controleren of een string een
-palindroom is.
-
-------------------------------------------------------------------------
-
-## **Oefening 7 -- Aantal keer dat een element voorkomt**
-
-Schrijf `count_occurrences(lst, x)` waarbij je de lijst splitst en
-counts combineert.
-
-------------------------------------------------------------------------
-
-## 1. Algoritme van Euclides
-Dit is gebaseerd op: ggd(m, n) = ggd(n, m mod n)
-
-Probleem:
-Gegeven: twee niet-negatieve gehele getallen m en n (niet beide nul).
-Vraag: wat is de grootste gemeenschappelijke deler, genoteerd als ggd(m,n),
-van m en n?
-Voorbeelden:
-ggd(60,24) = 12;
-ggd(25,0) = 25;
-ggd(200, 441) = 1;
-ggd(588,495) = 3.
-Het algoritme van Euclides is gebaseerd op het herhaald gebruiken van
-ggd(m, n) = ggd(n, m mod n),
-totdat de tweede parameter nul wordt.
-Voorbeeld: ggd(60,24) = ggd(24, 12) = ggd(12, 0) = 12
-
-------------------------------------------------------------------------
-
-## 1.Torens van Hannoi
-
-------------------------------------------------------------------------
