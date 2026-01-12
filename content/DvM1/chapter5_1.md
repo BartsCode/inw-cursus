@@ -137,11 +137,11 @@ def tel_op(getal1, getal2):
 
   Returns:
     De som van getal1 en getal2.
-  """"
+  """
   som = getal1 + getal2
   return som
 
 # Docstrings kunnen vaak automatisch worden weergegeven door programmeertools
-# help(tel_op) # In een Python interpreter
+help(tel_op) # In een Python interpreter
 ```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
