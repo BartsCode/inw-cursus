@@ -128,7 +128,7 @@ Het is een goede gewoonte om je functies te documenteren met een **docstring**. 
 
 ```python
 def tel_op(getal1, getal2):
-  \"\"\"
+  """
   Deze functie telt twee getallen bij elkaar op.
 
   Args:
@@ -137,7 +137,7 @@ def tel_op(getal1, getal2):
 
   Returns:
     De som van getal1 en getal2.
-  \"\"\"
+  """"
   som = getal1 + getal2
   return som
 
