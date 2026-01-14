@@ -78,7 +78,7 @@ print(f"Nog een berekening: {tel_op(1, 2)}") # Gebruik de return waarde direct
 ```
 <codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
-Zodra een `return` statement wordt uitgevoerd, stopt de functie onmiddellijk en wordt de opgegeven waarde teruggestuurd. Een functie kan ook meerdere waarden teruggeven. Je scheid die dan door een komma.
+Zodra een `return` statement wordt uitgevoerd, stopt de functie onmiddellijk en wordt de opgegeven waarde teruggestuurd. Een functie kan ook meerdere waarden teruggeven. Je scheidt die dan door een komma.
 
 ```python
 def bereken_omtrek_en_oppervlakte(breedte, hoogte):

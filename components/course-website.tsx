@@ -35,6 +35,7 @@ import chapter4_4_1 from '../content/DvM1/chapter4_4.md'
 import chapter4_5_1 from '../content/DvM1/chapter4_5.md'
 import chapter5_1_1 from '../content/DvM1/chapter5_1.md'
 import chapter5_2_1 from '../content/DvM1/chapter5_2.md'
+import chapter5_3_1 from '../content/DvM1/chapter5_3.md'
 import chapter6_1_1 from '../content/DvM1/chapter6_1.md'
 import chapter6_2_1 from '../content/DvM1/chapter6_2.md'
 import chapter6_3_1 from '../content/DvM1/chapter6_3.md'
@@ -124,7 +125,8 @@ const courses = [
         title: "5. Functies", 
         subchapters: [
           { id: '5.1', title: "5.1 Functies" },
-          { id: '5.2', title: "5.2 Oefeningen" }
+          { id: '5.2', title: "5.2 Oefeningen" },
+		  { id: '5.3', title: "5.3 Modules" }
         ]
       },
       {
@@ -224,6 +226,7 @@ const chapterContent = {
     '4.5': chapter4_5_1,
     '5.1': chapter5_1_1,
     '5.2': chapter5_2_1,
+	'5.3': chapter5_3_1,
     '6.1': chapter6_1_1,
     '6.2': chapter6_2_1,
 	'6.3': chapter6_3_1,
