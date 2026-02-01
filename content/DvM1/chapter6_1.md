@@ -31,18 +31,18 @@ Om een bestand te openen, gebruik je de `open()` functie. Deze functie krijgt tw
 2. Het tweede argument is **de modus**. Deze geeft aan hoe Python het bestand moet behandelen. De mogelijke waarden zijn:
 	- "r" (read) voor het lezen van bestanden
 	- "w" (write) voor het schrijven van bestanden
-	- "a" (apend) voor het toevoegen aan bestaande bestanden
+	- "a" (append) voor het toevoegen aan bestaande bestanden
 
 `open()` returnt de handle die je verder nodig hebt om in het programma naar het betreffende document te verwijzen. Hier een voorbeeld van het openen van een bestand met naam "data.txt":
 
 ```python
-fp = open("data.text", "r") # fp bevat nu de file-pointer
+fp = open("data.txt", "r") # fp bevat nu de file-pointer
 ```
 
 Eindigen met hete bestand doe je met `close()`. Deze functie heeft geen parameters nodig, maar je dient de filepointer ervoor te zetten die het moet afsluiten, gescheiden door een punt. Het is belangrijk dat elk bestand dat je opent ook gesloten wordt voor het programma eindigt, anders kan je bestand beschadigd raken. Het bewerken van een bestand ziet er dus steeds zo uit:
 
 ```python
-mijnPointer = open("data.text", "r") 
+mijnPointer = open("data.txt", "r") 
  # Hier volgen de bewerkingen met het bestand...
  # Nu sluiten we het bestand:
 mijnPointer.close() 

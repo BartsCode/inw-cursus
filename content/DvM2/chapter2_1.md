@@ -161,10 +161,31 @@ print(Geef_terug([1,2,5,10], 16))
 
 • Moeilijkheidsgraad: ★★☆☆☆
 
-4.  Zoek een woord in een tekst.
-5.  Vind alle permutaties van een lijst van drie elementen met `itertools`.
-6.  Maak een brute-force functie die controleert of een getal een priemgetal is.
+4.  Maak je eigen functie "vind()" die een woord vindt in een tekst zonder gebruik te maken van "find" of "index".
+``` bash
+>>>tekst = "Dit is een voorbeeld van een tekst"
+>>>woord = "voor"
+>>>vind(tekst,woord)
+   Woord gevonden op index: 11
+```
 
+5.  Vind alle permutaties van een lijst van drie elementen met `itertools`.
+``` bash
+ #bv de permutaties van ['r','g','b'] zijn:
+('r', 'g', 'b')
+('r', 'b', 'g')
+('g', 'r', 'b')
+('g', 'b', 'r')
+('b', 'r', 'g')
+('b', 'g', 'r')
+```
+6.  Maak een brute-force functie "is_priem()" die controleert of een getal een priemgetal is.
+``` bash
+>>>is_priem(2)
+   True
+>>>is_priem(12)
+   False
+```
 Kun je ook de efficientie van je routines berekenen/meten?
 
 

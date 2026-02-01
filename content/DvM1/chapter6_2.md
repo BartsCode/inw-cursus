@@ -49,7 +49,7 @@ Als je de code hierboven uitvoert, zie je niet de lege regels tussen de tekstreg
 
 ### write()
 
-Om iets te schrijven naar een tekstbestand, gebruik je de `write()` methode met als argument een string die je wilt schrijven naar het bestand. Let op: **bestaat het bestand reeds waarnaar je wil schrijven, dan wordt dat bestand overschreven!**. Wens je dat niet, gebruik dan `apend`.
+Om iets te schrijven naar een tekstbestand, gebruik je de `write()` methode met als argument een string die je wilt schrijven naar het bestand. Let op: **bestaat het bestand reeds waarnaar je wil schrijven, dan wordt dat bestand overschreven!**. Wens je dat niet, gebruik dan `append`.
 
  De code hieronder vraagt je om een paar strings in te geven, en schrijft ze dan naar een bestand. Het programma stopt met het vragen om strings als je een lege string ingeeft.
 

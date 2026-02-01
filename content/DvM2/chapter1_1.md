@@ -1,6 +1,6 @@
 # 1.1 Wat is een Algoritme?
 
-Welkom bij Hoofdstuk 6! In de vorige hoofdstukken hebben we de basis van Python programmeren geleerd: variabelen, datatypes, controle structuren zoals `if` en loops (`for`, `while`), lijsten, dictionaries en functies. Nu gaan we een stap verder en kijken we naar het *ontwerpen* van oplossingen voor problemen. Dit doen we met behulp van **algoritmen**.
+Welkom bij Hoofdstuk 6! In de vorige hoofdstukken hebben we de basis van Python programmeren geleerd: variabelen, datatypes, controle structuren zoals `if` en loops (`for`, `while`), lijsten en functies. Nu gaan we een stap verder en kijken we naar het *ontwerpen* van oplossingen voor problemen. Dit doen we met behulp van **algoritmen**.
 
 ## Definitie van een algoritme
 
