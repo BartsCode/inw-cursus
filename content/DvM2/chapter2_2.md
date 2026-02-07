@@ -5,8 +5,7 @@
 
 ## 🧩 Recursie in de wiskunde
 
-**Recursie** is een manier om functies of te definiëren
-door ze te beschrijven in termen van **zichzelf**, maar dan voor **kleinere of eenvoudigere gevallen**.
+**Recursie** is een manier om functies te definiëren door ze te beschrijven in termen van **zichzelf**, maar dan voor **kleinere of eenvoudigere gevallen**.
 
 Een recursieve definitie bestaat typisch uit twee delen:
 1. **Basisgeval**: het startpunt waarvoor de waarde expliciet gekend is, wat we **beginvoorwaarde(n)** noemen,
@@ -27,8 +26,8 @@ Je ziet dat de faculteit van een getal snel berekend is als je de faculteit van 
 
 Dit is een recusieve berekening van 5!.
 De faculteit van een natuurlijk getal \(n\) kunnen we algemeen recursief gedefinieren als:
-- \(0! = 1\)  								(beginvoorwaarde)
-- \(n! = n . (n-1)!\) voor \(n <= 1\)       (recursiestap)
+- 0! = 1  								(beginvoorwaarde)
+- n! = n . (n-1)! voor \(n <= 1\)       (recursiestap)
 
 Recursie wordt veel gebruikt in de wiskunde, onder andere bij
 getaltheorie, combinatoriek en bewijstechnieken zoals **inductie**.
@@ -40,14 +39,14 @@ getaltheorie, combinatoriek en bewijstechnieken zoals **inductie**.
 
 In zijn boek Liber Abaci stelde Fibonacci, een Italiaans wiskundige uit de 13e eeuw, een eenvoudige vraag over de groei van een konijnenpopulatie. Wat als een konijnenpaar elke maand een nieuw paar voortbrengt, en die jongen na één maand zelf vruchtbaar worden? Maand na maand bleek het aantal paren te groeien volgens een vast patroon. Elk nieuw getal ontstond uit de som van de twee voorgaande: 
 
-0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...
+1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...
 
 Deze rij kan je ook makkelijk recursief defniniëren als volgt:
-- \(F(0) = 0\)  (1ste beginvoorwaarde)
-- \(F(1) = 1\)  (2de  beginvoorwaarde)
-- \(F(n) = F(n-1) + F(n-2)\) voor \(n \ge 1\)  (recursiestap)
+- F(0) = 0  (1ste beginvoorwaarde)
+- F(1) = 1  (2de  beginvoorwaarde)
+- F(n) = F(n-1) + F(n-2) voor n >= 1  (recursiestap)
 
-Wat begon als een gedachte-experiment groeide uit tot een van de beroemdste reeksen in de wiskunde. De rij dook later op in onverwachte plaatsen: in de spiralen van zonnebloemen, de rangschikking van bladeren aan een stengel en zelfs in kunst en architectuur. Alsof de natuur zelf dezelfde regels volgde die Fibonacci ooit op papier zette.
+Wat begon als een gedachtenexperiment groeide uit tot een van de beroemdste reeksen in de wiskunde. De rij dook later op in onverwachte plaatsen: in de spiralen van zonnebloemen, de rangschikking van bladeren aan een stengel en zelfs in kunst en architectuur. Alsof de natuur zelf dezelfde regels volgde die Fibonacci ooit op papier zette.
 
 
 ###   Voorbeelden: Fractalen
@@ -103,7 +102,7 @@ print(sys.getrecursionlimit())
 ``` python
 def faculteit(n):
     if n <= 1:     # randvoorwaarden: 
-        return n.  # 0! = 0. en 1! = 1
+        return n   # 0! = 0. en 1! = 1
     return n * faculteit(n - 1)
 
 for i in range(10):
@@ -129,25 +128,39 @@ for i in range(10):
 
 Recursie is ideaal om fractalen te tekenen.
 We maken hier gebruik van de **module turtle** om lijnen te tekenen.
-Indien deze module nog niet geïnstalleerd werd, bekijk H1 hoe dit gaat.
 
 ``` python
-import turtle
-
-def teken_boom(lengte):
-    if lengte < 5:
+def boom(lengte, niveau):
+    if niveau == 0:
         return
     turtle.forward(lengte)
-    turtle.left(30)
-    teken_boom(lengte * 0.7)
-    turtle.right(60)
-    teken_boom(lengte * 0.7)
-    turtle.left(30)
+    turtle.right(30)
+    boom(lengte * 0.7, niveau - 1)
+    turtle.left(60)
+    boom(lengte * 0.7, niveau - 1)
+    turtle.right(30)
     turtle.backward(lengte)
-	
-teken_boom(10)
+
+turtle.left(90)  # Boom groeit omhoog
+turtle.speed(5)  # traag = 1 - 10 = snelst 
+boom(100, 5)     # Lengte 100, 5 recursieniveaus
+turtle.done()
 ```
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
+
+Run dit in IDLE. Als alles goed gaat, moet je een boomstructuur als volgt zien:
+
+![Boom](/images/RecursieveBoom.png)
+
+Andere gekende voorbeelden van recursieve figuren zijn:
+- sierpinski driehoek,
+- sneeuwvlok van Koch (zie hierboven)
+- Hilbert curve
+- Pythagoras boom
+- Draak curve
+- Varenblad van Barnsley
+Je kan hiervoor makkelijk AI om een voorbeeldprogramma vragen geschreven met turtle.
+
+
 
 ------------------------------------------------------------------------
 
@@ -164,8 +177,8 @@ teken_boom(10)
 • Moeilijkheidsgraad: ★★☆☆☆
 
 4.  Print recursief alle getallen van `n` naar `0`.
-5.  Tel recursief hoe vaak een element in een lijst voorkomt.
-6.  Los volgende recursieformule op: $$F(n) = 1+ F(n//2)$$, met beginvoorwaarde dat $F(1) = 1$.
+5.  Tel recursief hoe vaak een element in een lijst voorkomt (zonder count() te gebruiken)
+6.  Los volgende recursieformule op: `F(n) = 1+ F(n//2)`, met beginvoorwaarde dat `F(1) = 0`.
     Toon aan dat de oplossing expliciet kan geschreven worden als de logarimische functie: F(n) = ^2log(n)
 	
 Twee grafieken kan je makkelijk als volgt plotten door gebruik te maken van de module **matplotlib**:
@@ -182,21 +195,27 @@ plt.plot(x, y2)
 
 plt.show()
 ```
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 
 • Moeilijkheidsgraad: ★★★★☆
 
-6.  Schrijf een recursieve functie `ggd(a, b)` die gebruik maakt van de stelling van Euclides.
+7.  Schrijf een recursieve functie `ggd(a, b)` die gebruik maakt van de stelling van Euclides.
 
 Deze stelling stelt dan de grootste gemene deler (GGD) van twee getallen a en b 
 ook een deler is van de rest bij deling van a door b. Recursief kan je dat zo wiskundig definiëren:
 
 ![GGD](/images/GGD.png)
 
+
+8. Probeer zelf wat variaties op voorbeeld 3 - de fractale boom te maken.  
+   Hier zijn alvast enkele van mijn probeersels te zien:
+
+![Boom2](/images/MeerBomen.png)
+
+
 • Moeilijkheidsgraad: ★★★★★
 
-7.  De torens van Hanoi.
+9.  De torens van Hanoi.
 
 De Torens van Hanoi is een puzzel die gebruik maakt van drie palen, die A, B, en C genoemd worden. 
 Paal A bevat een stapel schijven van verschillende grootte; de schijven zijn genummerd volgens hun grootte. 
@@ -228,7 +247,7 @@ Voor een recursieve oplossing, bedenk het volgende: Stel dat je de puzzel moet o
 
 Voorbeeld:
 ```bash
->>> hanoi(4)
+>>> hanoi(4,"A","B","C")
 Schijf 1 van A naar B
 Schijf 2 van A naar C
 Schijf 1 van B naar C
@@ -244,7 +263,6 @@ Schijf 3 van B naar C
 Schijf 1 van A naar B
 Schijf 2 van A naar C
 Schijf 1 van B naar C
-15 stappen gedaan
 ```
 
 
