@@ -39,7 +39,7 @@ getaltheorie, combinatoriek en bewijstechnieken zoals **inductie**.
 
 In zijn boek Liber Abaci stelde Fibonacci, een Italiaans wiskundige uit de 13e eeuw, een eenvoudige vraag over de groei van een konijnenpopulatie. Wat als een konijnenpaar elke maand een nieuw paar voortbrengt, en die jongen na één maand zelf vruchtbaar worden? Maand na maand bleek het aantal paren te groeien volgens een vast patroon. Elk nieuw getal ontstond uit de som van de twee voorgaande: 
 
-1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...
 
 Deze rij kan je ook makkelijk recursief defniniëren als volgt:
 - F(0) = 0  (1ste beginvoorwaarde)
@@ -102,7 +102,7 @@ print(sys.getrecursionlimit())
 ``` python
 def faculteit(n):
     if n <= 1:     # randvoorwaarden: 
-        return n   # 0! = 0. en 1! = 1
+        return 1   # 0! = 1. en 1! = 1
     return n * faculteit(n - 1)
 
 for i in range(10):
@@ -115,7 +115,7 @@ for i in range(10):
 ``` python
 def fib(n):
     if n <= 1: 		# randvoorwaarden:
-        return 1	# fib(0) = fib(1) = 1
+        return n	# fib(0) = 0 en fib(1) = 1
     return fib(n - 1) + fib(n - 2)
 	
 for i in range(10):
@@ -130,6 +130,8 @@ Recursie is ideaal om fractalen te tekenen.
 We maken hier gebruik van de **module turtle** om lijnen te tekenen.
 
 ``` python
+import turtle
+
 def boom(lengte, niveau):
     if niveau == 0:
         return
