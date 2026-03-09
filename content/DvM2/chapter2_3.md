@@ -4,7 +4,7 @@
 
 Introductie:
 
-Gegeven $n$ identiek uitziende munten. E´en ervan is vals. Bekend is dat
+Gegeven *n* identiek uitziende munten. Eén ervan is vals. Bekend is dat
 de valse munt lichter is dan de andere. Tevens is een balans beschikbaar.
 Bepaal door weging de valse munt.
 
@@ -12,29 +12,29 @@ Bepaal door weging de valse munt.
 ![VerdeelEnHeers](/images/VerdeelEnHeers.png)
 
 
-Je zou de munten natuurlijk twee per twee kunnen wegen. Je moet dan $n/2$ paren wegen. Dit kunnen we stellen is de "Brute force" methode. Maar het kan sneller:
+Je zou de munten natuurlijk twee per twee kunnen wegen. Je moet dan *n/2* paren wegen. Dit kunnen we stellen is de "Brute force" methode. Maar het kan sneller:
 
-Verdeel de munten in twee stapels van $n/2$
+Verdeel de munten in twee stapels van *n/2*
 en —indien n oneven— een losse munt. Als de twee stapels even zwaar
 zijn (best case) is de losse munt de valse. Zo niet, dan bevindt de valse
 zich in de lichtste van de twee stapels.
 
-Als je wil bepalen hoeveel keer je hiervoor moet wegen, kan je dat als volgt doen: Stel $O(n)$ het aantal keer je de weegschaal moet gebruiken voor een stapel van $n$ wegingen. Als je één weging doet, moet je daarna de lichtste stapel verder onderzoeken. Je bekomt daardoor:
+Als je wil bepalen hoeveel keer je hiervoor moet wegen, kan je dat als volgt doen: Stel *O(n)* het aantal keer je de weegschaal moet gebruiken voor een stapel van *n* wegingen. Als je één weging doet, moet je daarna de lichtste stapel verder onderzoeken. Je bekomt daardoor:
 
-$$O(n) = 1+ O(n/2)$$
+*O(n) = 1+ O(n/2)*
 
 
 Zo een probleem noemen we een recursieve functie.
 Deze heeft als randvoorwaarde dat: 
 
-$$ O(1) = 0 $$ 
+*O(1) = 0*
 
 want als je slechts één munt als lichtste over hebt, moet die wel vals zijn.
 De oplossing van dit recusief probleem is (zie oefeningen recursie):
 
-$$ O(n) = ln_2(n) $$
+*O(n) = log<sub>2</sub>(n)*
 
-Omdat logaritmische functies zeer traag stijgen als functie van $n$, heb je met deze techniek veel sneller het antwoord gevonden dan indien je alle munten 2 per 2 zou testen.
+Omdat logaritmische functies zeer traag stijgen als functie van *n*, heb je met deze techniek veel sneller het antwoord gevonden dan indien je alle munten 2 per 2 zou testen.
 
 ------------------------------------------------------------------------
 
@@ -126,7 +126,7 @@ print(mergesort(rij))
 Hoe het werkt:
 ![MergeSort](/images/MergeSort.png)
 
-Het voordeel van deze methode is dat ze veel sneller is (O(nlog_2(n))) dan een Brute force (0(n^2)) sorteermethode.
+Het voordeel van deze methode is dat ze veel sneller is (O(nlog<sub>2</sub>(n))) dan een Brute force (0(n<sup>2</sup>)) sorteermethode.
 
 
 ------------------------------------------------------------------------
@@ -179,7 +179,7 @@ print(max_divide_and_conquer(rij))
 
 3. Gebruik divide-and-conquer om te controleren of een string een palindroom is.
 
-4. Kijk of mergesort effectief O(nlog_2(n)) is door de tijd op te meten die het programma nodig heeft voor lijsten met verschillende n. Maak een grafiek van deze tijd en vergelijk met de theoretische voorspelling.
+4. Kijk of mergesort effectief O(nlog<sub>2</sub>(n)) is door de tijd op te meten die het programma nodig heeft voor lijsten met verschillende n. Maak een grafiek van deze tijd en vergelijk met de theoretische voorspelling.
 
 
 
