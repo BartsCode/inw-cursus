@@ -9,7 +9,7 @@ Big O notatie is een wiskundige notatie die beschrijft hoe de uitvoeringstijd (t
 Het belangrijkste idee is om te focussen op de **orde van grootte** of de **groeisnelheid** van het aantal operaties of het geheugengebruik, vooral als `n` heel groot wordt. Big O negeert:
 
 *   **Constante factoren:** Of een algoritme 100 operaties doet of 10 operaties voor een vaste input, wordt vaak als dezelfde "orde" beschouwd.
-*   **Lagere-orde termen:** Als een algoritme \(n^2 + 5n + 10\) operaties doet, is de \(n^2\) term dominant voor grote `n`. De \(5n\) en \(10\) groeien veel langzamer en worden genegeerd in de Big O notatie.
+*   **Lagere-orde termen:** Als een algoritme \(n² + 5n + 10\) operaties doet, is de \(n²\) term dominant voor grote `n`. De \(5n\) en \(10\) groeien veel langzamer en worden genegeerd in de Big O notatie.
 
 Big O geeft dus een **bovengrens** aan de groei van de benodigde middelen in het **worst-case scenario** (het scenario dat de meeste tijd of ruimte kost).
 
@@ -27,7 +27,7 @@ Laten we enkele veelvoorkomende complexiteiten bekijken, gerangschikt van meest 
 
 3.  **O(n) - lineaire tijd**
     *   **Betekenis:** De uitvoeringstijd groeit *recht evenredig* met de grootte van de input `n`. Als `n` verdubbelt, verdubbelt de tijd ongeveer ook.
-    *   **Voorbeeld:** Een `for`-loop die elk element in een lijst van `n` elementen één keer bezoekt (zoals in ons `vind_grootste` algoritme uit 6.1). Een item zoeken in een ongesorteerde lijst (`x in mijn_lijst`).
+    *   **Voorbeeld:** Een `for`-loop die elk element in een lijst van `n` elementen één keer bezoekt (zoals een item zoeken in een ongesorteerde lijst.
 
 4.  **O(n log n) - lineairithmische tijd**
     *   **Betekenis:** Groeit iets sneller dan O(n), maar nog steeds redelijk efficiënt voor de meeste toepassingen.

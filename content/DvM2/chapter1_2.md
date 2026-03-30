@@ -19,7 +19,7 @@ Je vraagt je misschien af: "Computers zijn toch snel? Maakt een beetje extra tij
 
 *   **Schaalbaarheid en Grote Datasets:** Een algoritme dat prima werkt voor 100 gebruikers of 1000 data-items, kan onbruikbaar traag worden voor miljoenen gebruikers of miljarden data-items (denk aan Google Search, sociale media, wetenschappelijke simulaties). Efficiëntie bepaalt of een oplossing kan *schalen* naar grotere problemen.
     
-	*Voorbeeld:* Stel algoritme A doet `n<sup>2</sup>` operaties en algoritme B doet `n.log(n)` operaties om een lijst van `n` items te sorteren. 
+	*Voorbeeld:* Stel algoritme A doet `n²` operaties en algoritme B doet `n.log(n)` operaties om een lijst van `n` items te sorteren. 
 	Voor `n=10` is het verschil klein (A: 100, B: ~33). Maar voor `n=1.000.000` doet A 1.000.000.000.000 operaties, terwijl B er maar ~20.000.000 doet. Een enorm verschil!
 
 *   **Kosten:** In cloud computing en op servers betaal je vaak voor de gebruikte processortijd en het geheugen. Efficiëntere algoritmen kunnen leiden tot aanzienlijke kostenbesparingen.
