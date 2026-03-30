@@ -109,4 +109,4 @@ Stel je hebt een lijst `data = [10, 20, 30, 40, 50]`.
 
 Dit illustreert waarom de *manier* waarop je data benadert een grote impact kan hebben op de efficiëntie.
 
-**Vooruitblik:** Als de lijst *gesorteerd* zou zijn, zouden we veel sneller kunnen zoeken met een techniek genaamd binair zoeken, die **O(log n)** is. Dit komt aan bod in Hoofdstuk 7. 
+**Vooruitblik:** Als de lijst *gesorteerd* zou zijn, zouden we veel sneller kunnen zoeken met een techniek genaamd binair zoeken, die **O(log n)** is. Dit komt aan bod in Hoofdstuk 2.3. 

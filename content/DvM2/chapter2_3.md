@@ -164,7 +164,8 @@ print(max_divide_and_conquer(rij))
 
 2. Zoek een element (zoekwaarde) in een **gesorteerde** lijst.  
    Je kan dit programma bv noemen:
-   `def BinarySearch(lijst,zoekwaarde)`
+   `def BinarySearch(lijst,zoekwaarde,begin,eind)`
+   waarbij begin en einde de posities zijn in de lijst waartussen je wil zoeken.
 
    Zo ga je tewerk: In plaats van elk element één voor één te bekijken:
    - Kijk naar het middelste element in de lijst

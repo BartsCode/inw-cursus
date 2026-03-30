@@ -37,7 +37,7 @@ Laten we enkele veelvoorkomende complexiteiten bekijken, gerangschikt van meest 
     *   **Betekenis:** De uitvoeringstijd groeit kwadratisch met `n`. Als `n` verdubbelt, wordt de tijd ongeveer vier keer zo lang. Dit wordt snel traag voor grotere `n`.
     *   **Voorbeeld:** Geneste lussen waarbij beide lussen `n` keer draaien. Bijvoorbeeld, elk element in een lijst vergelijken met elk ander element.
 
-6.  **O(2^n) - exponentiële tijd**
+6.  **O(2<sup>n</sup>) - exponentiële tijd**
     *   **Betekenis:** De uitvoeringstijd groeit extreem snel. Elke toevoeging aan `n` kan de tijd verdubbelen. Dit is meestal alleen praktisch voor zeer kleine `n`.
     *   **Voorbeeld:** Sommige recursieve algoritmen die een probleem opsplitsen in twee subproblemen van bijna dezelfde grootte (zoals een naïeve berekening van Fibonacci-getallen). Het "brute force" proberen van alle mogelijke combinaties.
 

@@ -178,7 +178,7 @@ print(dijkstra(graaf, 0))
    
    `dijkstra(graaf, 0, 4) = [0,2,5,4]` of van node nul ga je naar 2, dan naar 5 en zo naar 4.
    
-   gebruik dit op het kortste pad tussen knoop 0 en knoop 12 te vinden in oefening 2.
+   gebruik dit op het kortste pad tussen knoop 0 en knoop 11 te vinden in oefening 2.
    
    
    
