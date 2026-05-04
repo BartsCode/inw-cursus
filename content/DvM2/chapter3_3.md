@@ -8,7 +8,6 @@ Je kent een functie, die kan je biijvoorbeeld zo implementeren:
 def fun(x):
     return x**5 - 3*x + 1
 ```
-<codapi-snippet sandbox="python" editor="basic"></codapi-snippet>
 
 Stel nu je kent een interval [a, b] waarbinnen een nulwaarde ligt.
 Definieer een functie die het nulpunt vindt met maximaal een absolute fout `tol` (van tolerantie).
