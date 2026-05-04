@@ -15,7 +15,7 @@ De functie kan m.a.w. zo aangeroepen worden:
 
 `nulwaarde(functie,a,b,tol)`
 
-![Nulpunt](/images/Nulpunt.png)
+![Nulpunt](/images/nulpunt.png)
 
 Je kan met andere woorden `functies ook als argument meegeven` in python!  
 Op deze manier kunnen we algoritmen bouwen op functies zonder te specifieren over welke functie het gaat.
