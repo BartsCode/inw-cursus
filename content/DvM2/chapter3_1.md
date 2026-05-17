@@ -1,6 +1,6 @@
 # 3.1 Introductie: Exact vs. Benaderend
 
-Wanneer we voor het eerst leren programmeren, gaan we er vaak vanuit dat de computer perfect rekent. `10/2` is altijd `5`, en `0.1 + 0.2` zou `0.3` moeten zijn. In de echte wereld van digitale rekenkracht is dat laatste helaas niet altijd waar.
+Wanneer we voor het eerst leren programmeren, gaan we er vaak vanuit dat de computer perfect rekent. 10/2 is altijd 5, en 0.1 + 0.2 zou 0.3 moeten zijn. In de echte wereld van digitale rekenkracht is dat laatste helaas niet altijd waar.
 
 Dit hoofdstuk introduceert het fundamentele onderscheid tussen **exacte wiskunde** (zoals we die op papier doen) en **numerieke benadering** (zoals de computer die uitvoert).
 
@@ -17,7 +17,7 @@ Voor deze problemen gebruiken we **Numerieke Methoden** (Numerieke Wiskunde). Di
 
 ## Beperkingen van computers: De valkuil van Floating-Point
 
-De belangrijkste reden waarom we niet blind kunnen vertrouwen op `0.1 + 0.2 == 0.3` is de manier waarop computers getallen opslaan.
+De belangrijkste reden waarom we niet blind kunnen vertrouwen op 0.1 + 0.2 == 0.3 is de manier waarop computers getallen opslaan.
 
 Computers werken binair (met nullen en enen). Gehele getallen (integers) kunnen exact worden weergegeven. Maar zodra we een kommagetal (een *floating-point number*) introduceren, treden er inherente beperkingen op.
 
@@ -33,9 +33,9 @@ print(0.1 + 0.2)
  
  
 Waarom gebeurt dit?
-Net zoals wij in het decimale stelsel de breuk `1/3` niet exact kunnen opschrijven (het wordt `0.3333...`), kan de computer de breuk `1/10` (0.1) niet exact opslaan in het binaire stelsel. Het wordt een oneindig repeterende binaire breuk. Omdat het computergeheugen eindig is, moet de computer deze breuk afkappen of afronden.
+Net zoals wij in het decimale stelsel de breuk 1/3 niet exact kunnen opschrijven (het wordt 0.3333...), kan de computer de breuk 1/10 (0.1) niet exact opslaan in het binaire stelsel. Het wordt een oneindig repeterende binaire breuk. Omdat het computergeheugen eindig is, moet de computer deze breuk afkappen of afronden.
 
-Deze kleine afrondingsfout is meestal verwaarloosbaar klein (ongeveer `10⁻¹⁶`), maar kan zich opstapelen tot catastrofale fouten in lange berekeningen of simulaties.
+Deze kleine afrondingsfout is meestal verwaarloosbaar klein (ongeveer 10⁻¹⁶), maar kan zich opstapelen tot catastrofale fouten in lange berekeningen of simulaties.
 
 ## Gevolgen voor de programmeur
 

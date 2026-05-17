@@ -29,7 +29,7 @@ De relatieve fout zet de absolute fout af tegen de grootte van de exacte waarde.
 
 ![RelatieveFout](/images/RelatieveFout.png)
 
-Vaak wordt dit uitgedrukt als percentage door met $100$ te vermenigvuldigen.
+Vaak wordt dit uitgedrukt als percentage door met 100 te vermenigvuldigen.
 
 **Voorbeeld:**
 

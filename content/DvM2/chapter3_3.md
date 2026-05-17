@@ -1,5 +1,5 @@
 
-# 3.3 Toepassing: Nulpuntbepaling
+# 3.3 Nulpuntbepaling
 
 ## Het probleem:
 Je kent een functie, die kan je biijvoorbeeld zo implementeren:

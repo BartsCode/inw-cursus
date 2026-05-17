@@ -179,10 +179,10 @@ const courses = [
     	subchapters: [
 	  		{ id: '3.1', title: "3.1 Introductie" },
 			{ id: '3.2', title: "3.2 Fouten in Numerieke Methoden" },
-			{ id: '3.3', title: "3.3 Toepassing: Nulpuntbepaling" },
-			{ id: '3.4', title: "3.4 Toepassing: Numerieke Integratie" },
-			{ id: '3.5', title: "3.5 Gebruik van Softwarebibliotheken" },
-			{ id: '3.6', title: "3.6 Oefeningen" },
+			{ id: '3.3', title: "3.3 Nulpuntbepaling" },
+			{ id: '3.4', title: "3.4 Afgeleiden" },
+			{ id: '3.5', title: "3.5 Integralen" },
+			{ id: '3.6', title: "3.6 Softwarebibliotheken" },
     	]
   	},
 	]
